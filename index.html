@@ -1,1 +1,853 @@
 
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heating Elements | Endüstriyel Isıtıcı Çözümleri</title>
+  <meta name="description" content="Endüstriyel ısıtıcılar, rezistanslar, termostatlar, kartuş ısıtıcılar, paslanmaz borular ve profil çözümleri." />
+  <style>
+    :root {
+      --green-900: #0f5b3a;
+      --green-800: #126a43;
+      --green-700: #17824f;
+      --green-600: #1d9a5c;
+      --green-500: #27ae60;
+      --gray-950: #111827;
+      --gray-900: #1f2937;
+      --gray-700: #374151;
+      --gray-600: #4b5563;
+      --gray-500: #6b7280;
+      --gray-300: #d1d5db;
+      --gray-200: #e5e7eb;
+      --gray-100: #f3f4f6;
+      --white: #ffffff;
+      --shadow: 0 10px 28px rgba(15, 23, 42, 0.10);
+      --radius: 22px;
+      --container: 1240px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--gray-900);
+      background: linear-gradient(180deg, #fafafa 0%, #f3f4f6 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; }
+    .topbar { background: var(--green-900); color: var(--white); font-size: 14px; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; flex-wrap: wrap; }
+    .topbar-left, .topbar-right { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    header { position: sticky; top: 0; z-index: 999; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(209,213,219,.85); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 82px; }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .brand-logo { width: 64px; height: 64px; object-fit: contain; border-radius: 18px; box-shadow: var(--shadow); background: #fff; }
+    .brand-title { font-size: 20px; font-weight: 700; color: var(--green-900); }
+    .brand-subtitle { font-size: 13px; color: var(--gray-500); }
+    .menu { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+    .menu a { font-weight: 700; color: var(--gray-700); }
+    .menu a:hover { color: var(--green-800); }
+    .lang-switch { display: inline-flex; gap: 8px; padding: 6px; background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 999px; }
+    .lang-switch button { border: 0; background: transparent; padding: 8px 12px; border-radius: 999px; cursor: pointer; font-weight: 700; color: var(--gray-700); }
+    .lang-switch button.active { background: var(--green-800); color: var(--white); }
+    .hero {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.hero-centerpiece {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.hero-products {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: 16px;
+  z-index: 2;
+}
+
+.hero-products img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform .4s ease;
+}
+
+.hero-products img:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+#lottie-hero {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  opacity: .15;
+  z-index: 1;
+}
+
+    @keyframes heroFade {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: rgba(23,130,79,.12); color: var(--green-900); font-weight: 700; font-size: 14px; margin-bottom: 16px; }
+    .hero h1 { margin: 0 0 16px; font-size: clamp(36px, 6vw, 60px); line-height: 1.08; color: var(--gray-950); }
+    .hero p { margin: 0 0 24px; color: var(--gray-600); font-size: 18px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 20px; border-radius: 14px; font-weight: 700; border: 1px solid transparent; cursor: pointer; transition: .2s ease; }
+    .btn-primary { background: linear-gradient(135deg, var(--green-900), var(--green-600)); color: var(--white); box-shadow: var(--shadow); }
+    .btn-secondary { background: var(--white); color: var(--green-900); border-color: var(--gray-200); }
+    .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .stat, .panel, .category-card, .product-card, .adv-card, .contact-card, .detail-card, .gallery-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .stat { padding: 18px; }
+    .stat strong { display: block; font-size: 28px; color: var(--green-900); margin-bottom: 6px; }
+    .hero-panel { background: linear-gradient(180deg, rgba(18,106,67,.98), rgba(15,91,58,.98)); color: white; padding: 28px; border-radius: 28px; box-shadow: var(--shadow); }
+    .hero-panel h3 { margin-top: 0; font-size: 24px; }
+    .hero-panel ul { margin: 14px 0 0; padding-left: 18px; line-height: 1.9; }
+    section { padding: 72px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
+    .section-head h2 { margin: 0; font-size: clamp(28px, 4vw, 40px); color: var(--gray-950); }
+    .section-head p { margin: 10px 0 0; max-width: 780px; color: var(--gray-600); line-height: 1.7; }
+    .about-grid, .contact-grid, .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .panel, .contact-card, .detail-card { padding: 24px; }
+    .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+    .feature-item, .contact-item, .meta-box { padding: 15px; border-radius: 16px; background: var(--gray-100); border: 1px solid var(--gray-200); }
+    .filters { display: grid; grid-template-columns: 1.2fr .9fr .9fr; gap: 14px; margin-bottom: 22px; }
+    .input, .select, .textarea { width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--gray-300); background: var(--white); font-size: 15px; color: var(--gray-900); outline: none; }
+    .input:focus, .select:focus, .textarea:focus { border-color: var(--green-600); box-shadow: 0 0 0 3px rgba(39,174,96,.12); }
+    .category-grid, .product-grid, .adv-grid, .gallery-grid { display: grid; gap: 18px; }
+    .category-grid { grid-template-columns: repeat(3,1fr); margin-bottom: 26px; }
+    .product-grid { grid-template-columns: repeat(3,1fr); }
+    .adv-grid { grid-template-columns: repeat(4,1fr); }
+    .gallery-grid { grid-template-columns: repeat(4,1fr); }
+    .category-card, .adv-card, .gallery-card {
+      padding: 20px;
+      animation: fadeUp .8s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .category-card, .adv-card, .gallery-card { padding: 20px; }
+    .gallery-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 16px; background: var(--gray-100); }
+    .gallery-card h3 { margin: 14px 0 8px; }
+    .badge { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(23,130,79,.10); color: var(--green-900); font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+    .product-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .product-card img {
+      transition: transform .4s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-card { padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+    .product-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .meta-box strong { display: block; margin-bottom: 4px; color: var(--green-900); }
+    .product-actions, .detail-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+    .btn-small { padding: 11px 14px; border-radius: 12px; font-size: 14px; font-weight: 700; border: 1px solid var(--gray-200); background: var(--white); color: var(--green-900); cursor: pointer; }
+    .btn-small.primary { background: var(--green-800); border-color: var(--green-800); color: var(--white); }
+    .contact-list { display: grid; gap: 14px; margin-top: 18px; }
+    .contact-item strong { display: block; color: var(--green-900); margin-bottom: 5px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .textarea { min-height: 150px; resize: vertical; margin-bottom: 14px; font-family: inherit; }
+    .detail-header { margin-bottom: 18px; }
+    .detail-header p { color: var(--gray-600); line-height: 1.7; }
+    .detail-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .hidden { display: none !important; }
+    footer { background: var(--gray-950); color: rgba(255,255,255,.82); padding: 26px 0; margin-top: 24px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    .empty-state { padding: 26px; border-radius: var(--radius); background: var(--white); border: 1px dashed var(--gray-300); color: var(--gray-600); text-align: center; grid-column: 1/-1; }
+    .loading-screen { position: fixed; inset: 0; background: linear-gradient(135deg, #ffffff, #f3f4f6); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; z-index: 5000; transition: opacity .45s ease, visibility .45s ease; }
+    .loading-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-ring { width: 72px; height: 72px; border-radius: 50%; border: 6px solid rgba(39,174,96,.18); border-top-color: var(--green-700); animation: spin 1s linear infinite; }
+    .loader-text { font-weight: 700; color: var(--green-900); letter-spacing: .4px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .wa-float { position: fixed; right: 20px; bottom: 20px; width: 62px; height: 62px; border-radius: 999px; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 35px rgba(37,211,102,.35); z-index: 1200; font-size: 28px; }
+    .wa-float:hover { transform: translateY(-2px) scale(1.04); }
+    .menu-toggle { display: none; border: 1px solid var(--gray-200); background: var(--white); border-radius: 12px; width: 46px; height: 46px; cursor: pointer; }
+    .menu-toggle span { display:block; width:22px; height:2px; background: var(--gray-800, #1f2937); margin:5px auto; transition:.25s ease; }
+    .form-note { font-size: 13px; color: var(--gray-500); margin-top: 10px; line-height: 1.6; }
+    @media (max-width: 1100px) {
+      .hero-grid, .about-grid, .contact-grid, .detail-grid, .category-grid, .product-grid, .adv-grid, .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .filters { grid-template-columns: 1fr 1fr; }
+      .filters > :first-child { grid-column: 1/-1; }
+    }
+    @media (max-width: 760px) {
+      .nav { align-items: center; padding: 14px 0; flex-wrap: wrap; }
+      .menu-toggle { display: inline-block; }
+      .menu { width: 100%; justify-content: flex-start; display: none; flex-direction: column; align-items: flex-start; padding: 14px 0 4px; }
+      .menu.open { display: flex; }
+      .hero, section { padding: 56px 0; }
+      .hero-grid, .about-grid, .contact-grid, .detail-grid, .category-grid, .product-grid, .adv-grid, .gallery-grid, .feature-list, .filters, .hero-stats, .form-grid, .detail-specs, .product-meta { grid-template-columns: 1fr; }
+      .brand-title, .brand-subtitle { white-space: normal; }
+      .wa-float { right: 16px; bottom: 16px; }
+    }
+      .menu { width: 100%; justify-content: flex-start; }
+      .hero, section { padding: 56px 0; }
+      .hero-grid, .about-grid, .contact-grid, .detail-grid, .category-grid, .product-grid, .adv-grid, .gallery-grid, .feature-list, .filters, .hero-stats, .form-grid, .detail-specs, .product-meta { grid-template-columns: 1fr; }
+      .brand-title, .brand-subtitle { white-space: normal; }
+    }
+  
+    .glow-orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(50px);
+      pointer-events: none;
+      opacity: 0.22;
+      z-index: 0;
+    }
+
+    .glow-orb.orb-1 {
+      width: 260px;
+      height: 260px;
+      background: #22c55e;
+      top: 40px;
+      left: -40px;
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+
+    .glow-orb.orb-2 {
+      width: 220px;
+      height: 220px;
+      background: #16a34a;
+      right: 0;
+      bottom: 20px;
+      animation: orbFloat 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-20px) translateX(10px) scale(1.06); }
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+      transform: translateX(-100%);
+      animation: heroSweep 2.8s ease 0.6s 1 forwards;
+      pointer-events: none;
+    }
+
+    @keyframes heroSweep {
+      to { transform: translateX(100%); }
+    }
+
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 160%;
+      top: -30%;
+      left: -40px;
+      background: rgba(255,255,255,0.35);
+      transform: rotate(20deg);
+      animation: btnShine 3s ease-in-out infinite;
+    }
+
+    @keyframes btnShine {
+      0%, 70% { left: -40px; }
+      100% { left: 120%; }
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-products {
+      perspective: 1000px;
+    }
+
+    .hero-products img {
+      will-change: transform;
+    }
+
+    .section-head h2,
+    .hero h1 {
+      text-wrap: balance;
+    }
+</style>
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader-ring"></div>
+    <div class="loader-text">Heating Elements</div>
+  </div>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span id="topEmail">📧 sales@example.com</span>
+        <span id="topPhone">📞 +90 5XX XXX XX XX</span>
+      </div>
+      <div class="topbar-right"><span data-i18n="topbarText">Endüstriyel ısıtıcı ve rezistans çözümleri</span></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" onclick="showListView()">
+        <img class="brand-logo" id="brandLogo" alt="Logo" src="data:image/webp;base64,UklGRmYHAABXRUJQVlA4IFoHAABQOACdASrcAKwAPm02l0ekIyIhKAgAsBIJaQDU3k4gkB6d0P5n9K/WVxM+3v6b+u/Rv7v+9+Ff7H+N+lfv/0v5f8d+3ftX9R+v/8f+4/hv4/6n+7/tP0n+M/3f7X+4/L/7j8O/1f7L9f+7/0P9T+/+x/pv9n+0/1f6D+2/7P+M/3j9L+Q/v/1/7P+3/pv8r/vf+P/f/qv8r/W/1P5r+4/6X+5/Sv6z+V/uf9H/4v+0/R/7P8f+F/tf6f+u/0P8X+e/v/5v8N+8/uP7L/2v6P+4/P/7b+N/8P/0f9g+5f7b+v/1P7f+5/Tf7L+v/Zf8j+9/rP8X+H/f/1f9T+2/4z+S/lP6X+1/v/3P8j+f/P/2P8M/4r+9/kf6f9Q+1/0P+u/uP7H+3/W/7H+e/f/9/9l/3f+1/3P+M/6v+0/b/7v9X+2f6n+W/u/7H+f/Gf0n+6/kf6f9Q+0/2v6X+1/uf8n/uP6b+4/X/6n+q/vf9b/Ff8P+g/0n+7/tv7b+o/3f8r+N/5f+4/7j+7/X/9T/2f8f+q/5z+7/0v+d/1P93+X9J+f+4v2b+N/8P+S/7X+2f7L+u/b/+v+g/3f+N/2f7r+R/m/4D+u/0P8t+S/3f+N/1v7H+V/lf7j+N/6b+q/3f+Z/qv8V+z/4n9R+1/7D+H/lf7X+g/1P8D+f/Yf8j+R/sv9V+3/7P9u/tf8H+4/7r+M/tf8P+2/6P+k/3f7b+4/v/3P8t+q/5v+8/0f8j+g/0P+5/o/7r+q/1v7j+L/af5L/df3//8AA" />
+        <div>
+          <div class="brand-title" id="brandTitle">Heating Elements</div>
+          <div class="brand-subtitle" data-i18n="brandSubtitle">İki dilli endüstriyel ürün web sitesi</div>
+        </div>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      <nav class="menu" id="mainMenu">
+        <a href="#home" data-i18n="navHome" onclick="showListView()">Anasayfa</a>
+        <a href="#about" data-i18n="navAbout" onclick="showListView()">Hakkımızda</a>
+        <a href="#products" data-i18n="navProducts" onclick="showListView()">Ürünler</a>
+        <a href="#catalog" data-i18n="navCatalog" onclick="showListView()">Katalog</a>
+        <a href="#contact" data-i18n="navContact" onclick="showListView()">İletişim</a>
+        <div class="lang-switch">
+          <button id="lang-tr" class="active" type="button">TR</button>
+          <button id="lang-en" type="button">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div id="listView">
+      <section class="hero" id="home" data-reveal>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow" data-i18n="eyebrow">Endüstriyel Isıtıcı Teknolojileri</div>
+            <h1 data-i18n="heroTitle">Endüstriyel Isıtıcı, Rezistans ve Bileşen Çözümleri</h1>
+            <p data-i18n="heroDesc">Endüstriyel mutfak ısıtıcıları, su ve yağ ısıtıcıları, özel tip rezistanslar, kartuş ısıtıcılar, termostatlar, monoexit kablolar, paslanmaz borular ve profil çözümleri için iki dilli kurumsal ürün tanıtım sitesi.</p>
+            <div class="hero-actions">
+              <a href="#products" class="btn btn-primary" data-i18n="heroBtnProducts">Ürünleri İncele</a>
+              <a href="#contact" class="btn btn-secondary" data-i18n="heroBtnQuote">Teklif Al</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat"><strong>20+</strong><span data-i18n="stat1">Ürün kategorisi</span></div>
+              <div class="stat"><strong>TR / EN</strong><span data-i18n="stat2">İki dilli içerik</span></div>
+              <div class="stat"><strong>NK</strong><span data-i18n="stat3">Ürün kodu odaklı yapı</span></div>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <h3 data-i18n="panelTitle">Öne Çıkan Ürün Grupları</h3>
+            <ul>
+              <li data-i18n="panel1">Endüstriyel mutfak ısıtıcıları</li>
+              <li data-i18n="panel2">Su ve yağ ısıtıcıları</li>
+              <li data-i18n="panel3">Kartuş, spiral ve defrost ısıtıcılar</li>
+              <li data-i18n="panel4">Termostatlar ve monoexit kablo</li>
+              <li data-i18n="panel5">Kelepçe, plaka ve silikon hot plate çözümleri</li>
+              <li data-i18n="panel6">Paslanmaz boru, kare ve dikdörtgen profiller</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" data-reveal>
+        <div class="container">
+          <div class="section-head"><div><h2 data-i18n="aboutTitle">Hakkımızda</h2><p data-i18n="aboutDesc">Kataloğunuzdaki ürün gruplarını net, kurumsal ve satış odaklı şekilde sunmak için hazırlanmış modern bir web altyapısı. Tasarım; ürün kategorileri, filtreleme, teklif alma ve katalog bağlantılarıyla genişletilebilir yapıdadır.</p></div></div>
+          <div class="about-grid">
+            <div class="panel"><h3 data-i18n="aboutPanel1Title">Neler Sunuyoruz</h3><div class="feature-list"><div class="feature-item" data-i18n="feature1">Endüstriyel mutfak ısıtıcıları</div><div class="feature-item" data-i18n="feature2">Su ve yağ ısıtıcı çözümleri</div><div class="feature-item" data-i18n="feature3">Özel tip ve proje bazlı üretim</div><div class="feature-item" data-i18n="feature4">Termostat ve kablo bileşenleri</div><div class="feature-item" data-i18n="feature5">Teklif ve ürün kodu bazlı iletişim</div><div class="feature-item" data-i18n="feature6">TR / EN kurumsal sunum</div></div></div>
+            <div class="panel"><h3 data-i18n="aboutPanel2Title">Kullanım Amacı</h3><p data-i18n="aboutPanel2Desc">Bu tek sayfalık yapı; GitHub Pages, cPanel, Netlify veya Vercel üzerinde kolayca yayınlanabilir. İçerik blokları, ürün kartları, PDF katalog bağlantıları ve iletişim bilgileri doğrudan düzenlenebilir. İstenirse her kategori için ayrı detay sayfasına dönüştürülebilir.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" data-reveal>
+        <div class="container">
+          <div class="section-head"><div><h2 data-i18n="productsTitle">Ürünler</h2><p data-i18n="productsDesc">Aşağıda katalogdan türetilen ana ürün kategorilerini ve örnek ürün kartlarını görebilirsiniz. Arama ve kategori filtresi ile listeyi daraltabilirsiniz.</p></div></div>
+          <div class="category-grid" id="categoryGrid"></div>
+          <div class="filters">
+            <input id="searchInput" class="input" type="text" placeholder="NK kodu veya ürün adı ara" />
+            <select id="categoryFilter" class="select"></select>
+            <select id="sortFilter" class="select"></select>
+          </div>
+          <div class="product-grid" id="productGrid"></div>
+        </div>
+      </section>
+
+      <section id="catalog" data-reveal>
+        <div class="container">
+          <div class="section-head"><div><h2 data-i18n="catalogTitle">Katalog ve Ürün Grupları</h2><p data-i18n="catalogDesc">Katalog yapınızdan alınan ana kategoriler aşağıda özetlenmiştir. Her blok ayrı kategori sayfasına veya PDF detay bağlantısına dönüştürülebilir.</p></div><div><a class="btn btn-primary" id="catalogBtn" href="#" target="_blank" rel="noopener" data-i18n="catalogDownload">PDF Katalog</a></div></div>
+          <div class="adv-grid">
+            <div class="adv-card"><span class="badge">01</span><h3 data-i18n="adv1Title">Endüstriyel Mutfak Isıtıcıları</h3><p data-i18n="adv1Desc">Bainmarie, bulaşık, çamaşır, çay makinesi, fritöz, tost, ızgara ve fırın ısıtıcıları.</p></div>
+            <div class="adv-card"><span class="badge">02</span><h3 data-i18n="adv2Title">Su ve Yağ Isıtıcıları</h3><p data-i18n="adv2Desc">Pirinç kafalı ısıtıcılar, termosifon ve şofben, çamaşır makinesi, yağlı radyatör ve serpantin çözümleri.</p></div>
+            <div class="adv-card"><span class="badge">03</span><h3 data-i18n="adv3Title">Özel Tip ve Teknik Ürünler</h3><p data-i18n="adv3Desc">Defrost, çubuk, sanayi tipi kazan ve eşanjör, kelepçe, reşo, kartuş, spiral ve silikon hot plate ürünleri.</p></div>
+            <div class="adv-card"><span class="badge">04</span><h3 data-i18n="adv4Title">Bileşenler ve Profiller</h3><p data-i18n="adv4Desc">Termostatlar, monoexit kablosu, paslanmaz borular, kare ve dikdörtgen profiller.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" data-reveal>
+        <div class="container">
+          <div class="section-head"><div><h2 data-i18n="galleryTitle">Ürün Görselleri</h2><p data-i18n="galleryDesc">Katalog sayfalarından alınan örnek görseller, kategori bazlı önizleme için aşağıda kullanıldı.</p></div></div>
+          <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+      </section>
+
+      <section id="contact" data-reveal>
+        <div class="container">
+          <div class="section-head"><div><h2 data-i18n="contactTitle">İletişim</h2><p data-i18n="contactDesc">Ürün kodu, güç, voltaj veya özel üretim talepleriniz için bizimle iletişime geçin. Form gönderimi örnek amaçlıdır.</p></div></div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3 data-i18n="contactCardTitle">İletişim Bilgileri</h3>
+              <div class="contact-list">
+                <div class="contact-item"><strong data-i18n="contactEmailLabel">E-posta</strong><span id="contactEmail">sales@example.com</span></div>
+                <div class="contact-item"><strong data-i18n="contactPhoneLabel">Telefon</strong><span id="contactPhone">+90 5XX XXX XX XX</span></div>
+                <div class="contact-item"><strong data-i18n="contactWhatsappLabel">WhatsApp</strong><span id="contactWhatsapp">+90 5XX XXX XX XX</span></div>
+                <div class="contact-item"><strong data-i18n="contactAddressLabel">Adres</strong><span data-i18n="contactAddressValue">Türkiye / Bursa / Mudanya</span></div>
+              </div>
+            </div>
+            <div class="contact-card">
+              <h3 data-i18n="formTitle">Teklif Formu</h3>
+              <form id="quoteForm" onsubmit="handleForm(event)">
+                <div class="form-grid"><input class="input" id="nameInput" type="text" required placeholder="Ad Soyad" /><input class="input" id="emailInput" type="email" required placeholder="E-posta" /></div>
+                <div class="form-grid"><input class="input" id="productCodeInput" type="text" placeholder="Ürün kodu (örn. NK1211)" /><input class="input" id="phoneInput" type="text" placeholder="Telefon" /></div>
+                <textarea class="textarea" id="messageInput" placeholder="Mesajınız"></textarea>
+                <button class="btn btn-primary" id="submitBtn" type="submit" data-i18n="formBtn">Gönder</button>
+                <div class="form-note">EmailJS entegrasyonu için aşağıdaki service/template/public key alanlarını doldurabilir veya kendi backend endpoint'inizi kullanabilirsiniz.</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section id="detailView" class="hidden">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 id="detailTitle">Ürün Detayı</h2>
+            <p id="detailSubtitle"></p>
+          </div>
+          <div class="detail-actions">
+            <button class="btn btn-secondary" onclick="showListView()" data-i18n="backBtn">Listeye Dön</button>
+            <a class="btn btn-primary" id="detailCatalogBtn" href="#" target="_blank" rel="noopener" data-i18n="catalogDownload">PDF Katalog</a>
+          </div>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-card">
+            <img id="detailImage" alt="Ürün" style="width:100%;height:360px;object-fit:cover;border-radius:18px;background:#f3f4f6;" />
+          </div>
+          <div class="detail-card">
+            <div class="detail-header">
+              <span class="badge" id="detailCategory"></span>
+              <h3 id="detailName"></h3>
+              <p id="detailDescription"></p>
+            </div>
+            <div class="detail-specs">
+              <div class="meta-box"><strong id="labelCode">Ürün Kodu</strong><span id="detailCode"></span></div>
+              <div class="meta-box"><strong id="labelCategory">Kategori</strong><span id="detailCategory2"></span></div>
+              <div class="meta-box"><strong id="labelPower">Güç</strong><span id="detailPower"></span></div>
+              <div class="meta-box"><strong id="labelVoltage">Voltaj</strong><span id="detailVoltage"></span></div>
+            </div>
+            <div class="detail-actions" style="margin-top:18px;">
+              <button class="btn-small primary" id="detailQuoteBtn">Teklif Al</button>
+              <button class="btn-small" id="detailWhatsappBtn">WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> <span id="footerBrand">Heating Elements</span></div>
+      <div class="footer-nav">
+        <a href="#home" data-i18n="navHome" onclick="showListView()">Anasayfa</a>
+        <a href="#products" data-i18n="navProducts" onclick="showListView()">Ürünler</a>
+        <a href="#contact" data-i18n="navContact" onclick="showListView()">İletişim</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+
+  <script>
+    const company = {
+      brand: 'Heating Elements',
+      email: 'sales@example.com',
+      phone: '+90 5XX XXX XX XX',
+      whatsapp: '+90 5XX XXX XX XX',
+      whatsappDigits: '905000000000',
+      catalogUrl: '#'
+    };
+
+    const emailConfig = {
+      mode: 'emailjs', // 'emailjs' or 'backend'
+      emailjsServiceId: 'YOUR_SERVICE_ID',
+      emailjsTemplateId: 'YOUR_TEMPLATE_ID',
+      emailjsPublicKey: 'YOUR_PUBLIC_KEY',
+      backendEndpoint: 'https://your-domain.com/api/quote'
+    };
+
+    const assets = {
+      logo: 'data:image/webp;base64,UklGRmYHAABXRUJQVlA4IFoHAABQOACdASrcAKwAPm02l0ekIyIhKAgAsBIJaQDU3k4gkB6d0P5n9K/WVxM+3v6b+u/Rv7v+9+Ff7H+N+lfv/0v5f8d+3ftX9R+v/8f+4/hv4/6n+7/tP0n+M/3f7X+4/L/7j8O/1f7L9f+7/0P9T+/+x/pv9n+0/1f6D+2/7P+M/3j9L+Q/v/1/7P+3/pv8r/vf+P/f/qv8r/W/1P5r+4/6X+5/Sv6z+V/uf9H/4v+0/R/7P8f+F/tf6f+u/0P8X+e/v/5v8N+8/uP7L/2v6P+4/P/7b+N/8P/0f9g+5f7b+v/1P7f+5/Tf7L+v/Zf8j+9/rP8X+H/f/1f9T+2/4z+S/lP6X+1/v/3P8j+f/P/2P8M/4r+9/kf6f9Q+1/0P+u/uP7H+3/W/7H+e/f/9/9l/3f+1/3P+M/6v+0/b/7v9X+2f6n+W/u/7H+f/Gf0n+6/kf6f9Q+0/2v6X+1/uf8n/uP6b+4/X/6n+q/vf9b/Ff8P+g/0n+7/tv7b+o/3f8r+N/5f+4/7j+7/X/9T/2f8f+q/5z+7/0v+d/1P93+X9J+f+4v2b+N/8P+S/7X+2f7L+u/b/+v+g/3f+N/2f7r+R/m/4D+u/0P8t+S/3f+N/1v7H+V/lf7j+N/6b+q/3f+Z/qv8V+z/4n9R+1/7D+H/lf7X+g/1P8D+f/Yf8j+R/sv9V+3/7P9u/tf8H+4/7r+M/tf8P+2/6P+k/3f7b+4/v/3P8t+q/5v+8/0f8j+g/0P+5/o/7r+q/1v7j+L/af5L/df3//8AA',
+      kitchen: 'data:image/webp;base64,UklGRsJLAABXRUJQVlA4ILZLAACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDUuTXIh+f0q2rM+gL9L8T9a8H9V8B8z/WfD+q+E/Vf0vxv1rw/1XwHzP9Z8P6r4T9V/S/G/WvD/VfAfM/1nw/qvhP1X9L8b9a8P9V8B8z/WfD+q+E/Vf0vxv1rw/1XwHzP9Z8P6r4T9V/S/G/WvD/VfAfM/1nw/qvhP1X9L8b9a8P9V8B8z/WfD+q+E/Vf0vxv1rw/1XwHzP9Z8P6r4T9V/S/G/WvD/VfAfM/1nw/qvhP1X9L8b9a8P9V8B8z/WfD+q+E/Vf0vxv1rw/1XwHzP9Z8P6r4T9V/S/G/WvD/VfAfM/1nw/qvhP1X9L8b9a8P9V8B8z/WfD+q+E/Vf0vxv1rw/1XwHzP9Z8P6r4T9V/8bA...',
+      waterOil: 'data:image/webp;base64,UklGRtYqAABXRUJQVlA4IMoqAACQWgCdASqQAKABPm02l0ekIyIhKAgAsBIJaQDU3J0y2Cj3lFQ1...',
+      special: 'data:image/webp;base64,UklGRqI/AABXRUJQVlA4IJY/AACQXQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3P0M0k5a...',
+      cartridge: 'data:image/webp;base64,UklGRhI3AABXRUJQVlA4IAY3AACQWgCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3B5mH...',
+      spiral: 'data:image/webp;base64,UklGRk4jAABXRUJQVlA4IEIjAACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3N2n...',
+      thermostat: 'data:image/webp;base64,UklGRvQ7AABXRUJQVlA4IOg7AACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3Mu...',
+      monoexit: 'data:image/webp;base64,UklGRm4XAABXRUJQVlA4IGIXAACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3E...',
+      clampPlate: 'data:image/webp;base64,UklGRj4iAABXRUJQVlA4IDIiAACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3No...',
+      silicone: 'data:image/webp;base64,UklGRjYzAABXRUJQVlA4ICozAACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3FG...',
+      ssPipes: 'data:image/webp;base64,UklGRnA9AABXRUJQVlA4IGQ9AACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3Pw...',
+      profiles: 'data:image/webp;base64,UklGRt5BAABXRUJQVlA4INJBAACQWQCdASqQAZABPm02l0ekIyIhKAgAsBIJaQDU3M...'
+    };
+
+    const translations = {
+      tr: { topbarText:'Endüstriyel ısıtıcı ve rezistans çözümleri', brandSubtitle:'İki dilli endüstriyel ürün web sitesi', navHome:'Anasayfa', navAbout:'Hakkımızda', navProducts:'Ürünler', navCatalog:'Katalog', navContact:'İletişim', eyebrow:'Endüstriyel Isıtıcı Teknolojileri', heroTitle:'Endüstriyel Isıtıcı, Rezistans ve Bileşen Çözümleri', heroDesc:'Endüstriyel mutfak ısıtıcıları, su ve yağ ısıtıcıları, özel tip rezistanslar, kartuş ısıtıcılar, termostatlar, monoexit kablolar, paslanmaz borular ve profil çözümleri için iki dilli kurumsal ürün tanıtım sitesi.', heroBtnProducts:'Ürünleri İncele', heroBtnQuote:'Teklif Al', stat1:'Ürün kategorisi', stat2:'İki dilli içerik', stat3:'Ürün kodu odaklı yapı', panelTitle:'Öne Çıkan Ürün Grupları', panel1:'Endüstriyel mutfak ısıtıcıları', panel2:'Su ve yağ ısıtıcıları', panel3:'Kartuş, spiral ve defrost ısıtıcılar', panel4:'Termostatlar ve monoexit kablo', panel5:'Kelepçe, plaka ve silikon hot plate çözümleri', panel6:'Paslanmaz boru, kare ve dikdörtgen profiller', aboutTitle:'Hakkımızda', aboutDesc:'Kataloğunuzdaki ürün gruplarını net, kurumsal ve satış odaklı şekilde sunmak için hazırlanmış modern bir web altyapısı. Tasarım; ürün kategorileri, filtreleme, teklif alma ve katalog bağlantılarıyla genişletilebilir yapıdadır.', aboutPanel1Title:'Neler Sunuyoruz', aboutPanel2Title:'Kullanım Amacı', aboutPanel2Desc:'Bu tek sayfalık yapı; GitHub Pages, cPanel, Netlify veya Vercel üzerinde kolayca yayınlanabilir. İçerik blokları, ürün kartları, PDF katalog bağlantıları ve iletişim bilgileri doğrudan düzenlenebilir. İstenirse her kategori için ayrı detay sayfasına dönüştürülebilir.', feature1:'Endüstriyel mutfak ısıtıcıları', feature2:'Su ve yağ ısıtıcı çözümleri', feature3:'Özel tip ve proje bazlı üretim', feature4:'Termostat ve kablo bileşenleri', feature5:'Teklif ve ürün kodu bazlı iletişim', feature6:'TR / EN kurumsal sunum', productsTitle:'Ürünler', productsDesc:'Aşağıda katalogdan türetilen ana ürün kategorilerini ve örnek ürün kartlarını görebilirsiniz. Arama ve kategori filtresi ile listeyi daraltabilirsiniz.', catalogTitle:'Katalog ve Ürün Grupları', catalogDesc:'Katalog yapınızdan alınan ana kategoriler aşağıda özetlenmiştir. Her blok ayrı kategori sayfasına veya PDF detay bağlantısına dönüştürülebilir.', catalogDownload:'PDF Katalog', galleryTitle:'Ürün Görselleri', galleryDesc:'Katalog sayfalarından alınan örnek görseller, kategori bazlı önizleme için aşağıda kullanıldı.', adv1Title:'Endüstriyel Mutfak Isıtıcıları', adv1Desc:'Bainmarie, bulaşık, çamaşır, çay makinesi, fritöz, tost, ızgara ve fırın ısıtıcıları.', adv2Title:'Su ve Yağ Isıtıcıları', adv2Desc:'Pirinç kafalı ısıtıcılar, termosifon ve şofben, çamaşır makinesi, yağlı radyatör ve serpantin çözümleri.', adv3Title:'Özel Tip ve Teknik Ürünler', adv3Desc:'Defrost, çubuk, sanayi tipi kazan ve eşanjör, kelepçe, reşo, kartuş, spiral ve silikon hot plate ürünleri.', adv4Title:'Bileşenler ve Profiller', adv4Desc:'Termostatlar, monoexit kablosu, paslanmaz borular, kare ve dikdörtgen profiller.', contactTitle:'İletişim', contactDesc:'Ürün kodu, güç, voltaj veya özel üretim talepleriniz için bizimle iletişime geçin. Form gönderimi örnek amaçlıdır.', contactCardTitle:'İletişim Bilgileri', contactEmailLabel:'E-posta', contactPhoneLabel:'Telefon', contactWhatsappLabel:'WhatsApp', contactAddressLabel:'Adres', contactAddressValue:'Türkiye / Bursa / Mudanya', formTitle:'Teklif Formu', formBtn:'Gönder', backBtn:'Listeye Dön', searchPlaceholder:'NK kodu veya ürün adı ara', selectAll:'Tüm kategoriler', sortDefault:'Varsayılan', sortCodeAsc:'Kod A-Z', sortCodeDesc:'Kod Z-A', productCode:'Ürün Kodu', productCategory:'Kategori', productPower:'Güç', productVoltage:'Voltaj', btnQuote:'Teklif Al', btnWhatsapp:'WhatsApp', noResult:'Aramanıza uygun ürün bulunamadı.', formSuccess:'Form yapısı hazır. Bunu Formspree, EmailJS veya backend servisine bağlayabilirsiniz.', detailDefaultDesc:'Bu ürün grubu için ayrı detay sayfası yapısı hazırlandı. Teknik tablo, görseller, PDF ve teklif akışı bu alana bağlanabilir.', categories:{ kitchen:'Endüstriyel Mutfak Isıtıcıları', waterOil:'Su ve Yağ Isıtıcıları', special:'Özel Tip Isıtıcılar', cartridge:'Kartuş Isıtıcılar', spiral:'Spiral Isıtıcılar', thermostat:'Termostatlar', monoexit:'Monoexit Kablo', clampPlate:'Kelepçe ve Plaka Tipi Isıtıcılar', silicone:'Silikon Hot Plate', ssPipes:'Paslanmaz Borular', profiles:'Dikdörtgen & Kare Profiller' } },
+      en: { topbarText:'Industrial heater and heating element solutions', brandSubtitle:'Bilingual industrial product website', navHome:'Home', navAbout:'About', navProducts:'Products', navCatalog:'Catalog', navContact:'Contact', eyebrow:'Industrial Heating Technologies', heroTitle:'Industrial Heater, Element and Component Solutions', heroDesc:'A bilingual corporate website for industrial kitchen heaters, water and oil heaters, special type elements, cartridge heaters, thermostats, monoexit cables, stainless steel pipes and profile solutions.', heroBtnProducts:'Explore Products', heroBtnQuote:'Request Quote', stat1:'Product categories', stat2:'Bilingual content', stat3:'Product code driven structure', panelTitle:'Featured Product Groups', panel1:'Industrial kitchen heaters', panel2:'Water and oil heaters', panel3:'Cartridge, spiral and defrost heaters', panel4:'Thermostats and monoexit cable', panel5:'Clamp, plate and silicone hot plate solutions', panel6:'Stainless steel pipes, square and rectangle profiles', aboutTitle:'About Us', aboutDesc:'A modern web infrastructure prepared to present your catalog product groups in a clear, corporate and sales-oriented way. The layout can be expanded with product categories, filtering, quotation flow and catalog links.', aboutPanel1Title:'What We Offer', aboutPanel2Title:'Purpose of Use', aboutPanel2Desc:'This single-page structure can be published easily on GitHub Pages, cPanel, Netlify or Vercel. Content blocks, product cards, PDF catalog links and contact details can be edited directly. Each category can later be converted into a dedicated detail page.', feature1:'Industrial kitchen heaters', feature2:'Water and oil heater solutions', feature3:'Special type and project-based production', feature4:'Thermostat and cable components', feature5:'Quote and product code driven contact flow', feature6:'TR / EN corporate presentation', productsTitle:'Products', productsDesc:'Below you can see the main product categories derived from the catalog and sample product cards. You can narrow the list with the search box and category filter.', catalogTitle:'Catalog and Product Groups', catalogDesc:'The main categories taken from your catalog structure are summarized below. Each block can be converted into a dedicated category page or a PDF detail link.', catalogDownload:'PDF Catalog', galleryTitle:'Product Images', galleryDesc:'Sample visuals taken from catalog pages are used below for category-based preview.', adv1Title:'Industrial Kitchen Heaters', adv1Desc:'Bainmarie, dishwasher, washing machine, tea machine, fryer, toaster, grill and oven heaters.', adv2Title:'Water and Oil Heaters', adv2Desc:'Brass head heaters, instant water and storage type heaters, washing machine, oil radiator and serpentine solutions.', adv3Title:'Special and Technical Products', adv3Desc:'Defrost, straight, industrial boiler and heat exchanger, clamp, resho, cartridge, spiral and silicone hot plate products.', adv4Title:'Components and Profiles', adv4Desc:'Thermostats, monoexit cable, stainless steel pipes, square and rectangle profiles.', contactTitle:'Contact', contactDesc:'Contact us for product codes, power, voltage or custom production requests. The form submission is for demo purposes.', contactCardTitle:'Contact Information', contactEmailLabel:'Email', contactPhoneLabel:'Phone', contactWhatsappLabel:'WhatsApp', contactAddressLabel:'Address', contactAddressValue:'Türkiye / Bursa / Mudanya', formTitle:'Quote Form', formBtn:'Send', backBtn:'Back to List', searchPlaceholder:'Search by NK code or product name', selectAll:'All categories', sortDefault:'Default', sortCodeAsc:'Code A-Z', sortCodeDesc:'Code Z-A', productCode:'Product Code', productCategory:'Category', productPower:'Power', productVoltage:'Voltage', btnQuote:'Request Quote', btnWhatsapp:'WhatsApp', noResult:'No products matched your search.', formSuccess:'The form structure is ready. You can connect it to Formspree, EmailJS or your backend service.', detailDefaultDesc:'A separate detail page structure is prepared for this product group. Technical tables, images, PDF and quotation flow can be connected here.', categories:{ kitchen:'Industrial Kitchen Heaters', waterOil:'Water and Oil Heaters', special:'Special Type Heaters', cartridge:'Cartridge Heaters', spiral:'Spiral Heaters', thermostat:'Thermostats', monoexit:'Monoexit Cable', clampPlate:'Clamp and Plate Type Heaters', silicone:'Silicone Hot Plate', ssPipes:'Stainless Steel Pipes', profiles:'Rectangle & Square Tubing' } }
+    };
+
+    const categoryCards = [
+      { key:'kitchen', image:'kitchen', descTr:'Bainmarie, bulaşık, çay kazanı, fritöz, tost, ızgara ve fırın ısıtıcıları.', descEn:'Bainmarie, dishwasher, tea machine, fryer, toaster, grill and oven heaters.' },
+      { key:'waterOil', image:'waterOil', descTr:'Pirinç kafalı, termosifon, şofben, çamaşır makinesi ve yağlı radyatör çözümleri.', descEn:'Brass head, storage/instant water, washing machine and oil radiator solutions.' },
+      { key:'special', image:'special', descTr:'Özel tip, defrost, çubuk, sanayi tipi kazan ve eşanjör ürünleri.', descEn:'Special type, defrost, straight and industrial boiler/heat exchanger products.' },
+      { key:'cartridge', image:'cartridge', descTr:'Kartuş tipi ve PTC kartuş ısıtıcı çözümleri.', descEn:'Cartridge type and PTC cartridge heater solutions.' },
+      { key:'spiral', image:'spiral', descTr:'Spiral ve benzeri esnek ısıtıcı ürün grupları.', descEn:'Spiral and similar flexible heating product groups.' },
+      { key:'thermostat', image:'thermostat', descTr:'Cotherm ve termostat ürün grupları.', descEn:'Cotherm and thermostat product groups.' },
+      { key:'monoexit', image:'monoexit', descTr:'Monoexit kablo ve teknik data yapıları.', descEn:'Monoexit cable and technical data structures.' },
+      { key:'clampPlate', image:'clampPlate', descTr:'Kelepçe, plaka ve hot plate silikon rezistansları.', descEn:'Clamp, plate and hot plate silicone heaters.' },
+      { key:'silicone', image:'silicone', descTr:'Silikon hot plate / benmari ürünleri.', descEn:'Silicone hot plate / bainmarie products.' },
+      { key:'ssPipes', image:'ssPipes', descTr:'Paslanmaz borular ve teknik boru çözümleri.', descEn:'Stainless steel pipes and technical tube solutions.' },
+      { key:'profiles', image:'profiles', descTr:'Kare ve dikdörtgen profil ürünleri.', descEn:'Square and rectangle profile products.' }
+    ];
+
+    const products = [
+      { slug:'nk1211', code:'NK1211', category:'kitchen', image:'kitchen', power:'2000W', voltage:'230V', nameTr:'Endüstriyel bulaşık makinesi ısıtıcısı', nameEn:'Industrial dishwasher heater' },
+      { slug:'nk1231', code:'NK1231', category:'kitchen', image:'kitchen', power:'2900W', voltage:'230V', nameTr:'Endüstriyel mutfak ısıtıcısı', nameEn:'Industrial kitchen heater' },
+      { slug:'nk1311', code:'NK1311', category:'kitchen', image:'kitchen', power:'900W', voltage:'230V', nameTr:'Çay makinesi ve semaver ısıtıcısı', nameEn:'Tea machine and samovar heater' },
+      { slug:'nk1411', code:'NK1411', category:'kitchen', image:'kitchen', power:'650W', voltage:'230V', nameTr:'Endüstriyel fritöz ısıtıcısı', nameEn:'Industrial deep fryer heater' },
+      { slug:'nk2111', code:'NK2111', category:'waterOil', image:'waterOil', power:'2000W', voltage:'230V', nameTr:'Pirinç kafalı ısıtıcı', nameEn:'Brass head heater' },
+      { slug:'nk2211', code:'NK2211', category:'waterOil', image:'waterOil', power:'2000W', voltage:'220V', nameTr:'Termosifon / şofben ısıtıcısı', nameEn:'Instant / storage water heater' },
+      { slug:'nk2311', code:'NK2311', category:'waterOil', image:'waterOil', power:'2000W', voltage:'230V', nameTr:'Çamaşır makinesi ısıtıcısı', nameEn:'Washing machine heater' },
+      { slug:'nk2501', code:'NK2501', category:'special', image:'special', power:'3Ø-320V', voltage:'3 Phase', nameTr:'Sanayi tipi kazan ve eşanjör ısıtıcısı', nameEn:'Industrial boiler and heat exchanger heater' },
+      { slug:'defrost-01', code:'DEF-01', category:'special', image:'special', power:'Custom', voltage:'Custom', nameTr:'Defrost ısıtıcısı', nameEn:'Defrost heater' },
+      { slug:'therm-01', code:'THERM-01', category:'thermostat', image:'thermostat', power:'—', voltage:'—', nameTr:'Termostat', nameEn:'Thermostat' },
+      { slug:'mono-01', code:'MONO-01', category:'monoexit', image:'monoexit', power:'15W/m - 60W/m', voltage:'1V - 400V', nameTr:'Monoexit kablosu', nameEn:'Monoexit cable' },
+      { slug:'car80005', code:'CAR80005', category:'cartridge', image:'cartridge', power:'5W', voltage:'—', nameTr:'PTC kartuş ısıtıcı', nameEn:'PTC cartridge heater' },
+      { slug:'spir-01', code:'SPIR-01', category:'spiral', image:'spiral', power:'Custom', voltage:'Custom', nameTr:'Spiral ısıtıcı', nameEn:'Spiral heater' },
+      { slug:'clp-01', code:'CLP-01', category:'clampPlate', image:'clampPlate', power:'Custom', voltage:'Custom', nameTr:'Kelepçe tipi ısıtıcı', nameEn:'Clamp type heater' },
+      { slug:'sil-01', code:'SIL-01', category:'silicone', image:'silicone', power:'Custom', voltage:'230V', nameTr:'Silikon hot plate / benmari rezistansı', nameEn:'Silicone hot plate / bainmarie heater' },
+      { slug:'pipe-01', code:'PIPE-01', category:'ssPipes', image:'ssPipes', power:'—', voltage:'—', nameTr:'Paslanmaz boru', nameEn:'Stainless steel pipe' },
+      { slug:'prof-01', code:'PROF-01', category:'profiles', image:'profiles', power:'—', voltage:'—', nameTr:'Dikdörtgen ve kare profil', nameEn:'Rectangle and square tubing' }
+    ];
+
+    let currentLang = 'tr';
+    const yearEl = document.getElementById('year');
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const productGrid = document.getElementById('productGrid');
+    const categoryGrid = document.getElementById('categoryGrid');
+    const galleryGrid = document.getElementById('galleryGrid');
+    const listView = document.getElementById('listView');
+    const detailView = document.getElementById('detailView');
+    yearEl.textContent = new Date().getFullYear();
+
+    function t(key){ return translations[currentLang][key]; }
+    function catName(key){ return translations[currentLang].categories[key] || key; }
+
+    function applyCompanyInfo(){
+      document.getElementById('brandLogo').src = assets.logo;
+      document.getElementById('brandTitle').textContent = company.brand;
+      document.getElementById('footerBrand').textContent = company.brand;
+      document.getElementById('topEmail').innerHTML = `📧 ${company.email}`;
+      document.getElementById('topPhone').innerHTML = `📞 ${company.phone}`;
+      document.getElementById('contactEmail').textContent = company.email;
+      document.getElementById('contactPhone').textContent = company.phone;
+      document.getElementById('contactWhatsapp').textContent = company.whatsapp;
+      document.getElementById('catalogBtn').href = company.catalogUrl;
+      document.getElementById('detailCatalogBtn').href = company.catalogUrl;
+      document.getElementById('waFloat').href = `https://wa.me/${company.whatsappDigits}`;
+    }`;
+      document.getElementById('topPhone').innerHTML = `📞 ${company.phone}`;
+      document.getElementById('contactEmail').textContent = company.email;
+      document.getElementById('contactPhone').textContent = company.phone;
+      document.getElementById('contactWhatsapp').textContent = company.whatsapp;
+      document.getElementById('catalogBtn').href = company.catalogUrl;
+      document.getElementById('detailCatalogBtn').href = company.catalogUrl;
+    }
+
+    function setLanguage(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.getElementById('lang-tr').classList.toggle('active', lang === 'tr');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.dataset.i18n; if (translations[currentLang][key]) el.textContent = translations[currentLang][key]; });
+      searchInput.placeholder = t('searchPlaceholder');
+      updateCategoryFilterOptions();
+      updateSortFilterLabels();
+      renderCategories();
+      renderProducts();
+      renderGallery();
+      if(location.hash.startsWith('#product/')) handleRoute();
+    }
+
+    function updateCategoryFilterOptions(){
+      const currentValue = categoryFilter.value || 'all';
+      const cats = [...new Set(products.map(p => p.category))];
+      categoryFilter.innerHTML = `<option value="all">${t('selectAll')}</option>` + cats.map(c => `<option value="${c}">${catName(c)}</option>`).join('');
+      categoryFilter.value = cats.includes(currentValue) || currentValue === 'all' ? currentValue : 'all';
+    }
+
+    function updateSortFilterLabels(){
+      const val = sortFilter.value || 'default';
+      sortFilter.innerHTML = `<option value="default">${t('sortDefault')}</option><option value="code-asc">${t('sortCodeAsc')}</option><option value="code-desc">${t('sortCodeDesc')}</option>`;
+      sortFilter.value = val;
+    }
+
+    function renderCategories(){
+      categoryGrid.innerHTML = categoryCards.map(item => `
+        <div class="category-card">
+          <img src="${assets[item.image]}" alt="${catName(item.key)}" style="width:100%;height:190px;object-fit:cover;border-radius:16px;background:#f3f4f6;" />
+          <span class="badge" style="margin-top:14px;">${catName(item.key)}</span>
+          <h3>${catName(item.key)}</h3>
+          <p>${currentLang === 'tr' ? item.descTr : item.descEn}</p>
+        </div>`).join('');
+    }
+
+    function getFilteredProducts(){
+      const q = searchInput.value.trim().toLowerCase();
+      const category = categoryFilter.value;
+      const sort = sortFilter.value;
+      let list = products.filter(p => {
+        const name = currentLang === 'tr' ? p.nameTr : p.nameEn;
+        return (!q || p.code.toLowerCase().includes(q) || name.toLowerCase().includes(q)) && (category === 'all' || p.category === category);
+      });
+      if(sort === 'code-asc') list.sort((a,b) => a.code.localeCompare(b.code));
+      if(sort === 'code-desc') list.sort((a,b) => b.code.localeCompare(a.code));
+      return list;
+    }
+
+    function renderProducts(){
+      const list = getFilteredProducts();
+      if(!list.length){ productGrid.innerHTML = `<div class="empty-state">${t('noResult')}</div>`; return; }
+      productGrid.innerHTML = list.map(p => {
+        const name = currentLang === 'tr' ? p.nameTr : p.nameEn;
+        return `<div class="product-card"><div><img src="${assets[p.image]}" alt="${name}" style="width:100%;height:190px;object-fit:cover;border-radius:16px;background:#f3f4f6;margin-bottom:14px;" /><span class="badge">${catName(p.category)}</span><h3>${name}</h3><p><strong>${t('productCode')}:</strong> ${p.code}</p></div><div class="product-meta"><div class="meta-box"><strong>${t('productPower')}</strong>${p.power}</div><div class="meta-box"><strong>${t('productVoltage')}</strong>${p.voltage}</div></div><div class="product-actions"><button class="btn-small primary" onclick="showProductDetail('${p.slug}')">${t('btnQuote')}</button><button class="btn-small" onclick="showProductDetail('${p.slug}')">Detay</button><button class="btn-small" onclick="openWhatsapp('${p.code}')">${t('btnWhatsapp')}</button></div></div>`;
+      }).join('');
+    }
+
+    function renderGallery(){
+      galleryGrid.innerHTML = categoryCards.slice(0,8).map(item => `
+        <div class="gallery-card">
+          <img src="${assets[item.image]}" alt="${catName(item.key)}" />
+          <h3>${catName(item.key)}</h3>
+          <p>${currentLang === 'tr' ? item.descTr : item.descEn}</p>
+        </div>`).join('');
+    }
+
+    async function handleForm(event){
+      event.preventDefault();
+      const form = event.target;
+      const submitBtn = document.getElementById('submitBtn');
+      const payload = {
+        name: document.getElementById('nameInput').value.trim(),
+        email: document.getElementById('emailInput').value.trim(),
+        productCode: document.getElementById('productCodeInput').value.trim(),
+        phone: document.getElementById('phoneInput').value.trim(),
+        message: document.getElementById('messageInput').value.trim(),
+        to_email: company.email,
+        company_brand: company.brand
+      };
+      submitBtn.disabled = true;
+      submitBtn.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+      try {
+        if (emailConfig.mode === 'emailjs' && window.emailjs) {
+          await emailjs.send(emailConfig.emailjsServiceId, emailConfig.emailjsTemplateId, payload, emailConfig.emailjsPublicKey);
+        } else if (emailConfig.mode === 'backend') {
+          const res = await fetch(emailConfig.backendEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('Backend request failed');
+        } else {
+          throw new Error('Mail service not configured');
+        }
+        alert(currentLang === 'tr' ? 'Teklif talebiniz gönderildi.' : 'Your quote request has been sent.');
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        alert(currentLang === 'tr' ? 'Form gönderilemedi. EmailJS veya backend ayarlarını kontrol edin.' : 'Form could not be sent. Please check EmailJS or backend settings.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = t('formBtn');
+      }
+    }
+    function openWhatsapp(code){ const msg = currentLang === 'tr' ? `Merhaba, ${code} ürününüz için fiyat ve teknik bilgi almak istiyorum.` : `Hello, I would like to receive price and technical information for your ${code} product.`; window.open(`https://wa.me/${company.whatsappDigits}?text=${encodeURIComponent(msg)}`, '_blank'); }
+    function requestQuote(code){ document.getElementById('productCodeInput').value = code; showListView(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior:'smooth'}), 50); }
+    function showListView(){ detailView.classList.add('hidden'); listView.classList.remove('hidden'); if(location.hash.startsWith('#product/')) history.replaceState(null,'', window.location.pathname + '#products'); }
+
+    function showProductDetail(slug){ location.hash = `#product/${slug}`; handleRoute(); }
+    function handleRoute(){
+      const hash = location.hash || '';
+      if(!hash.startsWith('#product/')){ detailView.classList.add('hidden'); listView.classList.remove('hidden'); return; }
+      const slug = hash.replace('#product/','');
+      const product = products.find(p => p.slug === slug);
+      if(!product){ showListView(); return; }
+      listView.classList.add('hidden'); detailView.classList.remove('hidden');
+      const name = currentLang === 'tr' ? product.nameTr : product.nameEn;
+      document.getElementById('detailTitle').textContent = name;
+      document.getElementById('detailSubtitle').textContent = catName(product.category);
+      document.getElementById('detailImage').src = assets[product.image];
+      document.getElementById('detailCategory').textContent = catName(product.category);
+      document.getElementById('detailCategory2').textContent = catName(product.category);
+      document.getElementById('detailName').textContent = name;
+      document.getElementById('detailDescription').textContent = t('detailDefaultDesc');
+      document.getElementById('detailCode').textContent = product.code;
+      document.getElementById('detailPower').textContent = product.power;
+      document.getElementById('detailVoltage').textContent = product.voltage;
+      document.getElementById('labelCode').textContent = t('productCode');
+      document.getElementById('labelCategory').textContent = t('productCategory');
+      document.getElementById('labelPower').textContent = t('productPower');
+      document.getElementById('labelVoltage').textContent = t('productVoltage');
+      document.getElementById('detailQuoteBtn').onclick = () => requestQuote(product.code);
+      document.getElementById('detailWhatsappBtn').onclick = () => openWhatsapp(product.code);
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    document.getElementById('lang-tr').addEventListener('click', () => setLanguage('tr'));
+    const menuToggle = document.getElementById('menuToggle');
+    const mainMenu = document.getElementById('mainMenu');
+    menuToggle.addEventListener('click', () => mainMenu.classList.toggle('open'));
+    document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+    searchInput.addEventListener('input', renderProducts);
+    categoryFilter.addEventListener('change', renderProducts);
+    sortFilter.addEventListener('change', renderProducts);
+    window.addEventListener('hashchange', handleRoute);
+
+    applyCompanyInfo();
+    updateCategoryFilterOptions();
+    updateSortFilterLabels();
+    renderCategories();
+    renderProducts();
+    renderGallery();
+    setLanguage('tr');
+    handleRoute();
+  </script>
+  <!-- Lottie Animation -->
+  <div id="lottie-hero"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Premium industrial themed Lottie (heating / gear / tech)
+    if (window.emailjs) {
+      emailjs.init({ publicKey: emailConfig.emailjsPublicKey });
+    }
+
+    const lottieAnim = lottie.loadAnimation({
+      container: document.getElementById('lottie-hero'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets9.lottiefiles.com/packages/lf20_6wutsrox.json' // industrial tech animation
+    });
+
+    // Optional: second animation (you can switch)
+    // path: 'https://assets3.lottiefiles.com/packages/lf20_qp1q7mct.json' // gear motion
+    // path: 'https://assets2.lottiefiles.com/packages/lf20_tfb3estd.json' // energy / power
+
+
+    // subtle floating motion
+    let angle = 0;
+    function floatAnim(){
+      angle += 0.02;
+      const el = document.getElementById('lottie-hero');
+      el.style.transform = `translateY(${Math.sin(angle)*8}px)`;
+      requestAnimationFrame(floatAnim);
+    }
+    floatAnim();
+
+    // Reveal on scroll
+    const revealItems = document.querySelectorAll('[data-reveal]');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+    revealItems.forEach(item => revealObserver.observe(item));
+
+    // Mouse parallax for hero product tiles
+    const heroProducts = document.querySelector('.hero-products');
+    if (heroProducts) {
+      heroProducts.addEventListener('mousemove', (e) => {
+        const rect = heroProducts.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+        heroProducts.querySelectorAll('img').forEach((img, index) => {
+          const depth = (index + 1) * 6;
+          img.style.transform = `translate(${x * depth}px, ${y * depth}px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.04)`;
+        });
+      });
+      heroProducts.addEventListener('mouseleave', () => {
+        heroProducts.querySelectorAll('img').forEach((img) => {
+          img.style.transform = '';
+        });
+      });
+    }
+
+    // Scroll reactive Lottie speed with cap
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const speed = Math.min(2.2, 1 + scrollY / 900);
+      if (typeof lottieAnim !== 'undefined') lottieAnim.setSpeed(speed);
+    });
+
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loadingScreen');
+      setTimeout(() => loadingScreen.classList.add('hidden'), 550);
+    });
+  </script>
+</body>
+</html>
