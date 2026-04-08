@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,6 @@
 <style>
 :root{
   --green:#1d8f4e;
-  --dark:#156f3d;
   --bg:#f4f6f8;
 }
 
@@ -28,58 +27,20 @@ body{
 header{
   background:#fff;
   padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 
-/* HAKKIMIZDA */
-.about{
-  padding:40px 0;
-}
-
-.about-box{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
-
-.card{
-  background:#fff;
-  padding:20px;
+.lang button{
+  padding:8px 12px;
   border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.05);
-}
-
-.stats{
-  display:flex;
-  gap:10px;
-  margin-top:15px;
-}
-
-.stat{
-  background:#e8f7ed;
-  padding:10px;
-  border-radius:10px;
-  flex:1;
-  text-align:center;
-}
-
-/* FILTER */
-.chips{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:20px 0;
-}
-
-.chip{
-  padding:10px 14px;
-  border-radius:20px;
-  background:#fff;
   border:1px solid #ddd;
   cursor:pointer;
 }
 
-.chip.active{
+.lang .active{
   background:var(--green);
   color:#fff;
 }
@@ -91,7 +52,8 @@ header{
   gap:20px;
 }
 
-.product{
+/* CARD */
+.card{
   background:#fff;
   padding:15px;
   border-radius:20px;
@@ -108,45 +70,42 @@ header{
   color:#fff;
 }
 
-.meta{
+/* FILTER */
+.chips{
   display:flex;
-  justify-content:space-between;
-  margin-top:10px;
-  color:var(--dark);
+  gap:10px;
+  flex-wrap:wrap;
+  margin:20px 0;
 }
 
-/* CONTACT */
-.contact{
+.chip{
+  padding:10px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid #ddd;
+  cursor:pointer;
+}
+
+.chip.active{
+  background:var(--green);
+  color:#fff;
+}
+
+/* ABOUT & CONTACT */
+.section{
   margin-top:40px;
 }
 
-.contact-box{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-input,textarea{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid #ddd;
-}
-
-button{
-  padding:10px;
-  border:none;
-  background:var(--green);
-  color:#fff;
+.card-box{
+  background:#fff;
+  padding:20px;
   border-radius:20px;
+  margin-bottom:20px;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-  .about-box,.contact-box{
-    grid-template-columns:1fr;
-  }
+/* RTL */
+html[dir="rtl"]{
+  direction:rtl;
 }
 </style>
 </head>
@@ -154,155 +113,163 @@ button{
 <body>
 
 <header class="container">
-  <h2>DE Project Heating Elements</h2>
+  <h2 id="title">DE Project</h2>
+
+  <div class="lang">
+    <button class="active" data-lang="tr">TR</button>
+    <button data-lang="en">EN</button>
+    <button data-lang="ar">AR</button>
+  </div>
 </header>
 
 <div class="container">
 
 <!-- HAKKIMIZDA -->
-<section class="about">
-  <div class="about-box">
-    <div class="card">
-      <h3>Industrial Heating Solutions</h3>
-      <p>High quality industrial heating elements manufacturing.</p>
+<div class="section card-box">
+  <h3 id="aboutTitle"></h3>
+  <p id="aboutText"></p>
+</div>
 
-      <div class="stats">
-        <div class="stat">10+ Years</div>
-        <div class="stat">500+ Projects</div>
-        <div class="stat">%100 Quality</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <p>⚙️ Engineering Production</p>
-      <p>🔥 High Performance</p>
-      <p>🛠️ Custom Manufacturing</p>
-      <p>🚚 Fast Delivery</p>
-    </div>
-  </div>
-</section>
-
-<!-- ÜRÜNLER -->
-<section>
-
+<!-- FILTER -->
 <div class="chips" id="filters"></div>
+
+<!-- PRODUCTS -->
 <div class="grid" id="grid"></div>
 
-</section>
-
-<!-- İLETİŞİM -->
-<section class="contact">
-
-<div class="contact-box">
-
-<div class="card">
-  <h3>Contact</h3>
-  <p>📍 Turkey</p>
+<!-- CONTACT -->
+<div class="section card-box">
+  <h3 id="contactTitle"></h3>
   <p>📞 +90 555 000 00 00</p>
   <p>✉️ info@deproject.com</p>
-
   <a href="https://wa.me/905550000000">
-    <button style="background:#25D366;width:100%">WhatsApp</button>
+    <button style="width:100%;margin-top:10px;background:#25D366;color:#fff;border:none;padding:10px;border-radius:20px">
+      WhatsApp
+    </button>
   </a>
 </div>
-
-<div class="card">
-  <h3>Get Quote</h3>
-  <input placeholder="Name">
-  <input placeholder="Email">
-  <textarea placeholder="Message"></textarea>
-  <button>Send</button>
-</div>
-
-</div>
-
-</section>
 
 </div>
 
 <script>
 
-const data = [
+const translations={
+tr:{
+title:"DE Project Isıtma Elemanları",
+aboutTitle:"Hakkımızda",
+aboutText:"Endüstriyel ısıtma elemanlarında yüksek kalite ve mühendislik çözümleri sunuyoruz.",
+contactTitle:"İletişim",
+all:"Tümü"
+},
+en:{
+title:"DE Project Heating Elements",
+aboutTitle:"About Us",
+aboutText:"We provide high quality industrial heating solutions.",
+contactTitle:"Contact",
+all:"All"
+},
+ar:{
+title:"عناصر التسخين",
+aboutTitle:"معلومات عنا",
+aboutText:"نقدم حلول تسخين صناعية عالية الجودة.",
+contactTitle:"اتصل بنا",
+all:"الكل"
+}
+};
 
+const categories=[
 {
 slug:"kitchen-heaters",
-name:"Endüstriyel Mutfak Isıtıcıları",
+name:{
+tr:"Endüstriyel Mutfak Isıtıcıları",
+en:"Kitchen Heaters",
+ar:"سخانات المطبخ"
+},
 products:[
-"Bainmarie Heater",
-"Dishwasher Heater",
-"Tea Machine Heater",
-"Deep Fryer Heater",
-"Grill Heater",
-"Oven Heater"
+"Bainmarie Heater","Dishwasher Heater","Tea Machine Heater",
+"Deep Fryer Heater","Grill Heater","Oven Heater"
 ]
 },
-
 {
 slug:"water-oil-heaters",
-name:"Su ve Yağ Isıtıcıları",
+name:{
+tr:"Su ve Yağ Isıtıcıları",
+en:"Water & Oil Heaters",
+ar:"سخانات الماء والزيت"
+},
 products:[
-"Brass Head Heater",
-"Instant Water Heater",
-"Washing Machine Heater",
-"Oil Radiator Heater"
+"Brass Head Heater","Instant Water Heater",
+"Washing Machine Heater","Oil Radiator Heater"
 ]
 },
-
 {
 slug:"spiral-heaters",
-name:"Spiral & Serpantin Isıtıcılar",
-products:[
-"Spiral Heater",
-"Coil Heater",
-"Defrost Heater"
-]
+name:{
+tr:"Spiral & Serpantin Isıtıcılar",
+en:"Spiral Heaters",
+ar:"سخانات حلزونية"
 },
-
+products:["Spiral Heater","Coil Heater","Defrost Heater"]
+},
 {
 slug:"industrial-heaters",
-name:"Özel & Endüstriyel Isıtıcılar",
+name:{
+tr:"Özel & Endüstriyel Isıtıcılar",
+en:"Industrial Heaters",
+ar:"سخانات صناعية"
+},
 products:[
-"Boiler Heater",
-"Heat Exchanger Heater",
-"Clamp Heater",
-"Plate Heater"
+"Boiler Heater","Heat Exchanger Heater",
+"Clamp Heater","Plate Heater"
 ]
 },
-
 {
 slug:"cartridge-heaters",
-name:"Kartuş & Çubuk Isıtıcılar",
+name:{
+tr:"Kartuş & Çubuk Isıtıcılar",
+en:"Cartridge Heaters",
+ar:"سخانات خرطوشة"
+},
 products:[
-"Cartridge Heater",
-"Tubular Heater",
-"Straight Heater"
+"Cartridge Heater","Tubular Heater","Straight Heater"
 ]
 },
-
 {
 slug:"accessories",
-name:"Aksesuar & Diğer",
+name:{
+tr:"Aksesuar & Diğer",
+en:"Accessories",
+ar:"ملحقات"
+},
 products:[
-"Thermostat (Cotherm)",
-"Cable (Monoset)",
-"Silicone Heater",
-"Square Tube"
+"Thermostat (Cotherm)","Cable (Monoset)",
+"Silicone Heater","Square Tube"
 ]
 }
-
 ];
 
+let lang="tr";
 let active="all";
 
-const filters=document.getElementById("filters");
 const grid=document.getElementById("grid");
+const filters=document.getElementById("filters");
+
+function renderUI(){
+  document.getElementById("title").innerText=translations[lang].title;
+  document.getElementById("aboutTitle").innerText=translations[lang].aboutTitle;
+  document.getElementById("aboutText").innerText=translations[lang].aboutText;
+  document.getElementById("contactTitle").innerText=translations[lang].contactTitle;
+
+  document.documentElement.dir = lang==="ar" ? "rtl" : "ltr";
+}
 
 function renderFilters(){
   filters.innerHTML=`
-    <div class="chip ${active==="all"?"active":""}" data-cat="all">Tümü</div>
-    ${data.map(c=>`
+    <div class="chip ${active==="all"?"active":""}" data-cat="all">
+      ${translations[lang].all}
+    </div>
+    ${categories.map(c=>`
       <div class="chip ${active===c.slug?"active":""}" data-cat="${c.slug}">
-        ${c.name}
+        ${c.name[lang]}
       </div>
     `).join("")}
   `;
@@ -311,40 +278,50 @@ function renderFilters(){
     el.onclick=()=>{
       active=el.dataset.cat;
       renderFilters();
-      render();
+      renderProducts();
     }
   });
 }
 
-function render(){
+function renderProducts(){
   let list=[];
 
   if(active==="all"){
-    data.forEach(c=>{
+    categories.forEach(c=>{
       c.products.forEach(p=>{
-        list.push({cat:c.name,name:p});
+        list.push({cat:c.name[lang],name:p});
       });
     });
   }else{
-    const cat=data.find(c=>c.slug===active);
-    list=cat.products.map(p=>({cat:cat.name,name:p}));
+    const cat=categories.find(c=>c.slug===active);
+    list=cat.products.map(p=>({cat:cat.name[lang],name:p}));
   }
 
   grid.innerHTML=list.map(p=>`
-    <div class="product">
+    <div class="card">
       <div class="media">Product</div>
       <h3>${p.name}</h3>
       <p>${p.cat}</p>
-      <div class="meta">
-        <span>DE</span>
-        <span>→</span>
-      </div>
     </div>
   `).join("");
 }
 
+document.querySelectorAll(".lang button").forEach(btn=>{
+  btn.onclick=()=>{
+    lang=btn.dataset.lang;
+
+    document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+
+    renderUI();
+    renderFilters();
+    renderProducts();
+  }
+});
+
+renderUI();
 renderFilters();
-render();
+renderProducts();
 
 </script>
 
