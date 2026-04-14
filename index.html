@@ -1,297 +1,1016 @@
 <!DOCTYPE html>
 <html lang="tr" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DE Project Heating Elements</title>
 
-<title>DE Project Heating Elements</title>
+  <style>
+    :root{
+      --green:#1d8f4e;
+      --green-dark:#15703d;
+      --bg:#f4f6f8;
+      --text:#1a1a1a;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --radius:22px;
+    }
 
-<style>
-:root{
-  --green:#1d8f4e;
-  --bg:#f4f6f8;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box}
+    html{
+      scroll-behavior:smooth;
+    }
 
-body{
-  font-family:Arial;
-  background:var(--bg);
-}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#f8fafb 0%, #f1f5f7 100%);
+      color:var(--text);
+    }
 
-/* HEADER */
-header{
-  background:#fff;
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,.05);
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-.lang button{
-  padding:8px 12px;
-  border-radius:20px;
-  border:1px solid #ddd;
-  cursor:pointer;
-}
+    .container{
+      width:min(1200px, calc(100% - 32px));
+      margin:auto;
+    }
 
-.lang .active{
-  background:var(--green);
-  color:#fff;
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
 
-/* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-}
+    .header-inner{
+      min-height:78px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
 
-/* CARD */
-.card{
-  background:#fff;
-  padding:15px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.05);
-  transition:.3s;
-}
+    .brand-badge{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--green),var(--green-dark));
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      box-shadow:0 8px 18px rgba(29,143,78,.22);
+      flex-shrink:0;
+    }
 
-.card:hover{
-  transform:translateY(-6px);
-}
+    .brand h1{
+      font-size:1.15rem;
+      line-height:1.2;
+    }
 
-/* IMAGE */
-.media{
-  height:170px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+    .brand small{
+      display:block;
+      color:var(--muted);
+      margin-top:3px;
+      font-size:.86rem;
+    }
 
-.media img{
-  max-width:100%;
-  max-height:150px;
-  object-fit:contain;
-}
+    .lang{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
 
-/* FILTER */
-.chips{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:20px 0;
-}
+    .lang button{
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:700;
+      transition:.25s ease;
+    }
 
-.chip{
-  padding:10px 14px;
-  border-radius:20px;
-  background:#fff;
-  border:1px solid #ddd;
-  cursor:pointer;
-}
+    .lang button:hover{
+      transform:translateY(-1px);
+      border-color:#cfd5dc;
+    }
 
-.chip.active{
-  background:var(--green);
-  color:#fff;
-}
+    .lang .active{
+      background:var(--green);
+      border-color:var(--green);
+      color:#fff;
+      box-shadow:0 8px 16px rgba(29,143,78,.18);
+    }
 
-/* SECTION */
-.section{
-  margin-top:30px;
-  background:#fff;
-  padding:20px;
-  border-radius:20px;
-}
+    .hero{
+      padding:38px 0 22px;
+    }
 
-/* RTL */
-html[dir="rtl"]{
-  direction:rtl;
-}
-</style>
+    .hero-card{
+      background:linear-gradient(135deg,#ffffff 0%, #f7fbf8 100%);
+      border:1px solid rgba(29,143,78,.10);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      padding:34px;
+      display:grid;
+      grid-template-columns:1.4fr .8fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .hero-copy h2{
+      font-size:clamp(1.9rem, 4vw, 3rem);
+      line-height:1.08;
+      margin-bottom:14px;
+    }
+
+    .hero-copy p{
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.7;
+      max-width:760px;
+    }
+
+    .hero-stats{
+      display:grid;
+      gap:14px;
+    }
+
+    .stat{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:18px 18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.04);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.2rem;
+      color:var(--green-dark);
+      margin-bottom:6px;
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .section{
+      margin-top:22px;
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.04);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:18px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .section-head h3{
+      font-size:1.35rem;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      line-height:1.6;
+      max-width:720px;
+    }
+
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:24px 0 24px;
+    }
+
+    .chip{
+      padding:11px 15px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      cursor:pointer;
+      font-weight:700;
+      transition:.25s ease;
+      box-shadow:0 4px 14px rgba(0,0,0,.03);
+    }
+
+    .chip:hover{
+      transform:translateY(-2px);
+      border-color:#cfd5dc;
+    }
+
+    .chip.active{
+      background:var(--green);
+      color:#fff;
+      border-color:var(--green);
+      box-shadow:0 8px 18px rgba(29,143,78,.18);
+    }
+
+    .results-bar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .results-bar p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:16px;
+      box-shadow:0 12px 24px rgba(0,0,0,.05);
+      transition:.28s ease;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 16px 34px rgba(0,0,0,.08);
+    }
+
+    .media{
+      height:210px;
+      border-radius:20px;
+      background:linear-gradient(180deg,#f9fafb,#f3f5f7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      margin-bottom:16px;
+      border:1px solid #eef1f4;
+    }
+
+    .media img{
+      max-width:100%;
+      max-height:180px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .card-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:10px;
+    }
+
+    .code{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(29,143,78,.08);
+      color:var(--green-dark);
+      font-size:.82rem;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .wolt{
+      font-size:.78rem;
+      color:var(--muted);
+      background:#f7f7f8;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid #eceef1;
+      white-space:nowrap;
+    }
+
+    .card h4{
+      font-size:1.08rem;
+      line-height:1.35;
+      margin-bottom:8px;
+    }
+
+    .category-name{
+      color:var(--green-dark);
+      font-weight:700;
+      font-size:.92rem;
+      margin-bottom:10px;
+    }
+
+    .desc{
+      color:var(--muted);
+      line-height:1.65;
+      font-size:.95rem;
+      margin-bottom:14px;
+      min-height:52px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .tag{
+      font-size:.78rem;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f8faf9;
+      border:1px solid #e6eee9;
+      color:#355946;
+    }
+
+    .specs{
+      margin-top:auto;
+      padding-top:12px;
+      border-top:1px dashed #e6e8eb;
+      display:grid;
+      gap:8px;
+    }
+
+    .spec{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      font-size:.92rem;
+    }
+
+    .spec span:first-child{
+      color:var(--muted);
+    }
+
+    .spec span:last-child{
+      font-weight:700;
+      text-align:right;
+    }
+
+    .empty{
+      background:#fff;
+      border:1px dashed #cfd5dc;
+      border-radius:20px;
+      padding:28px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    footer{
+      padding:34px 0 50px;
+      color:var(--muted);
+      text-align:center;
+      font-size:.92rem;
+    }
+
+    html[dir="rtl"] body{
+      text-align:right;
+    }
+
+    html[dir="rtl"] .brand,
+    html[dir="rtl"] .header-inner,
+    html[dir="rtl"] .section-head,
+    html[dir="rtl"] .results-bar,
+    html[dir="rtl"] .card-top,
+    html[dir="rtl"] .spec{
+      direction:rtl;
+    }
+
+    @media (max-width: 900px){
+      .hero-card{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      .hero-card,
+      .section{
+        padding:20px;
+      }
+
+      .media{
+        height:190px;
+      }
+
+      .card-top{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="container">
-  <h2 id="title">DE Project</h2>
-
-  <div class="lang">
-    <button class="active" data-lang="tr">TR</button>
-    <button data-lang="en">EN</button>
-    <button data-lang="ar">AR</button>
-  </div>
-</header>
-
-<div class="container">
-
-<div class="section">
-  <h3 id="aboutTitle"></h3>
-  <p id="aboutText"></p>
-</div>
-
-<div class="chips" id="filters"></div>
-<div class="grid" id="grid"></div>
-
-</div>
-
-<script>
-
-/* TRANSLATIONS */
-const translations={
-tr:{
-title:"DE Project Isıtma Elemanları",
-aboutTitle:"Hakkımızda",
-aboutText:"Endüstriyel ısıtma elemanlarında yüksek kalite ve mühendislik çözümleri sunuyoruz.",
-all:"Tümü"
-},
-en:{
-title:"DE Project Heating Elements",
-aboutTitle:"About",
-aboutText:"We provide industrial heating solutions.",
-all:"All"
-},
-ar:{
-title:"عناصر التسخين",
-aboutTitle:"معلومات عنا",
-aboutText:"نقدم حلول تسخين صناعية عالية الجودة.",
-all:"الكل"
-}
-};
-
-/* TÜM KATEGORİLER */
-const categories=[
-{
-slug:"kitchen-heaters",
-name:{tr:"Endüstriyel Mutfak Isıtıcıları",en:"Kitchen Heaters",ar:"سخانات المطبخ"},
-products:[
-"Bainmarie Heater","Dishwasher Heater","Tea Machine Heater",
-"Deep Fryer Heater","Grill Heater","Oven Heater"
-]
-},
-{
-slug:"water-oil-heaters",
-name:{tr:"Su & Yağ Isıtıcıları",en:"Water & Oil",ar:"ماء وزيت"},
-products:[
-"Brass Head Heater","Instant Water Heater","Washing Machine Heater","Oil Radiator Heater"
-]
-},
-{
-slug:"spiral-heaters",
-name:{tr:"Spiral & Serpantin",en:"Spiral",ar:"حلزوني"},
-products:["Spiral Heater","Coil Heater","Defrost Heater"]
-},
-{
-slug:"industrial-heaters",
-name:{tr:"Özel & Endüstriyel",en:"Industrial",ar:"صناعي"},
-products:["Boiler Heater","Heat Exchanger Heater","Clamp Heater","Plate Heater"]
-},
-{
-slug:"cartridge-heaters",
-name:{tr:"Kartuş & Çubuk",en:"Cartridge",ar:"خرطوشة"},
-products:["Cartridge Heater","Tubular Heater","Straight Heater"]
-},
-{
-slug:"accessories",
-name:{tr:"Aksesuar",en:"Accessories",ar:"ملحقات"},
-products:["Thermostat","Cable","Silicone Heater","Square Tube"]
-}
-];
-
-/* 🔥 SENİN GÖRSELLER */
-const productImages = {
-  "Bainmarie Heater":"src/img/product_1.png",
-  "Dishwasher Heater":"src/img/product_2.png",
-  "Tea Machine Heater":"src/img/product_3.png",
-  "Deep Fryer Heater":"src/img/product_4.png",
-  "Grill Heater":"src/img/product_5.png",
-  "Oven Heater":"src/img/product_5.png"
-};
-
-let lang="tr";
-let active="all";
-
-const grid=document.getElementById("grid");
-const filters=document.getElementById("filters");
-
-/* UI */
-function renderUI(){
-  document.getElementById("title").innerText=translations[lang].title;
-  document.getElementById("aboutTitle").innerText=translations[lang].aboutTitle;
-  document.getElementById("aboutText").innerText=translations[lang].aboutText;
-  document.documentElement.dir = lang==="ar"?"rtl":"ltr";
-}
-
-/* FILTER */
-function renderFilters(){
-  filters.innerHTML=`
-    <div class="chip ${active==="all"?"active":""}" data-cat="all">${translations[lang].all}</div>
-    ${categories.map(c=>`
-      <div class="chip ${active===c.slug?"active":""}" data-cat="${c.slug}">
-        ${c.name[lang]}
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-badge">DE</div>
+        <div>
+          <h1 id="title">DE Project Heating Elements</h1>
+          <small id="subtitle">Industrial Heating Solutions</small>
+        </div>
       </div>
-    `).join("")}
-  `;
 
-  document.querySelectorAll(".chip").forEach(el=>{
-    el.onclick=()=>{
-      active=el.dataset.cat;
-      renderFilters();
-      renderProducts();
+      <div class="lang">
+        <button class="active" data-lang="tr">TR</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="ar">AR</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <h2 id="heroTitle">Endüstriyel Isıtma Çözümleri</h2>
+          <p id="heroText">
+            Endüstriyel mutfak, su, yağ, fırın, fritöz, kartuş ve özel rezistans çözümlerinde yüksek kalite sunuyoruz.
+          </p>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong id="statProducts">0+</strong>
+            <span id="statProductsLabel">Ürün Modeli</span>
+          </div>
+          <div class="stat">
+            <strong id="statCategories">0</strong>
+            <span id="statCategoriesLabel">Kategori</span>
+          </div>
+          <div class="stat">
+            <strong id="statSupport">DE Project</strong>
+            <span id="statSupportLabel">Profesyonel ürün kataloğu</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3 id="aboutTitle">Hakkımızda</h3>
+          <p id="aboutText">Endüstriyel ısıtma elemanlarında yüksek kalite ve mühendislik çözümleri sunuyoruz.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="chips" id="filters"></div>
+
+    <section class="section">
+      <div class="results-bar">
+        <h3 id="catalogTitle">Ürün Kataloğu</h3>
+        <p id="resultText">Tüm ürünler listeleniyor</p>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span id="footerText">DE Project Heating Elements — Product Catalogue</span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      tr: {
+        title: "DE Project Isıtma Elemanları",
+        subtitle: "Endüstriyel Isıtma Çözümleri",
+        heroTitle: "Endüstriyel Isıtma Çözümleri",
+        heroText: "Endüstriyel mutfak, su, yağ, fırın, fritöz, kartuş ve özel rezistans çözümlerinde yüksek kalite sunuyoruz.",
+        aboutTitle: "Hakkımızda",
+        aboutText: "Endüstriyel ısıtma elemanlarında yüksek kalite ve mühendislik çözümleri sunuyoruz.",
+        all: "Tümü",
+        catalogTitle: "Ürün Kataloğu",
+        resultAll: "Tüm ürünler listeleniyor",
+        code: "Kod",
+        specs: "Teknik Özellikler",
+        noSpecs: "Teknik özellik girilmemiş",
+        noProducts: "Bu kategoride ürün bulunamadı.",
+        statProductsLabel: "Ürün Modeli",
+        statCategoriesLabel: "Kategori",
+        statSupportLabel: "Profesyonel ürün kataloğu",
+        footerText: "DE Project Heating Elements — Ürün Kataloğu"
+      },
+      en: {
+        title: "DE Project Heating Elements",
+        subtitle: "Industrial Heating Solutions",
+        heroTitle: "Industrial Heating Solutions",
+        heroText: "We provide high quality heating solutions for industrial kitchen, water, oil, oven, fryer, cartridge and custom resistance products.",
+        aboutTitle: "About Us",
+        aboutText: "We provide high quality engineering solutions in industrial heating elements.",
+        all: "All",
+        catalogTitle: "Product Catalogue",
+        resultAll: "Showing all products",
+        code: "Code",
+        specs: "Technical Specifications",
+        noSpecs: "No technical specifications available",
+        noProducts: "No products found in this category.",
+        statProductsLabel: "Product Models",
+        statCategoriesLabel: "Categories",
+        statSupportLabel: "Professional product catalogue",
+        footerText: "DE Project Heating Elements — Product Catalogue"
+      },
+      ar: {
+        title: "عناصر التسخين DE Project",
+        subtitle: "حلول التسخين الصناعية",
+        heroTitle: "حلول التسخين الصناعية",
+        heroText: "نقدم حلول تسخين عالية الجودة للمطابخ الصناعية والماء والزيت والأفران والقلايات وسخانات الخرطوشة والمنتجات الخاصة.",
+        aboutTitle: "معلومات عنا",
+        aboutText: "نقدم حلولاً هندسية عالية الجودة في عناصر التسخين الصناعية.",
+        all: "الكل",
+        catalogTitle: "كتالوج المنتجات",
+        resultAll: "عرض جميع المنتجات",
+        code: "الكود",
+        specs: "المواصفات الفنية",
+        noSpecs: "لا توجد مواصفات فنية",
+        noProducts: "لا توجد منتجات في هذه الفئة.",
+        statProductsLabel: "نماذج المنتجات",
+        statCategoriesLabel: "الفئات",
+        statSupportLabel: "كتالوج منتجات احترافي",
+        footerText: "DE Project Heating Elements — كتالوج المنتجات"
+      }
+    };
+
+    const specLabels = {
+      power: { tr: "Güç", en: "Power", ar: "القدرة" },
+      length: { tr: "Uzunluk", en: "Length", ar: "الطول" },
+      diameter: { tr: "Çap", en: "Diameter", ar: "القطر" }
+    };
+
+    const catalogData = {
+      baseImageUrl: "/assets/images/products/",
+      categories: [
+        {
+          name: {
+            tr: "Endüstriyel Bulaşık ve Çamaşır Isıtıcıları",
+            en: "Industrial Dishwasher & Washing Heaters",
+            ar: "سخانات غسالات الصحون والغسيل الصناعية"
+          },
+          slug: "industrial-dishwasher-heaters",
+          products: [
+            {
+              code: "NK1211",
+              title: {
+                tr: "Endüstriyel Bulaşık Makinesi Rezistansı 2000W",
+                en: "Industrial Dishwasher Heater 2000W",
+                ar: "سخان غسالة صحون صناعي 2000 واط"
+              },
+              wolt: "Dishwasher Heating Element",
+              src: "/assets/images/products/dishwasher/NK1211.png",
+              description: {
+                tr: "Endüstriyel bulaşık makineleri için yüksek verimli rezistans",
+                en: "High efficiency heater for industrial dishwashers",
+                ar: "عنصر تسخين عالي الكفاءة لغسالات الصحون الصناعية"
+              },
+              tags: ["dishwasher", "heater", "industrial"],
+              specs: {
+                power: "230V - 2000W",
+                length: "200mm"
+              }
+            },
+            {
+              code: "NK1217",
+              title: {
+                tr: "Endüstriyel Çamaşır Makinesi Rezistansı 7500W",
+                en: "Industrial Washing Heater 7500W",
+                ar: "سخان غسالة صناعية 7500 واط"
+              },
+              wolt: "Industrial Washing Machine Heater",
+              src: "/assets/images/products/dishwasher/NK1217.png",
+              description: {
+                tr: "Ağır sanayi tipi çamaşır makinesi rezistansı",
+                en: "Heavy duty washing machine heater",
+                ar: "عنصر تسخين عالي التحمل لغسالة صناعية"
+              },
+              tags: ["washing", "heater", "heavy-duty"],
+              specs: {
+                power: "230-400V 7500W",
+                length: "300mm"
+              }
+            }
+          ]
+        },
+        {
+          name: {
+            tr: "Çay Makinesi ve Semaver Isıtıcıları",
+            en: "Tea Machine & Samovar Heaters",
+            ar: "سخانات آلة الشاي والسماور"
+          },
+          slug: "tea-heaters",
+          products: [
+            {
+              code: "NK1311",
+              title: {
+                tr: "Çay Makinesi Rezistansı 900W",
+                en: "Tea Machine Heater 900W",
+                ar: "سخان آلة الشاي 900 واط"
+              },
+              wolt: "Tea Boiler Heating Element",
+              src: "/assets/images/products/tea/NK1311.png",
+              description: {
+                tr: "Çay kazanı ve semaver için rezistans",
+                en: "Heater for tea boiler and samovar",
+                ar: "عنصر تسخين لغلاية الشاي والسماور"
+              },
+              tags: ["tea", "samovar", "heater"],
+              specs: {
+                power: "900W - 230V",
+                diameter: "6.5mm"
+              }
+            },
+            {
+              code: "NK1318",
+              title: {
+                tr: "Semaver Rezistansı 2750W",
+                en: "Samovar Heater 2750W",
+                ar: "سخان سماور 2750 واط"
+              },
+              wolt: "Samovar Heating Element",
+              src: "/assets/images/products/tea/NK1318.png",
+              description: {
+                tr: "Yüksek güçlü semaver rezistansı",
+                en: "High power samovar heater",
+                ar: "عنصر تسخين سماور عالي القدرة"
+              },
+              tags: ["samovar", "heater"],
+              specs: {
+                power: "2750W",
+                diameter: "6.5mm"
+              }
+            }
+          ]
+        },
+        {
+          name: {
+            tr: "Fritöz Isıtıcıları",
+            en: "Deep Fryer Heaters",
+            ar: "سخانات القلاية"
+          },
+          slug: "deep-fryer-heaters",
+          products: [
+            {
+              code: "NK1411",
+              title: {
+                tr: "Fritöz Rezistansı 650W",
+                en: "Fryer Heater 650W",
+                ar: "سخان قلاية 650 واط"
+              },
+              wolt: "Deep Fryer Heating Element",
+              src: "/assets/images/products/fryer/NK1411.png",
+              description: {
+                tr: "Endüstriyel fritöz ısıtıcı",
+                en: "Industrial fryer heater",
+                ar: "عنصر تسخين للقلاية الصناعية"
+              },
+              tags: ["fryer", "heater"],
+              specs: {
+                power: "650W"
+              }
+            },
+            {
+              code: "NK1417",
+              title: {
+                tr: "Ağır Hizmet Fritöz Rezistansı 7500W",
+                en: "Heavy Duty Fryer Heater 7500W",
+                ar: "سخان قلاية ثقيل 7500 واط"
+              },
+              wolt: "Industrial Fryer Heating Element",
+              src: "/assets/images/products/fryer/NK1417.png",
+              description: {
+                tr: "Yüksek kapasiteli fritöz rezistansı",
+                en: "High capacity fryer heater",
+                ar: "عنصر تسخين عالي السعة للقلاية"
+              },
+              tags: ["fryer", "industrial"],
+              specs: {
+                power: "7500W"
+              }
+            }
+          ]
+        },
+        {
+          name: {
+            tr: "Izgara Isıtıcıları",
+            en: "Grill Heaters",
+            ar: "سخانات الشواية"
+          },
+          slug: "grill-heaters",
+          products: [
+            {
+              code: "NK1611",
+              title: {
+                tr: "Izgara Rezistansı 1500W",
+                en: "Grill Heater 1500W",
+                ar: "سخان شواية 1500 واط"
+              },
+              wolt: "Grill Heating Element",
+              src: "/assets/images/products/grill/NK1611.png",
+              description: {
+                tr: "Endüstriyel ızgara rezistansı",
+                en: "Industrial grill heater",
+                ar: "عنصر تسخين للشواية الصناعية"
+              },
+              tags: ["grill", "heater"],
+              specs: {
+                power: "1500W"
+              }
+            }
+          ]
+        },
+        {
+          name: {
+            tr: "Fırın Isıtıcıları",
+            en: "Oven Heaters",
+            ar: "سخانات الفرن"
+          },
+          slug: "oven-heaters",
+          products: [
+            {
+              code: "NK1711",
+              title: {
+                tr: "Fırın Rezistansı 2000W",
+                en: "Oven Heater 2000W",
+                ar: "سخان فرن 2000 واط"
+              },
+              wolt: "Oven Heating Element",
+              src: "/assets/images/products/oven/NK1711.png",
+              description: {
+                tr: "Fırın rezistansı",
+                en: "Oven heating element",
+                ar: "عنصر تسخين للفرن"
+              },
+              tags: ["oven", "heater"],
+              specs: {
+                power: "2000W"
+              }
+            }
+          ]
+        },
+        {
+          name: {
+            tr: "Su ve Yağ Isıtıcıları",
+            en: "Water & Oil Heaters",
+            ar: "سخانات الماء والزيت"
+          },
+          slug: "water-oil-heaters",
+          products: [
+            {
+              code: "NK2111",
+              title: {
+                tr: "Su Isıtıcı Rezistansı 2000W",
+                en: "Water Heater 2000W",
+                ar: "سخان ماء 2000 واط"
+              },
+              wolt: "Water Heating Element",
+              src: "/assets/images/products/water/NK2111.png",
+              description: {
+                tr: "Su kazanı rezistansı",
+                en: "Water boiler heater",
+                ar: "عنصر تسخين لغلاية الماء"
+              },
+              tags: ["water", "heater"],
+              specs: {
+                power: "2000W"
+              }
+            },
+            {
+              code: "NK2133",
+              title: {
+                tr: "Endüstriyel Yağ Isıtıcı Rezistansı 15000W",
+                en: "Industrial Oil Heater 15000W",
+                ar: "سخان زيت صناعي 15000 واط"
+              },
+              wolt: "Oil Heating Element",
+              src: "/assets/images/products/water/NK2133.png",
+              description: {
+                tr: "Endüstriyel yağ ısıtıcı rezistansı",
+                en: "Industrial oil heating element",
+                ar: "عنصر تسخين زيت صناعي"
+              },
+              tags: ["oil", "heater", "industrial"],
+              specs: {
+                power: "15000W"
+              }
+            }
+          ]
+        },
+        {
+          name: {
+            tr: "Kartuş ve Fişek Isıtıcılar",
+            en: "Cartridge Heaters",
+            ar: "سخانات الخرطوشة"
+          },
+          slug: "cartridge-heaters",
+          products: [
+            {
+              code: "NK1012",
+              title: {
+                tr: "Kartuş Rezistans",
+                en: "Cartridge Heater",
+                ar: "سخان خرطوشة"
+              },
+              wolt: "Cartridge Heating Element",
+              src: "/assets/images/products/cartridge/NK1012.png",
+              description: {
+                tr: "Yüksek yoğunluklu fişek rezistans",
+                en: "High density cartridge heater",
+                ar: "عنصر تسخين خرطوشة عالي الكثافة"
+              },
+              tags: ["cartridge", "heater"],
+              specs: {}
+            }
+          ]
+        }
+      ]
+    };
+
+    let lang = "tr";
+    let active = "all";
+
+    const grid = document.getElementById("grid");
+    const filters = document.getElementById("filters");
+
+    function getTotalProducts(){
+      return catalogData.categories.reduce((total, cat) => total + cat.products.length, 0);
     }
-  });
-}
 
-/* PRODUCTS */
-function renderProducts(){
-  let list=[];
+    function getSpecLabel(key){
+      return specLabels[key]?.[lang] || key;
+    }
 
-  if(active==="all"){
-    categories.forEach(c=>{
-      c.products.forEach(p=>{
-        list.push({cat:c.name[lang],name:p});
+    function renderUI(){
+      const t = translations[lang];
+
+      document.getElementById("title").innerText = t.title;
+      document.getElementById("subtitle").innerText = t.subtitle;
+      document.getElementById("heroTitle").innerText = t.heroTitle;
+      document.getElementById("heroText").innerText = t.heroText;
+      document.getElementById("aboutTitle").innerText = t.aboutTitle;
+      document.getElementById("aboutText").innerText = t.aboutText;
+      document.getElementById("catalogTitle").innerText = t.catalogTitle;
+      document.getElementById("footerText").innerText = t.footerText;
+
+      document.getElementById("statProducts").innerText = `${getTotalProducts()}+`;
+      document.getElementById("statCategories").innerText = catalogData.categories.length;
+      document.getElementById("statSupport").innerText = "DE Project";
+
+      document.getElementById("statProductsLabel").innerText = t.statProductsLabel;
+      document.getElementById("statCategoriesLabel").innerText = t.statCategoriesLabel;
+      document.getElementById("statSupportLabel").innerText = t.statSupportLabel;
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    }
+
+    function renderFilters(){
+      filters.innerHTML = `
+        <div class="chip ${active === "all" ? "active" : ""}" data-cat="all">${translations[lang].all}</div>
+        ${catalogData.categories.map(cat => `
+          <div class="chip ${active === cat.slug ? "active" : ""}" data-cat="${cat.slug}">
+            ${cat.name[lang]}
+          </div>
+        `).join("")}
+      `;
+
+      document.querySelectorAll(".chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+          active = chip.dataset.cat;
+          renderFilters();
+          renderProducts();
+        });
+      });
+    }
+
+    function getProductList(){
+      if(active === "all"){
+        return catalogData.categories.flatMap(cat =>
+          cat.products.map(product => ({
+            categoryName: cat.name[lang],
+            ...product
+          }))
+        );
+      }
+
+      const currentCategory = catalogData.categories.find(cat => cat.slug === active);
+      if(!currentCategory) return [];
+
+      return currentCategory.products.map(product => ({
+        categoryName: currentCategory.name[lang],
+        ...product
+      }));
+    }
+
+    function renderProducts(){
+      const list = getProductList();
+      const t = translations[lang];
+
+      document.getElementById("resultText").innerText =
+        active === "all"
+          ? t.resultAll
+          : `${list.length} ürün / ${catalogData.categories.find(c => c.slug === active)?.name[lang] || ""}`;
+
+      if(!list.length){
+        grid.innerHTML = `<div class="empty">${t.noProducts}</div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(product => {
+        const specsEntries = Object.entries(product.specs || {});
+        const specsHTML = specsEntries.length
+          ? specsEntries.map(([key, value]) => `
+              <div class="spec">
+                <span>${getSpecLabel(key)}</span>
+                <span>${value}</span>
+              </div>
+            `).join("")
+          : `<div class="spec"><span>${t.noSpecs}</span><span>—</span></div>`;
+
+        const tagsHTML = (product.tags || []).map(tag => `
+          <span class="tag">${tag}</span>
+        `).join("");
+
+        return `
+          <article class="card">
+            <div class="media">
+              <img src="${product.src}" alt="${product.title[lang]}" loading="lazy"
+                   onerror="this.src='https://via.placeholder.com/400x260?text=DE+Project'">
+            </div>
+
+            <div class="card-top">
+              <span class="code">${t.code}: ${product.code}</span>
+              <span class="wolt">${product.wolt || ""}</span>
+            </div>
+
+            <h4>${product.title[lang]}</h4>
+            <div class="category-name">${product.categoryName}</div>
+            <p class="desc">${product.description[lang]}</p>
+
+            <div class="tags">${tagsHTML}</div>
+
+            <div class="specs">
+              ${specsHTML}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    document.querySelectorAll(".lang button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        lang = btn.dataset.lang;
+        document.querySelectorAll(".lang button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderUI();
+        renderFilters();
+        renderProducts();
       });
     });
-  }else{
-    const cat=categories.find(c=>c.slug===active);
-    list=cat.products.map(p=>({cat:cat.name[lang],name:p}));
-  }
 
-  grid.innerHTML=list.map(p=>`
-    <div class="card">
-      <div class="media">
-        <img src="${productImages[p.name] || 'src/img/product_1.png'}" loading="lazy" alt="${p.name}">
-      </div>
-      <h3>${p.name}</h3>
-      <p>${p.cat}</p>
-    </div>
-  `).join("");
-}
-
-/* LANG */
-document.querySelectorAll(".lang button").forEach(btn=>{
-  btn.onclick=()=>{
-    lang=btn.dataset.lang;
-    document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
     renderUI();
     renderFilters();
     renderProducts();
-  }
-});
-
-renderUI();
-renderFilters();
-renderProducts();
-
-</script>
-
+  </script>
 </body>
 </html>
