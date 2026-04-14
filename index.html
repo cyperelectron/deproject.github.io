@@ -513,358 +513,669 @@
   </footer>
 
   <script>
-    const translations = {
-      tr: {
-        title: "DE Project Isıtma Elemanları",
-        subtitle: "Endüstriyel Isıtma Çözümleri",
-        heroTitle: "Endüstriyel Isıtma Çözümleri",
-        heroText: "Endüstriyel mutfak, su, yağ, fırın, fritöz, kartuş ve özel rezistans çözümlerinde yüksek kalite sunuyoruz.",
-        aboutTitle: "Hakkımızda",
-        aboutText: "Endüstriyel ısıtma elemanlarında yüksek kalite ve mühendislik çözümleri sunuyoruz.",
-        all: "Tümü",
-        catalogTitle: "Ürün Kataloğu",
-        resultAll: "Tüm ürünler listeleniyor",
-        code: "Kod",
-        specs: "Teknik Özellikler",
-        noSpecs: "Teknik özellik girilmemiş",
-        noProducts: "Bu kategoride ürün bulunamadı.",
-        statProductsLabel: "Ürün Modeli",
-        statCategoriesLabel: "Kategori",
-        statSupportLabel: "Profesyonel ürün kataloğu",
-        footerText: "DE Project Heating Elements — Ürün Kataloğu"
+  const catalogData = {
+  baseImageUrl: "/assets/images/products/",
+  categories: [
+    {
+      name: {
+        tr: "Endüstriyel Bulaşık ve Çamaşır Isıtıcıları",
+        en: "Industrial Dishwasher & Washing Heaters",
+        ar: "سخانات غسالات الصحون والغسيل الصناعية"
       },
-      en: {
-        title: "DE Project Heating Elements",
-        subtitle: "Industrial Heating Solutions",
-        heroTitle: "Industrial Heating Solutions",
-        heroText: "We provide high quality heating solutions for industrial kitchen, water, oil, oven, fryer, cartridge and custom resistance products.",
-        aboutTitle: "About Us",
-        aboutText: "We provide high quality engineering solutions in industrial heating elements.",
-        all: "All",
-        catalogTitle: "Product Catalogue",
-        resultAll: "Showing all products",
-        code: "Code",
-        specs: "Technical Specifications",
-        noSpecs: "No technical specifications available",
-        noProducts: "No products found in this category.",
-        statProductsLabel: "Product Models",
-        statCategoriesLabel: "Categories",
-        statSupportLabel: "Professional product catalogue",
-        footerText: "DE Project Heating Elements — Product Catalogue"
-      },
-      ar: {
-        title: "عناصر التسخين DE Project",
-        subtitle: "حلول التسخين الصناعية",
-        heroTitle: "حلول التسخين الصناعية",
-        heroText: "نقدم حلول تسخين عالية الجودة للمطابخ الصناعية والماء والزيت والأفران والقلايات وسخانات الخرطوشة والمنتجات الخاصة.",
-        aboutTitle: "معلومات عنا",
-        aboutText: "نقدم حلولاً هندسية عالية الجودة في عناصر التسخين الصناعية.",
-        all: "الكل",
-        catalogTitle: "كتالوج المنتجات",
-        resultAll: "عرض جميع المنتجات",
-        code: "الكود",
-        specs: "المواصفات الفنية",
-        noSpecs: "لا توجد مواصفات فنية",
-        noProducts: "لا توجد منتجات في هذه الفئة.",
-        statProductsLabel: "نماذج المنتجات",
-        statCategoriesLabel: "الفئات",
-        statSupportLabel: "كتالوج منتجات احترافي",
-        footerText: "DE Project Heating Elements — كتالوج المنتجات"
-      }
-    };
-
-    const specLabels = {
-      power: { tr: "Güç", en: "Power", ar: "القدرة" },
-      length: { tr: "Uzunluk", en: "Length", ar: "الطول" },
-      diameter: { tr: "Çap", en: "Diameter", ar: "القطر" }
-    };
-
-    const catalogData = {
-      baseImageUrl: "/assets/images/products/",
-      categories: [
+      slug: "industrial-dishwasher-heaters",
+      products: [
         {
-          name: {
-            tr: "Endüstriyel Bulaşık ve Çamaşır Isıtıcıları",
-            en: "Industrial Dishwasher & Washing Heaters",
-            ar: "سخانات غسالات الصحون والغسيل الصناعية"
+          code: "NK1211",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 2000W",
+            en: "Industrial Dishwasher Heater 2000W",
+            ar: "سخان غسالة صحون صناعي 2000 واط"
           },
-          slug: "industrial-dishwasher-heaters",
-          products: [
-            {
-              code: "NK1211",
-              title: {
-                tr: "Endüstriyel Bulaşık Makinesi Rezistansı 2000W",
-                en: "Industrial Dishwasher Heater 2000W",
-                ar: "سخان غسالة صحون صناعي 2000 واط"
-              },
-              wolt: "Dishwasher Heating Element",
-              src: "/assets/images/products/dishwasher/NK1211.png",
-              description: {
-                tr: "Endüstriyel bulaşık makineleri için yüksek verimli rezistans",
-                en: "High efficiency heater for industrial dishwashers",
-                ar: "عنصر تسخين عالي الكفاءة لغسالات الصحون الصناعية"
-              },
-              tags: ["dishwasher", "heater", "industrial"],
-              specs: {
-                power: "230V - 2000W",
-                length: "200mm"
-              }
-            },
-            {
-              code: "NK1217",
-              title: {
-                tr: "Endüstriyel Çamaşır Makinesi Rezistansı 7500W",
-                en: "Industrial Washing Heater 7500W",
-                ar: "سخان غسالة صناعية 7500 واط"
-              },
-              wolt: "Industrial Washing Machine Heater",
-              src: "/assets/images/products/dishwasher/NK1217.png",
-              description: {
-                tr: "Ağır sanayi tipi çamaşır makinesi rezistansı",
-                en: "Heavy duty washing machine heater",
-                ar: "عنصر تسخين عالي التحمل لغسالة صناعية"
-              },
-              tags: ["washing", "heater", "heavy-duty"],
-              specs: {
-                power: "230-400V 7500W",
-                length: "300mm"
-              }
-            }
-          ]
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1211.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 2000W",
+            length: "200mm"
+          }
         },
         {
-          name: {
-            tr: "Çay Makinesi ve Semaver Isıtıcıları",
-            en: "Tea Machine & Samovar Heaters",
-            ar: "سخانات آلة الشاي والسماور"
+          code: "NK1212",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 2500W",
+            en: "Industrial Dishwasher Heater 2500W",
+            ar: "سخان غسالة صحون صناعي 2500 واط"
           },
-          slug: "tea-heaters",
-          products: [
-            {
-              code: "NK1311",
-              title: {
-                tr: "Çay Makinesi Rezistansı 900W",
-                en: "Tea Machine Heater 900W",
-                ar: "سخان آلة الشاي 900 واط"
-              },
-              wolt: "Tea Boiler Heating Element",
-              src: "/assets/images/products/tea/NK1311.png",
-              description: {
-                tr: "Çay kazanı ve semaver için rezistans",
-                en: "Heater for tea boiler and samovar",
-                ar: "عنصر تسخين لغلاية الشاي والسماور"
-              },
-              tags: ["tea", "samovar", "heater"],
-              specs: {
-                power: "900W - 230V",
-                diameter: "6.5mm"
-              }
-            },
-            {
-              code: "NK1318",
-              title: {
-                tr: "Semaver Rezistansı 2750W",
-                en: "Samovar Heater 2750W",
-                ar: "سخان سماور 2750 واط"
-              },
-              wolt: "Samovar Heating Element",
-              src: "/assets/images/products/tea/NK1318.png",
-              description: {
-                tr: "Yüksek güçlü semaver rezistansı",
-                en: "High power samovar heater",
-                ar: "عنصر تسخين سماور عالي القدرة"
-              },
-              tags: ["samovar", "heater"],
-              specs: {
-                power: "2750W",
-                diameter: "6.5mm"
-              }
-            }
-          ]
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1212.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 2500W",
+            length: "230mm"
+          }
         },
         {
-          name: {
-            tr: "Fritöz Isıtıcıları",
-            en: "Deep Fryer Heaters",
-            ar: "سخانات القلاية"
+          code: "NK1213",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 2000W",
+            en: "Industrial Dishwasher Heater 2000W",
+            ar: "سخان غسالة صحون صناعي 2000 واط"
           },
-          slug: "deep-fryer-heaters",
-          products: [
-            {
-              code: "NK1411",
-              title: {
-                tr: "Fritöz Rezistansı 650W",
-                en: "Fryer Heater 650W",
-                ar: "سخان قلاية 650 واط"
-              },
-              wolt: "Deep Fryer Heating Element",
-              src: "/assets/images/products/fryer/NK1411.png",
-              description: {
-                tr: "Endüstriyel fritöz ısıtıcı",
-                en: "Industrial fryer heater",
-                ar: "عنصر تسخين للقلاية الصناعية"
-              },
-              tags: ["fryer", "heater"],
-              specs: {
-                power: "650W"
-              }
-            },
-            {
-              code: "NK1417",
-              title: {
-                tr: "Ağır Hizmet Fritöz Rezistansı 7500W",
-                en: "Heavy Duty Fryer Heater 7500W",
-                ar: "سخان قلاية ثقيل 7500 واط"
-              },
-              wolt: "Industrial Fryer Heating Element",
-              src: "/assets/images/products/fryer/NK1417.png",
-              description: {
-                tr: "Yüksek kapasiteli fritöz rezistansı",
-                en: "High capacity fryer heater",
-                ar: "عنصر تسخين عالي السعة للقلاية"
-              },
-              tags: ["fryer", "industrial"],
-              specs: {
-                power: "7500W"
-              }
-            }
-          ]
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1213.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 2000W",
+            length: "280mm"
+          }
         },
         {
-          name: {
-            tr: "Izgara Isıtıcıları",
-            en: "Grill Heaters",
-            ar: "سخانات الشواية"
+          code: "NK1214",
+          title: {
+            tr: "Endüstriyel Çamaşır Makinesi Rezistansı 7500W",
+            en: "Industrial Washing Heater 7500W",
+            ar: "سخان غسالة صناعية 7500 واط"
           },
-          slug: "grill-heaters",
-          products: [
-            {
-              code: "NK1611",
-              title: {
-                tr: "Izgara Rezistansı 1500W",
-                en: "Grill Heater 1500W",
-                ar: "سخان شواية 1500 واط"
-              },
-              wolt: "Grill Heating Element",
-              src: "/assets/images/products/grill/NK1611.png",
-              description: {
-                tr: "Endüstriyel ızgara rezistansı",
-                en: "Industrial grill heater",
-                ar: "عنصر تسخين للشواية الصناعية"
-              },
-              tags: ["grill", "heater"],
-              specs: {
-                power: "1500W"
-              }
-            }
-          ]
+          wolt: "Industrial Washing Machine Heater",
+          src: "/assets/images/products/dishwasher/NK1214.png",
+          description: {
+            tr: "Endüstriyel çamaşır makineleri için rezistans",
+            en: "Heating element for industrial washing machines",
+            ar: "عنصر تسخين لغسالات صناعية"
+          },
+          tags: ["washing", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 7500W",
+            length: "300mm"
+          }
         },
         {
-          name: {
-            tr: "Fırın Isıtıcıları",
-            en: "Oven Heaters",
-            ar: "سخانات الفرن"
+          code: "NK1215",
+          title: {
+            tr: "Endüstriyel Çamaşır Makinesi Rezistansı 5500W",
+            en: "Industrial Washing Heater 5500W",
+            ar: "سخان غسالة صناعية 5500 واط"
           },
-          slug: "oven-heaters",
-          products: [
-            {
-              code: "NK1711",
-              title: {
-                tr: "Fırın Rezistansı 2000W",
-                en: "Oven Heater 2000W",
-                ar: "سخان فرن 2000 واط"
-              },
-              wolt: "Oven Heating Element",
-              src: "/assets/images/products/oven/NK1711.png",
-              description: {
-                tr: "Fırın rezistansı",
-                en: "Oven heating element",
-                ar: "عنصر تسخين للفرن"
-              },
-              tags: ["oven", "heater"],
-              specs: {
-                power: "2000W"
-              }
-            }
-          ]
+          wolt: "Industrial Washing Machine Heater",
+          src: "/assets/images/products/dishwasher/NK1215.png",
+          description: {
+            tr: "Endüstriyel çamaşır makineleri için rezistans",
+            en: "Heating element for industrial washing machines",
+            ar: "عنصر تسخين لغسالات صناعية"
+          },
+          tags: ["washing", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 5500W",
+            length: "230mm"
+          }
         },
         {
-          name: {
-            tr: "Su ve Yağ Isıtıcıları",
-            en: "Water & Oil Heaters",
-            ar: "سخانات الماء والزيت"
+          code: "NK1216",
+          title: {
+            tr: "Endüstriyel Çamaşır Makinesi Rezistansı 6000W",
+            en: "Industrial Washing Heater 6000W",
+            ar: "سخان غسالة صناعية 6000 واط"
           },
-          slug: "water-oil-heaters",
-          products: [
-            {
-              code: "NK2111",
-              title: {
-                tr: "Su Isıtıcı Rezistansı 2000W",
-                en: "Water Heater 2000W",
-                ar: "سخان ماء 2000 واط"
-              },
-              wolt: "Water Heating Element",
-              src: "/assets/images/products/water/NK2111.png",
-              description: {
-                tr: "Su kazanı rezistansı",
-                en: "Water boiler heater",
-                ar: "عنصر تسخين لغلاية الماء"
-              },
-              tags: ["water", "heater"],
-              specs: {
-                power: "2000W"
-              }
-            },
-            {
-              code: "NK2133",
-              title: {
-                tr: "Endüstriyel Yağ Isıtıcı Rezistansı 15000W",
-                en: "Industrial Oil Heater 15000W",
-                ar: "سخان زيت صناعي 15000 واط"
-              },
-              wolt: "Oil Heating Element",
-              src: "/assets/images/products/water/NK2133.png",
-              description: {
-                tr: "Endüstriyel yağ ısıtıcı rezistansı",
-                en: "Industrial oil heating element",
-                ar: "عنصر تسخين زيت صناعي"
-              },
-              tags: ["oil", "heater", "industrial"],
-              specs: {
-                power: "15000W"
-              }
-            }
-          ]
+          wolt: "Industrial Washing Machine Heater",
+          src: "/assets/images/products/dishwasher/NK1216.png",
+          description: {
+            tr: "Endüstriyel çamaşır makineleri için rezistans",
+            en: "Heating element for industrial washing machines",
+            ar: "عنصر تسخين لغسالات صناعية"
+          },
+          tags: ["washing", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 6000W",
+            length: "250mm"
+          }
         },
         {
-          name: {
-            tr: "Kartuş ve Fişek Isıtıcılar",
-            en: "Cartridge Heaters",
-            ar: "سخانات الخرطوشة"
+          code: "NK1217",
+          title: {
+            tr: "Endüstriyel Çamaşır Makinesi Rezistansı 7500W",
+            en: "Industrial Washing Heater 7500W",
+            ar: "سخان غسالة صناعية 7500 واط"
           },
-          slug: "cartridge-heaters",
-          products: [
-            {
-              code: "NK1012",
-              title: {
-                tr: "Kartuş Rezistans",
-                en: "Cartridge Heater",
-                ar: "سخان خرطوشة"
-              },
-              wolt: "Cartridge Heating Element",
-              src: "/assets/images/products/cartridge/NK1012.png",
-              description: {
-                tr: "Yüksek yoğunluklu fişek rezistans",
-                en: "High density cartridge heater",
-                ar: "عنصر تسخين خرطوشة عالي الكثافة"
-              },
-              tags: ["cartridge", "heater"],
-              specs: {}
-            }
-          ]
+          wolt: "Industrial Washing Machine Heater",
+          src: "/assets/images/products/dishwasher/NK1217.png",
+          description: {
+            tr: "Endüstriyel çamaşır makineleri için rezistans",
+            en: "Heating element for industrial washing machines",
+            ar: "عنصر تسخين لغسالات صناعية"
+          },
+          tags: ["washing", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 7500W",
+            length: "300mm"
+          }
+        },
+        {
+          code: "NK1223",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 4500W",
+            en: "Industrial Dishwasher Heater 4500W",
+            ar: "سخان غسالة صحون صناعي 4500 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1223.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 4500W",
+            length: "340mm"
+          }
+        },
+        {
+          code: "NK1224",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 4500W",
+            en: "Industrial Dishwasher Heater 4500W",
+            ar: "سخان غسالة صحون صناعي 4500 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1224.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 4500W",
+            length: "430mm"
+          }
+        },
+        {
+          code: "NK1225",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 7500W",
+            en: "Industrial Dishwasher Heater 7500W",
+            ar: "سخان غسالة صحون صناعي 7500 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1225.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 7500W",
+            length: "430mm"
+          }
+        },
+        {
+          code: "NK1226",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 4500W",
+            en: "Industrial Dishwasher Heater 4500W",
+            ar: "سخان غسالة صحون صناعي 4500 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1226.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 4500W",
+            length: "340mm"
+          }
+        },
+        {
+          code: "NK1227",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 6000W",
+            en: "Industrial Dishwasher Heater 6000W",
+            ar: "سخان غسالة صحون صناعي 6000 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1227.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 6000W",
+            length: "430mm"
+          }
+        },
+        {
+          code: "NK1228",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 9000W",
+            en: "Industrial Dishwasher Heater 9000W",
+            ar: "سخان غسالة صحون صناعي 9000 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1228.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için rezistans",
+            en: "Heating element for industrial dishwashers",
+            ar: "عنصر تسخين لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial"],
+          specs: {
+            power: "230V - 400V 9000W",
+            length: "430mm"
+          }
+        },
+        {
+          code: "NK1228-540",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 9000W",
+            en: "Industrial Dishwasher Heater 9000W",
+            ar: "سخان غسالة صحون صناعي 9000 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1228.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için büyük ölçü rezistans",
+            en: "Large size heating element for industrial dishwashers",
+            ar: "عنصر تسخين كبير الحجم لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial", "large"],
+          specs: {
+            power: "230V - 400V 9000W",
+            length: "540mm"
+          }
+        },
+        {
+          code: "NK1229",
+          title: {
+            tr: "Endüstriyel Bulaşık Makinesi Rezistansı 12000W",
+            en: "Industrial Dishwasher Heater 12000W",
+            ar: "سخان غسالة صحون صناعي 12000 واط"
+          },
+          wolt: "Dishwasher Heating Element",
+          src: "/assets/images/products/dishwasher/NK1229.png",
+          description: {
+            tr: "Endüstriyel bulaşık makineleri için büyük ölçü rezistans",
+            en: "Large size heating element for industrial dishwashers",
+            ar: "عنصر تسخين كبير الحجم لغسالات الصحون الصناعية"
+          },
+          tags: ["dishwasher", "heater", "industrial", "large"],
+          specs: {
+            power: "230V - 400V 12000W",
+            length: "540mm"
+          }
         }
       ]
-    };
+    },
+
+    {
+      name: {
+        tr: "Endüstriyel Mutfak Isıtıcıları",
+        en: "Industrial Kitchen Heaters",
+        ar: "سخانات المطبخ الصناعية"
+      },
+      slug: "industrial-kitchen-heaters",
+      products: [
+        {
+          code: "NK1231",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 2900W",
+            en: "Industrial Kitchen Heater 2900W",
+            ar: "سخان مطبخ صناعي 2900 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1231.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 2900W",
+            length: "230mm"
+          }
+        },
+        {
+          code: "NK1232",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 3000W",
+            en: "Industrial Kitchen Heater 3000W",
+            ar: "سخان مطبخ صناعي 3000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1232.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 3000W",
+            length: "230mm"
+          }
+        },
+        {
+          code: "NK1233",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 6000W",
+            en: "Industrial Kitchen Heater 6000W",
+            ar: "سخان مطبخ صناعي 6000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1233.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 6000W",
+            length: "300mm"
+          }
+        },
+        {
+          code: "NK1234",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 6000W",
+            en: "Industrial Kitchen Heater 6000W",
+            ar: "سخان مطبخ صناعي 6000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1234.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 6000W",
+            length: "230mm"
+          }
+        },
+        {
+          code: "NK1235",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1235.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4000W",
+            length: "300mm"
+          }
+        },
+        {
+          code: "NK1236",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1236.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4000W",
+            length: "400mm"
+          }
+        },
+        {
+          code: "NK1237",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4600W",
+            en: "Industrial Kitchen Heater 4600W",
+            ar: "سخان مطبخ صناعي 4600 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1237.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4600W",
+            length: "300mm"
+          }
+        },
+        {
+          code: "NK1238",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 5000W",
+            en: "Industrial Kitchen Heater 5000W",
+            ar: "سخان مطبخ صناعي 5000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1238.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 5000W",
+            length: "400mm"
+          }
+        },
+        {
+          code: "NK1239",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4500W",
+            en: "Industrial Kitchen Heater 4500W",
+            ar: "سخان مطبخ صناعي 4500 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1239.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4500W",
+            length: "300mm"
+          }
+        },
+        {
+          code: "NK1238-4000",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1238.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4000W",
+            length: "400mm"
+          }
+        },
+        {
+          code: "NK1238-4930",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4930W",
+            en: "Industrial Kitchen Heater 4930W",
+            ar: "سخان مطبخ صناعي 4930 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1238.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4930W",
+            length: "400mm"
+          }
+        },
+        {
+          code: "NK1237-4000",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1237.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4000W",
+            length: "400mm"
+          }
+        },
+        {
+          code: "NK1238-500",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1238.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4000W",
+            length: "500mm"
+          }
+        },
+        {
+          code: "NK1239-400",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1239.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4000W",
+            length: "400mm"
+          }
+        },
+        {
+          code: "NK1239-500",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1239.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için rezistans",
+            en: "Heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial"],
+          specs: {
+            power: "230V - 4000W",
+            length: "500mm"
+          }
+        },
+        {
+          code: "NK1229-K",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı 4000W",
+            en: "Industrial Kitchen Heater 4000W",
+            ar: "سخان مطبخ صناعي 4000 واط"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1229.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için büyük ölçü rezistans",
+            en: "Large size heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين كبير الحجم لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial", "large"],
+          specs: {
+            power: "230V - 4000W",
+            length: "540mm"
+          }
+        },
+        {
+          code: "NK1260",
+          title: {
+            tr: "Endüstriyel Mutfak Rezistansı",
+            en: "Industrial Kitchen Heater",
+            ar: "سخان مطبخ صناعي"
+          },
+          wolt: "Industrial Kitchen Heater",
+          src: "/assets/images/products/kitchen/NK1260.png",
+          description: {
+            tr: "Endüstriyel mutfak ekipmanları için özel tip rezistans",
+            en: "Special type heating element for industrial kitchen equipment",
+            ar: "عنصر تسخين خاص لمعدات المطبخ الصناعية"
+          },
+          tags: ["kitchen", "heater", "industrial", "special"],
+          specs: {}
+        }
+      ]
+    }
+  ]
+};
 
     let lang = "tr";
     let active = "all";
