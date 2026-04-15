@@ -1,338 +1,426 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DE Project Heating Elements</title>
+  <meta name="description" content="DE Project Heating Elements ürün kataloğu" />
 
-<title>DE Project Heating Elements</title>
-<meta name="description" content="Endüstriyel rezistans ürün kataloğu">
+  <style>
+    :root{
+      --green:#0b6b47;
+      --bg:#f4f7f5;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --white:#ffffff;
+    }
 
-<style>
-:root{
-  --green:#0b6b47;
-  --bg:#f4f7f5;
-}
+    *{
+      box-sizing:border-box;
+    }
 
-body{
-  margin:0;
-  font-family:Arial;
-  background:var(--bg);
-}
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
 
-/* CONTAINER */
-.container{
-  width:min(1300px,100% - 40px);
-  margin:auto;
-}
+    .container{
+      width:min(1300px, calc(100% - 40px));
+      margin:auto;
+    }
 
-/* HEADER */
-header{
-  background:white;
-  padding:15px 0;
-  border-bottom:1px solid #ddd;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
+    header{
+      background:var(--white);
+      padding:18px 0;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
 
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
 
-/* LOGO */
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
 
-.logo img{
-  width:50px;
-  height:50px;
-  background:white;
-  padding:6px;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    .logo img{
+      width:52px;
+      height:52px;
+      object-fit:contain;
+      background:#fff;
+      padding:6px;
+      border-radius:14px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
 
-.logo span{
-  font-weight:bold;
-  color:var(--green);
-}
+    .logo span{
+      font-size:20px;
+      font-weight:700;
+      color:var(--green);
+      line-height:1.2;
+    }
 
-/* NAV */
-.nav a{
-  text-decoration:none;
-  margin-left:15px;
-  font-weight:bold;
-  color:#333;
-}
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
 
-/* HERO */
-.hero-banner{
-  position:relative;
-  height:500px;
-  background:linear-gradient(135deg,#0b6b47,#0f8a5f);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:40px;
-  border-radius:20px;
-  margin:20px auto;
-  overflow:hidden;
-}
+    .nav a{
+      text-decoration:none;
+      font-weight:700;
+      color:#374151;
+      font-size:14px;
+      transition:.25s;
+    }
 
-.hero-content{
-  color:white;
-  max-width:500px;
-  animation:fadeUp 1s ease;
-}
+    .nav a:hover{
+      color:var(--green);
+    }
 
-.hero-content h1{
-  font-size:38px;
-}
+    .hero{
+      padding:40px 0 20px;
+    }
 
-.hero-btn{
-  display:inline-block;
-  background:white;
-  color:#0b6b47;
-  padding:12px 20px;
-  border-radius:10px;
-  text-decoration:none;
-  margin-top:15px;
-}
+    .hero-box{
+      background:linear-gradient(135deg, #0b6b47, #11875b);
+      color:white;
+      border-radius:24px;
+      padding:38px 30px;
+      box-shadow:0 20px 40px rgba(11,107,71,0.18);
+    }
 
-/* FLOAT PRODUCTS */
-.hero-products{
-  display:flex;
-  gap:20px;
-}
+    .hero-box h1{
+      margin:0 0 12px;
+      font-size:34px;
+      line-height:1.15;
+    }
 
-.hero-products img{
-  width:110px;
-  height:110px;
-  background:white;
-  padding:10px;
-  border-radius:15px;
-  animation:float 4s infinite ease-in-out;
-}
+    .hero-box p{
+      margin:0;
+      max-width:720px;
+      font-size:15px;
+      line-height:1.7;
+      color:rgba(255,255,255,0.92);
+    }
 
-.hero-products img:nth-child(2){animation-delay:.5s;}
-.hero-products img:nth-child(3){animation-delay:1s;}
-.hero-products img:nth-child(4){animation-delay:1.5s;}
+    .catbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:26px 0;
+    }
 
-/* CATEGORY */
-.catbar{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:20px 0;
-}
+    .cat-btn{
+      background:white;
+      border:1px solid var(--border);
+      padding:10px 15px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:700;
+      transition:.25s;
+    }
 
-.cat-btn{
-  background:white;
-  border:1px solid #ddd;
-  padding:8px 14px;
-  border-radius:20px;
-  cursor:pointer;
-}
+    .cat-btn:hover{
+      border-color:var(--green);
+      color:var(--green);
+    }
 
-.cat-btn.active{
-  background:var(--green);
-  color:white;
-}
+    .cat-btn.active{
+      background:var(--green);
+      color:white;
+      border-color:var(--green);
+    }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+      padding-bottom:50px;
+    }
 
-/* CARD */
-.card{
-  background:white;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 10px 20px rgba(0,0,0,0.05);
-  transition:.3s;
-}
+    .card{
+      background:white;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 12px 28px rgba(0,0,0,0.06);
+      transition:transform .25s ease, box-shadow .25s ease;
+      display:flex;
+      flex-direction:column;
+    }
 
-.card:hover{
-  transform:translateY(-5px);
-}
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 36px rgba(0,0,0,0.10);
+    }
 
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:contain;
-}
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:contain;
+      background:#fff;
+      padding:16px;
+      border-bottom:1px solid #f1f1f1;
+    }
 
-.card-body{
-  padding:15px;
-}
+    .card-body{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      height:100%;
+    }
 
-.btn{
-  display:block;
-  background:var(--green);
-  color:white;
-  padding:10px;
-  text-align:center;
-  border-radius:8px;
-  text-decoration:none;
-  margin-top:10px;
-}
+    .card-body h3{
+      margin:0;
+      font-size:17px;
+      line-height:1.4;
+      min-height:46px;
+    }
 
-/* ANIMATIONS */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
-}
+    .code{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+    }
 
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
-}
+    .category{
+      font-size:12px;
+      color:var(--green);
+      font-weight:700;
+      background:#edf8f2;
+      padding:7px 10px;
+      border-radius:999px;
+      width:max-content;
+    }
 
-/* MOBILE */
-@media(max-width:768px){
-  .hero-banner{
-    flex-direction:column;
-    height:auto;
-    text-align:center;
-  }
-}
-</style>
+    .buttons{
+      display:grid;
+      gap:8px;
+      margin-top:auto;
+      padding-top:6px;
+    }
+
+    .btn{
+      display:block;
+      text-align:center;
+      padding:11px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      transition:.25s;
+    }
+
+    .btn-primary{
+      background:var(--green);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      opacity:.92;
+    }
+
+    .btn-secondary{
+      background:#111827;
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      opacity:.92;
+    }
+
+    footer{
+      background:#ffffff;
+      border-top:1px solid var(--border);
+      padding:20px 0;
+      color:#6b7280;
+      font-size:14px;
+      text-align:center;
+    }
+
+    @media (max-width:768px){
+      .hero-box{
+        padding:28px 20px;
+      }
+
+      .hero-box h1{
+        font-size:26px;
+      }
+
+      .logo span{
+        font-size:17px;
+      }
+
+      .logo img{
+        width:46px;
+        height:46px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <div class="container topbar">
+  <header>
+    <div class="container topbar">
+      <a href="index.html" class="logo">
+        <img src="/assets/logo.png" alt="DE Project Logo">
+        <span>DE Project Heating Elements</span>
+      </a>
 
-    <div class="logo">
-      <img src="/assets/logo.png">
-      <span>DE Project</span>
+      <nav class="nav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+      </nav>
     </div>
+  </header>
 
-    <nav class="nav">
-      <a href="#">Ana Sayfa</a>
-      <a href="#">Hakkımızda</a>
-    </nav>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-box">
+        <h1>Endüstriyel Rezistans Ürün Kataloğu</h1>
+        <p>
+          DE Project Heating Elements ürünlerini kategori bazlı inceleyin,
+          ürün detaylarını görün ve hızlı teklif alın.
+        </p>
+      </div>
+    </section>
 
-  </div>
-</header>
+    <div id="catbar" class="catbar"></div>
+    <div id="catalog"></div>
+  </main>
 
-<!-- HERO -->
-<section class="container hero-banner">
+  <footer>
+    © 2026 DE Project Heating Elements - Tüm hakları saklıdır.
+  </footer>
 
-  <div class="hero-content">
-    <h1>Endüstriyel Rezistans Çözümleri</h1>
-    <p>Kalite, performans ve güvenilir üretim</p>
-    <a href="#catalog" class="hero-btn">Ürünleri İncele</a>
-  </div>
+  <script>
+    let products = [];
+    let activeCategory = null;
 
-  <div class="hero-products">
-    <img src="/assets/p1.png">
-    <img src="/assets/p2.png">
-    <img src="/assets/p3.png">
-    <img src="/assets/p4.png">
-  </div>
-
-</section>
-
-<main class="container">
-
-<div id="catbar" class="catbar"></div>
-<div id="catalog"></div>
-
-</main>
-
-<script>
-let products = [];
-let activeCategory = null;
-
-function safe(v){ return v || "" }
-
-function productURL(code){
-  return code.toLowerCase()+".html";
-}
-
-// LOAD JSON
-async function load(){
-  const res = await fetch("https://raw.githubusercontent.com/cyperelectron/deproject.github.io/main/data.json");
-  const json = await res.json();
-
-  const categories = json.categories;
-
-  products = categories.flatMap(cat =>
-    cat.products.map(p => ({
-      ...p,
-      category: cat.category
-    }))
-  );
-
-  renderCategories(categories);
-  render(products);
-}
-
-// CATEGORY
-function renderCategories(categories){
-  catbar.innerHTML = `
-    <div class="cat-btn active" onclick="selectCategory(null)">Tümü</div>
-    ${categories.map(c => `
-      <div class="cat-btn" onclick="selectCategory('${c.category}')">${c.category}</div>
-    `).join("")}
-  `;
-}
-
-function selectCategory(cat){
-  activeCategory = cat;
-
-  document.querySelectorAll(".cat-btn").forEach(btn=>{
-    btn.classList.remove("active");
-    if(btn.innerText === cat || (!cat && btn.innerText==="Tümü")){
-      btn.classList.add("active");
+    function safe(v){
+      return v || "";
     }
-  });
 
-  filter();
-}
+    function productURL(code){
+      return (code || "urun").toLowerCase() + ".html";
+    }
 
-function filter(){
-  if(!activeCategory) return render(products);
-  render(products.filter(p => p.category === activeCategory));
-}
+    async function load(){
+      try{
+        const res = await fetch("https://raw.githubusercontent.com/cyperelectron/deproject.github.io/main/data.json");
+        const json = await res.json();
 
-// RENDER
-function render(list){
-  catalog.innerHTML = `
-    <div class="grid">
-      ${list.map(p => `
-        <div class="card">
-          <img src="${safe(p.image)||'https://via.placeholder.com/300'}">
+        const categories = Array.isArray(json) ? json : (json.categories || []);
 
-          <div class="card-body">
-            <h3>${safe(p.title)}</h3>
-            <div>${safe(p.code)}</div>
+        products = categories.flatMap(cat =>
+          (cat.products || []).map(p => ({
+            ...p,
+            category: cat.category || cat.name || "Diğer"
+          }))
+        );
 
-            <a class="btn" href="${productURL(p.code)}">Detay</a>
-
-            <a class="btn"
-            href="https://wa.me/905462902347?text=${encodeURIComponent(p.code)}">
-            Teklif Al
-            </a>
+        renderCategories(categories);
+        render(products);
+      }catch(err){
+        document.getElementById("catalog").innerHTML = `
+          <div style="background:#fff;padding:20px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.05);">
+            Ürün verisi yüklenemedi.
           </div>
-        </div>
-      `).join("")}
-    </div>
-  `;
-}
+        `;
+      }
+    }
 
-load();
-</script>
+    function renderCategories(categories){
+      const catbar = document.getElementById("catbar");
+      const names = [...new Set(categories.map(c => c.category || c.name).filter(Boolean))];
+
+      catbar.innerHTML = `
+        <button class="cat-btn active" onclick="selectCategory(null)">Tümü</button>
+        ${names.map(name => `
+          <button class="cat-btn" onclick="selectCategory('${String(name).replace(/'/g, "\\'")}')">${name}</button>
+        `).join("")}
+      `;
+    }
+
+    function selectCategory(cat){
+      activeCategory = cat;
+
+      document.querySelectorAll(".cat-btn").forEach(btn => {
+        btn.classList.remove("active");
+        if((!cat && btn.innerText === "Tümü") || btn.innerText === cat){
+          btn.classList.add("active");
+        }
+      });
+
+      filterProducts();
+    }
+
+    function filterProducts(){
+      if(!activeCategory){
+        render(products);
+        return;
+      }
+
+      const filtered = products.filter(p => p.category === activeCategory);
+      render(filtered);
+    }
+
+    function render(list){
+      const catalog = document.getElementById("catalog");
+
+      if(!list.length){
+        catalog.innerHTML = `<div style="padding:20px;background:#fff;border-radius:16px;">Ürün bulunamadı.</div>`;
+        return;
+      }
+
+      catalog.innerHTML = `
+        <div class="grid">
+          ${list.map(p => `
+            <div class="card">
+              <img
+                loading="lazy"
+                src="${safe(p.image) || 'https://via.placeholder.com/500x320?text=DE+Project'}"
+                alt="${safe(p.title)}"
+              >
+
+              <div class="card-body">
+                <div class="category">${safe(p.category)}</div>
+                <h3>${safe(p.title)}</h3>
+                <div class="code">Ürün Kodu: ${safe(p.code)}</div>
+
+                <div class="buttons">
+                  <a class="btn btn-secondary" href="${productURL(p.code)}">Ürünü İncele</a>
+                  <a class="btn btn-primary"
+                     target="_blank"
+                     href="https://wa.me/905462902347?text=${encodeURIComponent('Merhaba, ' + safe(p.code) + ' kodlu ' + safe(p.title) + ' ürünü hakkında bilgi almak istiyorum.')}">
+                    Teklif Al
+                  </a>
+                </div>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    load();
+  </script>
 
 </body>
 </html>
