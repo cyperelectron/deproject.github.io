@@ -132,7 +132,7 @@ let data = null;
 // 🔥 JSON LOAD (GitHub uyumlu)
 async function loadData(){
   try{
-    const res = await fetch("https://github.com/cyperelectron/deproject.github.io/blob/303c43127a1827d40f1f00a8fe54b55dab086086/data.json");
+    const res = await fetch("https://raw.githubusercontent.com/cyperelectron/deproject.github.io/refs/heads/main/data.json");
     data = await res.json();
     render();
   }catch(e){
