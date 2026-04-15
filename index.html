@@ -8,14 +8,17 @@
 <style>
 :root{
   --green:#0b6b47;
+  --green2:#11875b;
   --bg:#f4f7f5;
   --text:#1f2937;
   --border:#e5e7eb;
 }
 
+*{box-sizing:border-box}
+
 body{
   margin:0;
-  font-family:Arial;
+  font-family:Arial, sans-serif;
   background:var(--bg);
   color:var(--text);
 }
@@ -32,13 +35,15 @@ header{
   border-bottom:1px solid var(--border);
   position:sticky;
   top:0;
-  z-index:10;
+  z-index:100;
+  backdrop-filter:blur(8px);
 }
 
 .topbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:20px;
 }
 
 .logo{
@@ -55,6 +60,7 @@ header{
 .logo span{
   font-weight:700;
   color:var(--green);
+  font-size:20px;
 }
 
 .nav a{
@@ -62,18 +68,222 @@ header{
   text-decoration:none;
   font-weight:700;
   color:#333;
+  transition:.25s;
+}
+
+.nav a:hover{
+  color:var(--green);
 }
 
 /* HERO */
 .hero{
-  padding:40px 0;
+  padding:40px 0 20px;
 }
 
 .hero-box{
-  background:linear-gradient(135deg,#0b6b47,#11875b);
+  position:relative;
+  overflow:hidden;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  padding:50px;
+  border-radius:28px;
   color:white;
-  padding:40px;
-  border-radius:20px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.14), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(255,255,255,.10), transparent 22%),
+    linear-gradient(135deg,#0b6b47 0%, #11875b 50%, #0d5c3d 100%);
+  box-shadow:0 25px 60px rgba(11,107,71,.18);
+  isolation:isolate;
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  max-width:700px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.2);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:20px;
+  animation:fadeUp .8s ease;
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(32px,5vw,58px);
+  line-height:1.08;
+  letter-spacing:-1px;
+}
+
+.typing-text{
+  display:inline-block;
+  border-right:3px solid rgba(255,255,255,.95);
+  white-space:nowrap;
+  overflow:hidden;
+  min-height:1.2em;
+}
+
+.hero p{
+  margin:18px 0 0;
+  font-size:18px;
+  line-height:1.7;
+  color:rgba(255,255,255,.92);
+  max-width:620px;
+  animation:fadeUp 1.2s ease;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:28px;
+  animation:fadeUp 1.4s ease;
+}
+
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.3s ease;
+}
+
+.hero-btn.primary{
+  background:#fff;
+  color:var(--green);
+}
+
+.hero-btn.primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 25px rgba(255,255,255,.18);
+}
+
+.hero-btn.secondary{
+  border:1px solid rgba(255,255,255,.24);
+  color:#fff;
+  background:rgba(255,255,255,.08);
+}
+
+.hero-btn.secondary:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.14);
+}
+
+.hero-glow{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(20px);
+  opacity:.55;
+  z-index:1;
+}
+
+.glow-1{
+  width:280px;
+  height:280px;
+  background:rgba(255,255,255,.18);
+  top:-80px;
+  left:-60px;
+  animation:floatGlow 7s ease-in-out infinite alternate;
+}
+
+.glow-2{
+  width:240px;
+  height:240px;
+  background:rgba(0,255,191,.18);
+  right:40px;
+  top:40px;
+  animation:floatGlow 8s ease-in-out infinite alternate-reverse;
+}
+
+.glow-3{
+  width:180px;
+  height:180px;
+  background:rgba(255,255,255,.12);
+  right:180px;
+  bottom:-40px;
+  animation:floatGlow 6s ease-in-out infinite alternate;
+}
+
+.hero-shape{
+  position:absolute;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.shape-1{
+  width:100px;
+  height:100px;
+  border-radius:24px;
+  right:90px;
+  top:70px;
+  font-size:34px;
+  animation:floatItem 5s ease-in-out infinite;
+}
+
+.shape-2{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  right:220px;
+  bottom:70px;
+  font-size:28px;
+  animation:floatItem 6s ease-in-out infinite reverse;
+}
+
+.shape-3{
+  width:130px;
+  height:130px;
+  border-radius:30px;
+  right:30px;
+  bottom:30px;
+  font-size:42px;
+  animation:floatItem 7s ease-in-out infinite;
+}
+
+.hero-wave{
+  position:absolute;
+  inset:auto 0 0 0;
+  height:110px;
+  background:linear-gradient(to top, rgba(255,255,255,.12), transparent);
+  z-index:1;
+}
+
+.scroll-indicator{
+  margin-top:22px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  color:rgba(255,255,255,.85);
+  animation:fadeUp 1.6s ease;
+}
+
+.scroll-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#fff;
+  animation:pulse 1.5s infinite;
 }
 
 /* CATEGORY */
@@ -91,6 +301,12 @@ header{
   background:white;
   cursor:pointer;
   font-weight:700;
+  transition:.25s ease;
+}
+
+.cat-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 16px rgba(0,0,0,.05);
 }
 
 .cat-btn.active{
@@ -110,6 +326,12 @@ header{
   border-radius:16px;
   overflow:hidden;
   box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  transition:.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 35px rgba(0,0,0,.08);
 }
 
 .card img{
@@ -126,6 +348,7 @@ header{
 .category{
   font-size:12px;
   color:var(--green);
+  font-weight:700;
 }
 
 .btn{
@@ -135,6 +358,11 @@ header{
   text-align:center;
   border-radius:8px;
   text-decoration:none;
+  transition:.25s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
 }
 
 .btn-primary{
@@ -156,6 +384,7 @@ header{
   background:white;
   padding:25px;
   border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.04);
 }
 
 /* FOOTER */
@@ -173,10 +402,106 @@ footer{
   bottom:20px;
   background:#25D366;
   color:white;
-  padding:15px;
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border-radius:50%;
   text-decoration:none;
-  font-size:20px;
+  font-size:24px;
+  box-shadow:0 15px 30px rgba(37,211,102,.35);
+  z-index:200;
+  transition:.25s ease;
+}
+
+.whatsapp:hover{
+  transform:scale(1.08);
+}
+
+/* ANIMATIONS */
+@keyframes typingCursor{
+  50%{border-color:transparent;}
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes floatGlow{
+  from{transform:translate(0,0) scale(1);}
+  to{transform:translate(25px,18px) scale(1.08);}
+}
+
+@keyframes floatItem{
+  0%{transform:translateY(0px) rotate(0deg);}
+  50%{transform:translateY(-16px) rotate(4deg);}
+  100%{transform:translateY(0px) rotate(0deg);}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1); opacity:1;}
+  50%{transform:scale(1.4); opacity:.55;}
+  100%{transform:scale(1); opacity:1;}
+}
+
+@media (max-width:900px){
+  .hero-box{
+    min-height:auto;
+    padding:34px 24px 90px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .shape-1{
+    right:20px;
+    top:20px;
+    width:72px;
+    height:72px;
+    font-size:26px;
+  }
+
+  .shape-2{
+    right:120px;
+    bottom:24px;
+    width:64px;
+    height:64px;
+    font-size:22px;
+  }
+
+  .shape-3{
+    right:16px;
+    bottom:16px;
+    width:90px;
+    height:90px;
+    font-size:30px;
+  }
+
+  .nav{
+    display:none;
+  }
+}
+
+@media (max-width:560px){
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .hero-btn{
+    width:100%;
+  }
+
+  .typing-text{
+    white-space:normal;
+    border-right:none;
+  }
 }
 </style>
 </head>
@@ -186,7 +511,7 @@ footer{
 <header>
   <div class="container topbar">
     <a class="logo" href="#">
-      <img src="/assets/logo.png">
+      <img src="/assets/logo.png" alt="DE Project Logo">
       <span>DE Project</span>
     </a>
 
@@ -202,18 +527,45 @@ footer{
 
   <section class="hero">
     <div class="hero-box">
-      <h1>Endüstriyel Rezistans Ürün Kataloğu</h1>
-      <p>Modern, hızlı ve profesyonel ürün katalog sistemi</p>
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+      <div class="hero-glow glow-3"></div>
+
+      <div class="hero-shape shape-1">⚙️</div>
+      <div class="hero-shape shape-2">🔥</div>
+      <div class="hero-shape shape-3">♨️</div>
+
+      <div class="hero-content">
+        <div class="hero-badge">Premium Ürün Kataloğu</div>
+
+        <h1>
+          <span id="typingText" class="typing-text"></span>
+        </h1>
+
+        <p>
+          Modern, hızlı ve profesyonel ürün katalog sistemi. Endüstriyel rezistans ürünlerinizi
+          güçlü bir görsel sunumla sergileyin.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#catalog" class="hero-btn primary">Ürünleri İncele</a>
+          <a href="https://wa.me/905462902347" target="_blank" class="hero-btn secondary">Hızlı Teklif Al</a>
+        </div>
+
+        <div class="scroll-indicator">
+          <span class="scroll-dot"></span>
+          <span>Aşağı kaydır, ürünleri keşfet</span>
+        </div>
+      </div>
+
+      <div class="hero-wave"></div>
     </div>
   </section>
 
-  <!-- CATEGORY -->
   <div id="catbar" class="catbar"></div>
 
-  <!-- PRODUCTS -->
   <div id="catalog"></div>
 
-  <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="contact-box">
       <h3>İletişim</h3>
@@ -256,12 +608,11 @@ async function load(){
 
 function renderCategories(categories){
   const catbar = document.getElementById("catbar");
-
   const names = [...new Set(categories.map(c => c.category || c.name))];
 
   catbar.innerHTML = `
     <button class="cat-btn active" onclick="selectCategory(null)">Tümü</button>
-    ${names.map(n=>`<button class="cat-btn" onclick="selectCategory('${n}')">${n}</button>`).join("")}
+    ${names.map(n=>`<button class="cat-btn" onclick="selectCategory('${n.replace(/'/g, "\\'")}')">${n}</button>`).join("")}
   `;
 }
 
@@ -294,7 +645,7 @@ function render(list){
     <div class="grid">
       ${list.map(p=>`
         <div class="card">
-          <img src="${p.image || 'https://via.placeholder.com/400'}">
+          <img src="${p.image || 'https://via.placeholder.com/400'}" alt="${p.title}">
           <div class="card-body">
             <div class="category">${p.category}</div>
             <h3>${p.title}</h3>
@@ -313,6 +664,22 @@ function render(list){
   `;
 }
 
+/* Typing Animation */
+const heroText = "Endüstriyel Rezistans Ürün Kataloğu";
+const typingElement = document.getElementById("typingText");
+let index = 0;
+
+function typeHeroText(){
+  if(index < heroText.length){
+    typingElement.textContent += heroText.charAt(index);
+    index++;
+    setTimeout(typeHeroText, 55);
+  }else{
+    typingElement.style.animation = "typingCursor .8s infinite";
+  }
+}
+
+typeHeroText();
 load();
 </script>
 
