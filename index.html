@@ -29,8 +29,29 @@ header{
   border-bottom:1px solid #ddd;
 }
 
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
 h1{
   margin:0;
+  color:var(--green);
+  font-size:22px;
+}
+
+/* NAV */
+.nav a{
+  text-decoration:none;
+  margin-left:15px;
+  font-weight:bold;
+  color:#333;
+  font-size:14px;
+}
+
+.nav a:hover{
   color:var(--green);
 }
 
@@ -106,8 +127,17 @@ h3{
 
 <body>
 
-<header class="container">
-  <h1>DE Project Heating Elements</h1>
+<header>
+  <div class="container topbar">
+    
+    <h1>DE Project Heating Elements</h1>
+
+    <nav class="nav">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+    </nav>
+
+  </div>
 </header>
 
 <main class="container">
@@ -161,7 +191,6 @@ function selectCategory(cat){
 
   activeCategory = cat;
 
-  // UI aktif buton
   document.querySelectorAll(".cat-btn").forEach(btn=>{
     btn.classList.remove("active");
     if(btn.innerText === cat || (!cat && btn.innerText==="Tümü")){
