@@ -1,5 +1,6 @@
 {
   "categories": [
+    
     {
       "category": "Endüstriyel Bulaşık ve Çamaşır Makinesi Isıtıcıları",
       "slug": "industrial-kitchen-heaters",
@@ -90,8 +91,8 @@
       ]
     },
 
-{
-  "categories": [
+
+  
     {
       "category": "Termosifon ve Şofben Isıtıcıları",
       "slug": "instant-water-heaters",
@@ -193,11 +194,11 @@
           "image": "/assets/images/products/sp9.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
-    {
+    },
+  
+{
+  
+    
       "category": "Çamaşır Makinesi Isıtıcıları",
       "slug": "washing-machine-heaters",
       "products": [
@@ -236,10 +237,10 @@
           "image": "/assets/images/products/nk2411.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Özel Tip Isıtıcılar",
       "slug": "special-type-heaters",
@@ -311,10 +312,10 @@
           "image": "/assets/images/products/sph011.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Defrost Isıtıcıları",
       "slug": "defrost-heaters",
@@ -420,10 +421,10 @@
           "image": "/assets/images/products/sh004.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Sanayi Tipi Kazan ve Eşanjör Isıtıcıları",
       "slug": "industrial-boiler-heat-exchanger-heaters",
@@ -501,10 +502,10 @@
           "image": "/assets/images/products/nk2507.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Kelepçe ve Plaka Tip Isıtıcılar",
       "slug": "clamp-plate-heaters",
@@ -577,10 +578,10 @@
           "image": "/assets/images/products/rsh002.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Fişek Isıtıcılar",
       "slug": "cartridge-heaters",
@@ -635,10 +636,10 @@
           "image": "/assets/images/products/nk1022.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Termostatlar",
       "slug": "thermostats",
@@ -680,10 +681,10 @@
           "image": "/assets/images/products/th006.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Monoexit Kablosu",
       "slug": "monoexit-cable",
@@ -735,10 +736,8 @@
           "Özel güç ve ölçü üretimi"
         ]
       }
-    }
-  ]
-},{
-  "categories": [
+    },
+  
     {
       "category": "Kartuş Tipi Isıtıcılar",
       "slug": "cartridge-heaters-ptc",
@@ -817,10 +816,9 @@
           "cable_length": "3000 mm"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+
+  
     {
       "category": "Kelepçe ve Plaka Tipi Isıtıcılar",
       "slug": "clamp-plate-heaters",
@@ -897,10 +895,10 @@
           "image": "/assets/images/products/plate2.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Benmari / Hot Plate Silikon Rezistansları",
       "slug": "hot-plate-silicone-heaters",
@@ -978,10 +976,9 @@
         { "size": "630x170", "voltage": "230V", "power": "2500W", "control": "Optional" },
         { "size": "136x310", "voltage": "230V", "power": "1500W", "control": "Optional" }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+
+  
     {
       "category": "Paslanmaz Borular",
       "slug": "stainless-steel-pipes",
@@ -1046,10 +1043,10 @@
           "image": "/assets/images/products/pipe2.png"
         }
       ]
-    }
-  ]
-},{
-  "categories": [
+    },
+  
+
+  
     {
       "category": "Dikdörtgen & Kare Profiller",
       "slug": "rectangle-square-tubing",
@@ -1112,8 +1109,5 @@
         }
       ]
     }
-  ]
-}
-
   ]
 }
