@@ -1,37 +1,120 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DE Project Heating Elements</title>
 
 <style>
 :root{
   --green:#0b6b47;
+  --green-dark:#084c33;
   --bg:#f4f7f5;
+  --white:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --chip:#e8f5ef;
 }
+
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:Arial, sans-serif;
   background:var(--bg);
+  color:var(--text);
 }
 
 .container{
-  width:min(1300px, 100% - 40px);
+  width:min(1300px, calc(100% - 40px));
   margin:auto;
 }
 
 /* HEADER */
 header{
   background:white;
-  padding:20px;
+  padding:20px 0;
   border-bottom:1px solid #ddd;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 h1{
   margin:0;
   color:var(--green);
+  font-size:28px;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:6px;
+}
+
+/* FILTER BAR */
+.filter-wrap{
+  margin:26px 0 18px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr auto;
+  gap:12px;
+}
+
+.filter-box{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 14px;
+}
+
+.filter-box label{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+.filter-box input,
+.filter-box select{
+  width:100%;
+  border:none;
+  outline:none;
+  background:transparent;
+  font-size:15px;
+}
+
+.clear-btn{
+  border:none;
+  background:var(--green);
+  color:white;
+  padding:0 18px;
+  border-radius:14px;
+  font-weight:bold;
+  cursor:pointer;
+  min-height:58px;
+}
+
+.toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+}
+
+.count{
+  color:var(--green);
+  font-weight:bold;
 }
 
 /* CATEGORY */
@@ -41,6 +124,14 @@ h1{
 
 .category h2{
   color:var(--green);
+  margin:0 0 8px;
+  font-size:24px;
+}
+
+.category-desc{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
 }
 
 /* GRID */
@@ -58,6 +149,7 @@ h1{
   overflow:hidden;
   box-shadow:0 10px 25px rgba(0,0,0,0.05);
   transition:.2s;
+  border:1px solid #edf0ef;
 }
 
 .card:hover{
@@ -69,6 +161,7 @@ h1{
   height:200px;
   object-fit:contain;
   background:#f8f8f8;
+  display:block;
 }
 
 .card-body{
@@ -76,23 +169,56 @@ h1{
 }
 
 .code{
-  background:#e8f5ef;
+  background:var(--chip);
   color:var(--green);
   padding:5px 10px;
   border-radius:20px;
   font-size:12px;
   display:inline-block;
+  font-weight:bold;
 }
 
 h3{
   margin:10px 0;
   font-size:16px;
+  line-height:1.4;
 }
 
 .meta{
   font-size:13px;
   color:#666;
-  margin-bottom:10px;
+  margin-bottom:12px;
+  display:grid;
+  gap:6px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.tag{
+  background:#f1f5f3;
+  color:#274d3d;
+  border:1px solid #dfe8e3;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.tag:hover{
+  background:#e8f5ef;
+  color:var(--green);
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
 .btn{
@@ -106,69 +232,393 @@ h3{
   text-decoration:none;
 }
 
-/* LOADING */
-.loading{
+.btn.secondary{
+  background:#eef7f2;
+  color:var(--green);
+  border:1px solid #dbece3;
+}
+
+/* STATUS */
+.loading,
+.empty{
   text-align:center;
   padding:40px;
   color:#666;
+  background:white;
+  border-radius:18px;
+  border:1px solid var(--line);
+  margin-top:24px;
 }
 
-</style>
-</head>
+/* FLOAT BUTTON */
+.whatsapp-float{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:24px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.18);
+}
 
-<body>
-
-<header class="container">
-  <h1>DE Project Heating Elements</h1>
-</header>
-
-<main class="container" id="catalog">
-  <div class="loading">Yükleniyor...</div>
-</main>
-
-<script>
-let data = null;
-
-// 🔥 JSON LOAD (GitHub uyumlu)
-async function loadData(){
-  try{
-    const res = await fetch("https://raw.githubusercontent.com/cyperelectron/deproject.github.io/refs/heads/main/data.json");
-    data = await res.json();
-    render();
-  }catch(e){
-    document.getElementById("catalog").innerHTML = "JSON yüklenemedi!";
-    console.error(e);
+/* MOBILE */
+@media (max-width: 900px){
+  .filter-wrap{
+    grid-template-columns:1fr;
+  }
+  .clear-btn{
+    min-height:50px;
   }
 }
 
-// 🔥 RENDER
-function render(){
-  const catalog = document.getElementById("catalog");
+@media (max-width: 560px){
+  .actions{
+    grid-template-columns:1fr;
+  }
+  h1{
+    font-size:22px;
+  }
+  .category h2{
+    font-size:20px;
+  }
+}
+</style>
+</head>
+<body>
 
-  catalog.innerHTML = data.categories.map(cat => `
+<header>
+  <div class="container header-inner">
+    <div>
+      <h1>DE Project Heating Elements</h1>
+      <div class="subtitle">AI tag destekli ürün kataloğu</div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="filter-wrap">
+    <div class="filter-box">
+      <label for="searchInput">Arama</label>
+      <input id="searchInput" type="text" placeholder="Ürün kodu, başlık, açıklama ara">
+    </div>
+
+    <div class="filter-box">
+      <label for="categoryFilter">Kategori</label>
+      <select id="categoryFilter">
+        <option value="all">Tüm kategoriler</option>
+      </select>
+    </div>
+
+    <div class="filter-box">
+      <label for="tagFilter">AI Tag</label>
+      <select id="tagFilter">
+        <option value="all">Tüm tagler</option>
+      </select>
+    </div>
+
+    <button class="clear-btn" id="clearBtn">Temizle</button>
+  </div>
+
+  <div class="toolbar">
+    <div class="count" id="countInfo">0 ürün</div>
+  </div>
+
+  <section id="catalog">
+    <div class="loading">Yükleniyor...</div>
+  </section>
+</main>
+
+<a class="whatsapp-float" href="https://wa.me/905462902347" target="_blank" aria-label="WhatsApp">💬</a>
+
+<script>
+let data = null;
+let normalizedCategories = [];
+
+const catalogEl = document.getElementById("catalog");
+const countInfo = document.getElementById("countInfo");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const tagFilter = document.getElementById("tagFilter");
+const clearBtn = document.getElementById("clearBtn");
+
+function safe(v, fallback = ""){
+  return v === null || v === undefined ? fallback : v;
+}
+
+function safeString(v, fallback = ""){
+  return typeof v === "string" ? v : fallback;
+}
+
+function safeArray(v){
+  return Array.isArray(v) ? v : [];
+}
+
+function escapeHtml(str = ""){
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function capitalize(str = ""){
+  if(!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function cleanWord(word = ""){
+  return word
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s-]/gu, "")
+    .trim();
+}
+
+/* AI TAG ENGINE */
+function generateAITags(product, category){
+  const tags = new Set();
+
+  if(category?.category) tags.add(category.category);
+  if(category?.slug) tags.add(category.slug);
+
+  if(product.code) tags.add(product.code);
+  if(product.model) tags.add(product.model);
+  if(product.power) tags.add(product.power);
+  if(product.length) tags.add(product.length);
+  if(product.diameter) tags.add(product.diameter);
+  if(product.flange) tags.add("Flanş " + product.flange);
+  if(product.type) tags.add(product.type);
+
+  const title = safeString(product.title);
+  const description = safeString(product.description);
+
+  const keywordMap = {
+    "rezistans":"Rezistans",
+    "ısıtıcı":"Isıtıcı",
+    "isitici":"Isıtıcı",
+    "şofben":"Şofben",
+    "sofben":"Şofben",
+    "termosifon":"Termosifon",
+    "çay":"Çay",
+    "cay":"Çay",
+    "semaver":"Semaver",
+    "ızgara":"Izgara",
+    "izgara":"Izgara",
+    "pizza":"Pizza",
+    "fırın":"Fırın",
+    "firin":"Fırın",
+    "kazan":"Kazan",
+    "spiral":"Spiral",
+    "serpantin":"Serpantin",
+    "defrost":"Defrost",
+    "çubuk":"Çubuk",
+    "cubuk":"Çubuk",
+    "termostat":"Termostat",
+    "monoexit":"Monoexit",
+    "kartuş":"Kartuş",
+    "kartus":"Kartuş",
+    "plate":"Plate",
+    "silikon":"Silikon",
+    "boru":"Boru",
+    "profil":"Profil",
+    "industrial":"Endüstriyel",
+    "endüstriyel":"Endüstriyel",
+    "bulasik":"Bulaşık",
+    "bulaşık":"Bulaşık",
+    "makinesi":"Makinesi",
+    "makine":"Makine"
+  };
+
+  const words = (title + " " + description)
+    .split(/\s+/)
+    .map(cleanWord)
+    .filter(w => w.length >= 3);
+
+  words.forEach(word => {
+    if(keywordMap[word]){
+      tags.add(keywordMap[word]);
+    }else if(/\d+w$/i.test(word)){
+      tags.add(word.toUpperCase());
+    }else if(/\d+v$/i.test(word)){
+      tags.add(word.toUpperCase());
+    }else if(word.length >= 4){
+      tags.add(capitalize(word));
+    }
+  });
+
+  safeArray(product.features).forEach(item => tags.add(item));
+  safeArray(product.applications).forEach(item => tags.add(item));
+
+  return [...tags].filter(Boolean).slice(0, 20);
+}
+
+function normalizeData(raw){
+  let categories = [];
+
+  if(Array.isArray(raw)){
+    categories = raw;
+  }else if(raw && Array.isArray(raw.categories)){
+    categories = raw.categories;
+  }else{
+    categories = [];
+  }
+
+  return categories.map(cat => {
+    const categoryName = safeString(cat.category, "Kategori");
+    const products = safeArray(cat.products).map(p => ({
+      code: safeString(p.code, "-"),
+      title: safeString(p.title, safeString(p.code, "Başlıksız ürün")),
+      image: safeString(p.image, "https://via.placeholder.com/400x300?text=No+Image"),
+      power: safeString(p.power),
+      length: safeString(p.length),
+      model: safeString(p.model),
+      diameter: safeString(p.diameter),
+      flange: safeString(p.flange),
+      type: safeString(p.type),
+      description: safeString(p.description),
+      min_length: safeString(p.min_length),
+      max_length: safeString(p.max_length),
+      features: safeArray(p.features),
+      applications: safeArray(p.applications),
+      raw: p
+    }));
+
+    const enrichedProducts = products.map(p => ({
+      ...p,
+      tags: generateAITags(p, cat)
+    }));
+
+    return {
+      category: categoryName,
+      slug: safeString(cat.slug),
+      description: safeString(cat.description),
+      products: enrichedProducts
+    };
+  });
+}
+
+function getAllTags(categories){
+  const set = new Set();
+  categories.forEach(cat => {
+    cat.products.forEach(p => {
+      p.tags.forEach(tag => set.add(tag));
+    });
+  });
+  return [...set].sort((a,b) => a.localeCompare(b, "tr"));
+}
+
+function populateFilters(categories){
+  const categoryNames = categories.map(c => c.category);
+
+  categoryFilter.innerHTML =
+    `<option value="all">Tüm kategoriler</option>` +
+    categoryNames.map(name => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
+
+  const allTags = getAllTags(categories);
+
+  tagFilter.innerHTML =
+    `<option value="all">Tüm tagler</option>` +
+    allTags.map(tag => `<option value="${escapeHtml(tag)}">${escapeHtml(tag)}</option>`).join("");
+}
+
+function applyFilters(){
+  const search = searchInput.value.trim().toLowerCase();
+  const selectedCategory = categoryFilter.value;
+  const selectedTag = tagFilter.value;
+
+  const filteredCategories = normalizedCategories
+    .map(cat => {
+      const filteredProducts = cat.products.filter(p => {
+        const searchable = [
+          p.code, p.title, p.power, p.length, p.model, p.diameter,
+          p.flange, p.description, ...p.tags, ...p.features, ...p.applications
+        ].filter(Boolean).join(" ").toLowerCase();
+
+        const matchesSearch = !search || searchable.includes(search);
+        const matchesCategory = selectedCategory === "all" || cat.category === selectedCategory;
+        const matchesTag = selectedTag === "all" || p.tags.includes(selectedTag);
+
+        return matchesSearch && matchesCategory && matchesTag;
+      });
+
+      return {
+        ...cat,
+        products: filteredProducts
+      };
+    })
+    .filter(cat => cat.products.length > 0);
+
+  render(filteredCategories);
+}
+
+function filterByTag(tag){
+  tagFilter.value = tag;
+  applyFilters();
+}
+
+function render(categories){
+  const totalCount = categories.reduce((sum, cat) => sum + cat.products.length, 0);
+  countInfo.textContent = `${totalCount} ürün`;
+
+  if(!categories.length){
+    catalogEl.innerHTML = `
+      <div class="empty">
+        Sonuç bulunamadı.
+      </div>
+    `;
+    return;
+  }
+
+  catalogEl.innerHTML = categories.map(cat => `
     <div class="category">
-      <h2>${cat.category}</h2>
+      <h2>${escapeHtml(cat.category)}</h2>
+      ${cat.description ? `<div class="category-desc">${escapeHtml(cat.description)}</div>` : ""}
 
       <div class="grid">
         ${cat.products.map(p => `
           <div class="card">
-            <img src="${p.image}" onerror="this.style.display='none'"/>
+            <img
+              src="${escapeHtml(p.image)}"
+              alt="${escapeHtml(p.title)}"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'"
+            />
 
             <div class="card-body">
-              <span class="code">${p.code}</span>
-              <h3>${p.title}</h3>
+              <span class="code">${escapeHtml(p.code)}</span>
+              <h3>${escapeHtml(p.title)}</h3>
 
               <div class="meta">
-                ${p.power ? `<div>${p.power}</div>` : ``}
-                ${p.length ? `<div>${p.length}</div>` : ``}
-                ${p.model ? `<div>${p.model}</div>` : ``}
-                ${p.diameter ? `<div>${p.diameter}</div>` : ``}
+                ${p.power ? `<div>${escapeHtml(p.power)}</div>` : ``}
+                ${p.length ? `<div>${escapeHtml(p.length)}</div>` : ``}
+                ${p.model ? `<div>${escapeHtml(p.model)}</div>` : ``}
+                ${p.diameter ? `<div>${escapeHtml(p.diameter)}</div>` : ``}
+                ${p.flange ? `<div>Flanş: ${escapeHtml(p.flange)}</div>` : ``}
+                ${p.description ? `<div>${escapeHtml(p.description)}</div>` : ``}
               </div>
 
-              <a class="btn" target="_blank"
-                href="https://wa.me/905462902347?text=${encodeURIComponent(p.code + ' ' + p.title)}">
-                Teklif Al
-              </a>
+              ${p.tags.length ? `
+                <div class="tags">
+                  ${p.tags.slice(0, 8).map(tag => `
+                    <span class="tag" onclick="filterByTag(${JSON.stringify(tag).replace(/"/g, '&quot;')})">${escapeHtml(tag)}</span>
+                  `).join("")}
+                </div>
+              ` : ""}
+
+              <div class="actions">
+                <a class="btn secondary" href="${escapeHtml((p.code || 'urun').toLowerCase() + '.html')}">Detay</a>
+                <a class="btn" target="_blank"
+                  href="https://wa.me/905462902347?text=${encodeURIComponent((p.code || '') + ' ' + (p.title || ''))}">
+                  Teklif Al
+                </a>
+              </div>
             </div>
           </div>
         `).join("")}
@@ -177,7 +627,32 @@ function render(){
   `).join("");
 }
 
-// START
+async function loadData(){
+  try{
+    const res = await fetch("https://raw.githubusercontent.com/cyperelectron/deproject.github.io/main/data.json");
+    if(!res.ok) throw new Error("HTTP " + res.status);
+
+    data = await res.json();
+    normalizedCategories = normalizeData(data);
+    populateFilters(normalizedCategories);
+    render(normalizedCategories);
+  }catch(e){
+    catalogEl.innerHTML = `<div class="empty">JSON yüklenemedi!</div>`;
+    console.error(e);
+  }
+}
+
+searchInput.addEventListener("input", applyFilters);
+categoryFilter.addEventListener("change", applyFilters);
+tagFilter.addEventListener("change", applyFilters);
+
+clearBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  categoryFilter.value = "all";
+  tagFilter.value = "all";
+  render(normalizedCategories);
+});
+
 loadData();
 </script>
 
