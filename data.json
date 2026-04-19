@@ -12,7 +12,7 @@
       "category": "Endüstriyel Bulaşık ve Çamaşır Makinesi Isıtıcıları",
       "slug": "industrial-kitchen-heaters",
       "products": [
-        {"code":"NK1211","title":"Endüstriyel Bulaşık Makinesi Rezistansı 2000W","power":"230V - 2000W","length":"230 mm","model":"Küçük Ölçem","image":"assets/images/products/nk1211.png"},
+        {"code":"NK1211","title":"Endüstriyel Bulaşık Makinesi Rezistansı 2000W","power":"230V - 2000W","length":"230 mm","model":"Küçük Ölçem","image":"deproject.github.io/assets/images/products/nk1211.png"},
         {"code":"NK1231","title":"Endüstriyel Rezistans 2900W","power":"230V - 2900W","length":"230 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1231.png"},
         {"code":"NK1232","title":"Endüstriyel Rezistans 3000W","power":"230V - 3000W","length":"230 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1232.png"},
         {"code":"NK1233","title":"Endüstriyel Rezistans 6000W","power":"230V - 6000W","length":"300 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1233.png"},
