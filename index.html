@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -645,7 +646,8 @@ function render(list){
     <div class="grid">
       ${list.map(p=>`
         <div class="card">
-          <img src="${p.image || 'https://via.placeholder.com/400'}" alt="${p.title}">
+          <img src="${p.image ? BASE_IMG + p.image : 'assets/no-image.png'}"
+     onerror="this.src='assets/no-image.png'">
           <div class="card-body">
             <div class="category">${p.category}</div>
             <h3>${p.title}</h3>
