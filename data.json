@@ -5,7 +5,1120 @@
       "category": "Endüstriyel Bulaşık ve Çamaşır Makinesi Isıtıcıları",
       "slug": "industrial-kitchen-heaters",
       "products": [
-        {"code":"NK1211","title":"Endüstriyel Bulaşık Makinesi Rezistansı 2000W","power":"230V - 2000W","length":"230 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1211.png"},
+        {"code":"NK1211","title":"Endüstriyel Bulaşık Makinesi Rezistansı 2000W","power":"230V - 2000W","length":"230 mm","model":"Küçük Ölçem","image":"{
+  "categories": [
+    
+    {
+      "category": "Endüstriyel Bulaşık ve Çamaşır Makinesi Isıtıcıları",
+      "slug": "industrial-kitchen-heaters",
+      "products": [
+        {"code":"NK1211","title":"Endüstriyel Bulaşık Makinesi Rezistansı 2000W","power":"230V - 2000W","length":"230 mm","model":"Küçük Ölçem","image":"deproject.github.io/assets/images/products/nk1211.png"},
+        {"code":"NK1231","title":"Endüstriyel Rezistans 2900W","power":"230V - 2900W","length":"230 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1231.png"},
+        {"code":"NK1232","title":"Endüstriyel Rezistans 3000W","power":"230V - 3000W","length":"230 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1232.png"},
+        {"code":"NK1233","title":"Endüstriyel Rezistans 6000W","power":"230V - 6000W","length":"300 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1233.png"},
+        {"code":"NK1235","title":"Endüstriyel Rezistans 4000W","power":"230V - 4000W","length":"300 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1235.png"},
+        {"code":"NK1238","title":"Endüstriyel Rezistans 5000W","power":"230V - 5000W","length":"400 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1238.png"},
+        {"code":"NK1216","title":"Özel Form Rezistans","power":"230V","length":"Özel","model":"Küçük Ölçem","image":"/assets/images/products/nk1216.png"},
+        {"code":"NK1217","title":"Termostatlı Rezistans","power":"230V - 4600W","length":"300 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1217.png"},
+        {"code":"NK1218","title":"Flanşlı Rezistans","power":"230V","length":"Standart","model":"Küçük Ölçem","image":"/assets/images/products/nk1218.png"},
+        {"code":"NK1229","title":"Büyük Ölçek Rezistans","power":"230V - 4000W","length":"540 mm","model":"Büyük Ölçem","image":"/assets/images/products/nk1229.png"},
+        {"code":"NK1260","title":"Üçlü Rezistans","power":"230V","length":"Standart","model":"Küçük Ölçem","image":"/assets/images/products/nk1260.png"}
+      ]
+    },
+    {
+      "category": "Çay Makinesi ve Semaver Isıtıcıları",
+      "slug": "tea-machine-samovar-heaters",
+      "products": [
+        {"code":"NK1311","title":"Çay Makinesi Rezistansı 900W","power":"900W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1311.png"},
+        {"code":"NK1312","title":"Semaver Rezistansı 1500W","power":"1500W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1312.png"},
+        {"code":"NK1313","title":"Semaver Rezistansı 2000W","power":"2000W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1313.png"},
+        {"code":"NK1314","title":"Rezistans 1200W","power":"1200W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1314.png"},
+        {"code":"NK1315","title":"Özel Tasarım Rezistans 1250W","power":"1250W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1315.png"},
+        {"code":"NK1316","title":"Semaver Rezistansı 1750W","power":"1750W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1316.png"},
+        {"code":"NK1317","title":"Çay Makinesi Rezistansı 2250W","power":"2250W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1317.png"},
+        {"code":"NK1318","title":"Çok Kollu Rezistans 2750W","power":"2750W - 230V","diameter":"6.5 mm - 8.5 mm","image":"/assets/images/products/nk1318.png"},
+        {"code":"NK1319","title":"Çay Makinesi Rezistansı 1500W","power":"1500W - 230V","diameter":"8.5 mm","image":"/assets/images/products/nk1319.png"},
+        {"code":"NK1320","title":"Semaver Rezistansı 1500W","power":"1500W - 230V","diameter":"8.5 mm","image":"/assets/images/products/nk1320.png"},
+        {"code":"NK1321","title":"Semaver Rezistansı 2000W","power":"2000W - 230V","diameter":"6.5 mm","image":"/assets/images/products/nk1321.png"},
+        {"code":"NK1322","title":"Çay Makinesi Rezistansı 2000W","power":"2000W - 230V","diameter":"6.5 mm","image":"/assets/images/products/nk1322.png"},
+        {"code":"NK1323","title":"Semaver Rezistansı 2000W","power":"2000W - 230V","diameter":"6.5 mm","image":"/assets/images/products/nk1323.png"},
+        {"code":"NK1324","title":"Rezistans 1860W","power":"1860W - 230V","diameter":"8.5 mm","image":"/assets/images/products/nk1324.png"},
+        {"code":"NK1325","title":"Rezistans 2000W","power":"2000W - 230V","diameter":"8.5 mm","image":"/assets/images/products/nk1325.png"}
+      ]
+    },
+    {
+      "category": "Endüstriyel Izgara Isıtıcıları",
+      "slug": "industrial-grill-heaters",
+      "products": [
+        {"code":"NK1611","title":"Izgara Isıtıcısı 1500W","power":"230V - 1500W","image":"/assets/images/products/nk1611.png"},
+        {"code":"NK1612","title":"Izgara Isıtıcısı 2500W","power":"230V - 2500W","image":"/assets/images/products/nk1612.png"},
+        {"code":"NK1613","title":"Izgara Isıtıcısı 3000W","power":"230V - 3000W","image":"/assets/images/products/nk1613.png"},
+        {"code":"NK1614","title":"Izgara Isıtıcısı 2500W","power":"230V - 2500W","image":"/assets/images/products/nk1614.png"}
+      ]
+    },
+    {
+      "category": "Endüstriyel Fırın Isıtıcıları",
+      "slug": "industrial-oven-heaters",
+      "products": [
+        {"code":"NK1711","title":"Mayalandırma Rezistansı 2000W","power":"230V - 2000W","image":"/assets/images/products/nk1711.png"},
+        {"code":"NK1712","title":"Konveksiyon Fırın Rezistansı","power":"240V - 3x3000W","image":"/assets/images/products/nk1712.png"},
+        {"code":"NK1713","title":"Konveksiyon Fırın Rezistansı","power":"230V - 12x1250W","image":"/assets/images/products/nk1713.png"},
+        {"code":"NK1714","title":"Konveksiyon Fırın Rezistansı","power":"230V - 3x1500W","image":"/assets/images/products/nk1714.png"},
+        {"code":"NK1715","title":"Üst / Alt Fırın Rezistansı","power":"240V - 3x3000W","image":"/assets/images/products/nk1715.png"},
+        {"code":"NK1716","title":"Pizza Fırın Rezistansı 2000W","power":"220V - 2000W","image":"/assets/images/products/nk1716.png"},
+        {"code":"NK1717","title":"Pizza Fırın Rezistansı 1500W","power":"220V - 1500W","image":"/assets/images/products/nk1717.png"},
+        {"code":"NK1718","title":"Pizza Fırın Rezistansı 1000W","power":"220V - 1000W","image":"/assets/images/products/nk1718.png"},
+        {"code":"NK1719","title":"Gusto Rezistansı 1500W","power":"220V - 1500W","image":"/assets/images/products/nk1719.png"}
+      ]
+    },
+    {
+      "category": "Pirinç Kafalı Isıtıcılar",
+      "slug": "brass-head-heaters",
+      "products": [
+        {"code":"NK2111","title":"Pirinç Kafalı Rezistans 2000W","power":"230V - 2000W","length":"300 mm","description":"Su ve yağ ısıtma sistemleri için pirinç kafalı rezistans.","image":"/assets/images/products/nk2111.png"},
+        {"code":"NK2112","title":"Pirinç Kafalı Rezistans 2500W","power":"230V - 2500W","length":"400 mm","description":"Endüstriyel kullanım için dayanıklı yapı.","image":"/assets/images/products/nk2112.png"},
+        {"code":"NK2113","title":"Pirinç Kafalı Rezistans 2500W","power":"230V - 2500W","length":"600 mm","description":"Uzun tip su ısıtıcı rezistansı.","image":"/assets/images/products/nk2113.png"},
+        {"code":"NK2114","title":"Pirinç Kafalı Rezistans 3000W","power":"230V - 3000W","length":"900 mm","description":"Yüksek güçlü endüstriyel model.","image":"/assets/images/products/nk2114.png"},
+        {"code":"NK2115","title":"Kıvrık Rezistans 2000W","power":"230V - 2000W","length":"200 mm","description":"Kompakt ve kıvrık yapı.","image":"/assets/images/products/nk2115.png"},
+        {"code":"NK2116","title":"Kıvrık Rezistans 2000W","power":"230V - 2000W","length":"300 mm","description":"Orta boy kıvrık rezistans.","image":"/assets/images/products/nk2116.png"},
+        {"code":"NK2117","title":"Kıvrık Rezistans 2500W","power":"230V - 2500W","length":"300 mm","description":"Yüksek verimli kıvrık model.","image":"/assets/images/products/nk2117.png"},
+        {"code":"NK2118","title":"Kıvrık Rezistans 3000W","power":"230V - 3000W","length":"300 mm","description":"Güçlü kıvrık rezistans.","image":"/assets/images/products/nk2118.png"},
+        {"code":"NK2120","title":"Kıvrık Rezistans 2500W","power":"230V - 2500W","length":"500 mm","description":"Uzun tip kıvrık rezistans.","image":"/assets/images/products/nk2120.png"},
+        {"code":"NK2121","title":"Kazan Isıtıcısı 2000W","power":"2 x 230V - 2000W","length":"195 mm","description":"Kazan sistemleri için çift fazlı rezistans.","image":"/assets/images/products/nk2121.png"},
+        {"code":"NK2122","title":"Kazan Isıtıcısı 2250W","power":"2 x 230V - 2250W","length":"195 mm","description":"Endüstriyel kazan rezistansı.","image":"/assets/images/products/nk2122.png"},
+        {"code":"NK2123","title":"Kazan Isıtıcısı 2500W","power":"2 x 230V - 2500W","length":"195 mm","description":"Yüksek güçlü kazan modeli.","image":"/assets/images/products/nk2123.png"},
+        {"code":"NK2125","title":"Kazan Isıtıcısı 4500W","power":"230V-400V 4500W","length":"285 mm","description":"Yüksek kapasiteli kazan rezistansı.","image":"/assets/images/products/nk2125.png"},
+        {"code":"NK2126","title":"Kazan Isıtıcısı 7500W","power":"230V-400V 7500W","length":"330 mm","description":"Endüstriyel güçlü kazan rezistansı.","image":"/assets/images/products/nk2126.png"},
+        {"code":"NK2127","title":"Kazan Isıtıcısı 10000W","power":"230V-400V 10000W","length":"420 mm","description":"Çok yüksek güçte rezistans.","image":"/assets/images/products/nk2127.png"},
+        {"code":"NK2130","title":"Kazan Isıtıcısı 7500W","power":"230V-400V 7500W","length":"330 mm","description":"Profesyonel kullanım için.","image":"/assets/images/products/nk2130.png"},
+        {"code":"NK2132","title":"Kazan Isıtıcısı 10000W","power":"230V-400V 10000W","length":"420 mm","description":"Yüksek kapasiteli model.","image":"/assets/images/products/nk2132.png"},
+        {"code":"NK2133","title":"Kazan Isıtıcısı 15000W","power":"230V-400V 15000W","length":"220 mm","description":"Endüstriyel ağır yük için.","image":"/assets/images/products/nk2133.png"},
+        {"code":"NK2134","title":"Kazan Isıtıcısı 10000W","power":"230V-400V 10000W","length":"260 mm","description":"Kompakt güçlü model.","image":"/assets/images/products/nk2134.png"},
+        {"code":"NK2135","title":"Kazan Isıtıcısı 10000W","power":"230V-400V 10000W","length":"330 mm","description":"Standart endüstriyel model.","image":"/assets/images/products/nk2135.png"}
+      ]
+    },
+
+
+  
+    {
+      "category": "Termosifon ve Şofben Isıtıcıları",
+      "slug": "instant-water-heaters",
+      "products": [
+        {
+          "code": "NK2211",
+          "title": "Şofben Isıtıcısı 2000W",
+          "power": "220V - 2000W",
+          "description": "Banyo şofben sistemleri için anlık su ısıtıcısı.",
+          "image": "/assets/images/products/nk2211.png"
+        },
+        {
+          "code": "NK2212",
+          "title": "Şofben Isıtıcısı 3000W",
+          "power": "230V - 3000W",
+          "description": "Yüksek güçlü anlık su ısıtıcı.",
+          "image": "/assets/images/products/nk2212.png"
+        },
+        {
+          "code": "NK2213",
+          "title": "Depolamalı Su Isıtıcısı",
+          "power": "230V - x1000W",
+          "description": "Storage type su ısıtıcı rezistansı.",
+          "image": "/assets/images/products/nk2213.png"
+        },
+        {
+          "code": "NK2214",
+          "title": "Termosifon Isıtıcısı 2000W",
+          "power": "230V - 2000W",
+          "description": "Termosifon sistemleri için rezistans.",
+          "image": "/assets/images/products/nk2214.png"
+        },
+        {
+          "code": "NK2215",
+          "title": "Termosifon Rezistansı",
+          "power": "230V",
+          "description": "Standart termosifon rezistans modeli.",
+          "image": "/assets/images/products/nk2215.png"
+        }
+      ]
+    },
+
+    {
+      "category": "Serpantinli Isıtıcılar",
+      "slug": "serpentine-heaters",
+      "products": [
+        {
+          "code": "SP001",
+          "title": "Krom Borulu Serpantin",
+          "description": "CrNi tube serpentine heater.",
+          "image": "/assets/images/products/sp1.png"
+        },
+        {
+          "code": "SP002",
+          "title": "Demir Borulu Serpantin",
+          "description": "Iron serpentine heater.",
+          "image": "/assets/images/products/sp2.png"
+        },
+        {
+          "code": "SP003",
+          "title": "U Tipi Serpantin",
+          "description": "U type serpentine heater.",
+          "image": "/assets/images/products/sp3.png"
+        },
+        {
+          "code": "SP004",
+          "title": "D Tipi Serpantin",
+          "description": "D type serpentine heater.",
+          "image": "/assets/images/products/sp4.png"
+        },
+        {
+          "code": "SP005",
+          "title": "M Tipi Serpantin",
+          "description": "M type serpentine heater.",
+          "image": "/assets/images/products/sp5.png"
+        },
+        {
+          "code": "SP006",
+          "title": "Spiral Tip Serpantin",
+          "description": "Spiral serpentine heater.",
+          "image": "/assets/images/products/sp6.png"
+        },
+        {
+          "code": "SP007",
+          "title": "Pirinç Rekorlu Serpantin",
+          "description": "With brass nippel.",
+          "image": "/assets/images/products/sp7.png"
+        },
+        {
+          "code": "SP008",
+          "title": "Demir Rekorlu Serpantin",
+          "description": "With iron nippel.",
+          "image": "/assets/images/products/sp8.png"
+        },
+        {
+          "code": "SP009",
+          "title": "Flanşlı Serpantin",
+          "description": "Flange mounted serpentine heater.",
+          "image": "/assets/images/products/sp9.png"
+        }
+      ]
+    },
+  
+{
+  
+    
+      "category": "Çamaşır Makinesi Isıtıcıları",
+      "slug": "washing-machine-heaters",
+      "products": [
+        {
+          "code": "NK2311",
+          "title": "Çamaşır Makinesi Isıtıcısı",
+          "power": "230V - 2000W",
+          "description": "Washing Machine Heater",
+          "image": "/assets/images/products/nk2311.png"
+        },
+        {
+          "code": "NK2312",
+          "title": "Çamaşır Makinesi Isıtıcısı",
+          "power": "230V - 2000W",
+          "description": "Washing Machine Heater",
+          "image": "/assets/images/products/nk2312.png"
+        },
+        {
+          "code": "NK2313",
+          "title": "Çamaşır Makinesi Isıtıcısı",
+          "power": "230V - 2000W",
+          "description": "Washing Machine Heater",
+          "image": "/assets/images/products/nk2313.png"
+        }
+      ]
+    },
+    {
+      "category": "Yağlı Radyatör Isıtıcıları",
+      "slug": "oil-radiator-heaters",
+      "products": [
+        {
+          "code": "NK2411",
+          "title": "Yağlı Radyatör Isıtıcısı",
+          "power": "230V - 1250W + 750W",
+          "description": "Oil Radiator Heater",
+          "image": "/assets/images/products/nk2411.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Özel Tip Isıtıcılar",
+      "slug": "special-type-heaters",
+      "products": [
+        {
+          "code": "SPH001",
+          "title": "Hava Kanalı Isıtıcısı",
+          "description": "Air duct heater for industrial ventilation systems.",
+          "image": "/assets/images/products/sph001.png"
+        },
+        {
+          "code": "SPH002",
+          "title": "Paskara Isıtıcısı",
+          "description": "Paskara heater for specialized heating applications.",
+          "image": "/assets/images/products/sph002.png"
+        },
+        {
+          "code": "SPH003",
+          "title": "Kazan Rezistansı",
+          "description": "Boiler heater for industrial usage.",
+          "image": "/assets/images/products/sph003.png"
+        },
+        {
+          "code": "SPH004",
+          "title": "Kazan Rezistansı (Flanşlı)",
+          "description": "Flange mounted boiler heater.",
+          "image": "/assets/images/products/sph004.png"
+        },
+        {
+          "code": "SPH005",
+          "title": "Kurutma Ünitesi Isıtıcısı",
+          "description": "Drying unit heater for industrial systems.",
+          "image": "/assets/images/products/sph005.png"
+        },
+        {
+          "code": "SPH006",
+          "title": "Özel Tip Kazan Isıtıcısı",
+          "description": "Custom designed boiler heater.",
+          "image": "/assets/images/products/sph006.png"
+        },
+        {
+          "code": "SPH007",
+          "title": "Sauna Isıtıcısı",
+          "description": "Sauna heater for heating cabins.",
+          "image": "/assets/images/products/sph007.png"
+        },
+        {
+          "code": "SPH008",
+          "title": "Sauna Isıtıcısı (Çoklu)",
+          "description": "Multi-coil sauna heater.",
+          "image": "/assets/images/products/sph008.png"
+        },
+        {
+          "code": "SPH009",
+          "title": "Katı Yakıt ve Bardak Isıtıcısı",
+          "description": "Pellet and glass heater.",
+          "image": "/assets/images/products/sph009.png"
+        },
+        {
+          "code": "SPH010",
+          "title": "Döner Ocağı Rezistansı",
+          "description": "Doner heater for cooking systems.",
+          "image": "/assets/images/products/sph010.png"
+        },
+        {
+          "code": "SPH011",
+          "title": "Döner Isıtıcı",
+          "description": "Doner heater element.",
+          "image": "/assets/images/products/sph011.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Defrost Isıtıcıları",
+      "slug": "defrost-heaters",
+      "products": [
+        {
+          "code": "DF001",
+          "title": "Defrost Isıtıcı",
+          "diameter": "6.5 mm",
+          "min_length": "300 mm",
+          "max_length": "4500 mm",
+          "description": "Defrost heating element for refrigeration systems.",
+          "image": "/assets/images/products/df001.png"
+        },
+        {
+          "code": "DF002",
+          "title": "Defrost Isıtıcı",
+          "diameter": "8.2 mm",
+          "min_length": "300 mm",
+          "max_length": "4500 mm",
+          "description": "Defrost heater for cooling systems.",
+          "image": "/assets/images/products/df002.png"
+        },
+        {
+          "code": "DF003",
+          "title": "Defrost Isıtıcı",
+          "diameter": "9.5 mm",
+          "min_length": "300 mm",
+          "max_length": "4000 mm",
+          "description": "Industrial defrost heater.",
+          "image": "/assets/images/products/df003.png"
+        },
+        {
+          "code": "DF004",
+          "title": "Defrost Isıtıcı",
+          "diameter": "11.5 mm",
+          "min_length": "300 mm",
+          "max_length": "3000 mm",
+          "description": "Heavy-duty defrost heater.",
+          "image": "/assets/images/products/df004.png"
+        }
+      ]
+    },
+
+    {
+      "category": "Çubuk Isıtıcılar",
+      "slug": "straight-heaters",
+      "products": [
+        {
+          "code": "SH001",
+          "title": "Çubuk Isıtıcı",
+          "diameter": "6.5 mm",
+          "min_length": "75 mm",
+          "max_length": "5000 mm",
+          "features": [
+            "M4 vida bağlantı",
+            "Flat socket uyumlu",
+            "Adaptör seçenekleri",
+            "Flanş ve nipel opsiyonlu"
+          ],
+          "description": "Straight heating element with multiple connection options.",
+          "image": "/assets/images/products/sh001.png"
+        },
+        {
+          "code": "SH002",
+          "title": "Çubuk Isıtıcı",
+          "diameter": "8.2 mm",
+          "min_length": "300 mm",
+          "max_length": "6000 mm",
+          "features": [
+            "M4 vida bağlantı",
+            "Adaptör seçenekleri",
+            "Endüstriyel kullanım"
+          ],
+          "description": "Industrial straight heater element.",
+          "image": "/assets/images/products/sh002.png"
+        },
+        {
+          "code": "SH003",
+          "title": "Çubuk Isıtıcı",
+          "diameter": "9.5 mm",
+          "min_length": "300 mm",
+          "max_length": "6000 mm",
+          "features": [
+            "Yüksek dayanıklılık",
+            "Uzun ömür",
+            "Farklı bağlantı opsiyonları"
+          ],
+          "description": "Heavy-duty straight heating element.",
+          "image": "/assets/images/products/sh003.png"
+        },
+        {
+          "code": "SH004",
+          "title": "Çubuk Isıtıcı",
+          "diameter": "11.5 mm",
+          "min_length": "300 mm",
+          "max_length": "6000 mm",
+          "features": [
+            "Endüstriyel kullanım",
+            "Yüksek performans",
+            "Özel üretim imkanı"
+          ],
+          "description": "High performance straight heater.",
+          "image": "/assets/images/products/sh004.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Sanayi Tipi Kazan ve Eşanjör Isıtıcıları",
+      "slug": "industrial-boiler-heat-exchanger-heaters",
+      "products": [
+        {
+          "code": "NK2501",
+          "flange": "60",
+          "power": "3Φ - 320V",
+          "length": "60 mm",
+          "model": "30 PPME UPPER 2M",
+          "description": "Industrial boiler heater element.",
+          "image": "/assets/images/products/nk2501.png"
+        },
+        {
+          "code": "NK2301",
+          "flange": "80",
+          "power": "3Φ - 320V",
+          "length": "67 mm",
+          "model": "30 PPME UPPER 2M",
+          "description": "Heat exchanger heater.",
+          "image": "/assets/images/products/nk2301.png"
+        },
+        {
+          "code": "NK2502",
+          "flange": "100",
+          "power": "3Φ - 320V",
+          "length": "67 mm",
+          "model": "30 PPME UPPER 2M",
+          "description": "Industrial heater element.",
+          "image": "/assets/images/products/nk2502.png"
+        },
+        {
+          "code": "NK2503",
+          "flange": "120",
+          "power": "3Φ - 380V",
+          "length": "60 mm",
+          "model": "30 PPME UPPER 2M",
+          "description": "Boiler heater high voltage.",
+          "image": "/assets/images/products/nk2503.png"
+        },
+        {
+          "code": "NK2504",
+          "flange": "140",
+          "power": "3Φ - 380V",
+          "length": "27 mm",
+          "model": "30 PPME UPPER 2M",
+          "description": "Industrial heating solution.",
+          "image": "/assets/images/products/nk2504.png"
+        },
+        {
+          "code": "NK2505",
+          "flange": "160",
+          "power": "3Φ - 380V",
+          "length": "28 mm",
+          "model": "30 PPME UPPER 2M",
+          "description": "Heavy-duty heater.",
+          "image": "/assets/images/products/nk2505.png"
+        },
+        {
+          "code": "NK2506",
+          "flange": "160",
+          "power": "3Φ - 380V",
+          "length": "28 mm",
+          "model": "10 PPME UPPER 2M",
+          "description": "Industrial boiler heater variation.",
+          "image": "/assets/images/products/nk2506.png"
+        },
+        {
+          "code": "NK2507",
+          "flange": "250",
+          "power": "3Φ - 380V",
+          "length": "27 mm",
+          "model": "30 PPME UPPER 2M",
+          "description": "Large scale boiler heater.",
+          "image": "/assets/images/products/nk2507.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Kelepçe ve Plaka Tip Isıtıcılar",
+      "slug": "clamp-plate-heaters",
+      "products": [
+        {
+          "code": "CPH001",
+          "title": "Kelepçe Tip Isıtıcı",
+          "description": "Clamp heater for industrial pipe heating applications.",
+          "image": "/assets/images/products/cph001.png"
+        },
+        {
+          "code": "CPH002",
+          "title": "Silindirik Kelepçe Isıtıcı",
+          "description": "Cylindrical clamp heater.",
+          "image": "/assets/images/products/cph002.png"
+        },
+        {
+          "code": "CPH003",
+          "title": "Kompakt Kelepçe Isıtıcı",
+          "description": "Compact clamp heater with cable connection.",
+          "image": "/assets/images/products/cph003.png"
+        },
+        {
+          "code": "CPH004",
+          "title": "Mika Kelepçe Isıtıcı",
+          "description": "Mica clamp heater set.",
+          "image": "/assets/images/products/cph004.png"
+        },
+        {
+          "code": "CPH005",
+          "title": "Termostatlı Kelepçe Isıtıcı",
+          "description": "Clamp heater with thermostat control.",
+          "image": "/assets/images/products/cph005.png"
+        },
+        {
+          "code": "CPH006",
+          "title": "Kutu Tip Kelepçe Isıtıcı",
+          "description": "Industrial clamp heater with control box.",
+          "image": "/assets/images/products/cph006.png"
+        },
+        {
+          "code": "CPH007",
+          "title": "Geniş Kelepçe Isıtıcı",
+          "description": "Wide surface clamp heater.",
+          "image": "/assets/images/products/cph007.png"
+        },
+        {
+          "code": "CPH008",
+          "title": "Plaka Isıtıcı",
+          "description": "Flat plate heater for surface heating.",
+          "image": "/assets/images/products/cph008.png"
+        }
+      ]
+    },
+
+    {
+      "category": "Reşo Tipi Isıtıcılar",
+      "slug": "resho-heaters",
+      "products": [
+        {
+          "code": "RSH001",
+          "title": "Reşo Isıtıcı",
+          "description": "Resho type heater with cable connection.",
+          "image": "/assets/images/products/rsh001.png"
+        },
+        {
+          "code": "RSH002",
+          "title": "Termostatlı Reşo Isıtıcı",
+          "description": "Resho heater with adjustable thermostat.",
+          "image": "/assets/images/products/rsh002.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Fişek Isıtıcılar",
+      "slug": "cartridge-heaters",
+      "products": [
+        {
+          "code": "NK1011",
+          "title": "Fişek Isıtıcı",
+          "description": "Standart cartridge heater set.",
+          "image": "/assets/images/products/nk1011.png"
+        },
+        {
+          "code": "NK1012",
+          "title": "Fişek Isıtıcı (Silindirik)",
+          "description": "Cylindrical cartridge heater.",
+          "image": "/assets/images/products/nk1012.png"
+        },
+        {
+          "code": "NK1013",
+          "title": "Fişek Isıtıcı (Sensörlü)",
+          "description": "Cartridge heater with sensor connection.",
+          "image": "/assets/images/products/nk1013.png"
+        },
+        {
+          "code": "NK1014",
+          "title": "Fişek Isıtıcı (Kablolu)",
+          "description": "Cartridge heater with cable output.",
+          "image": "/assets/images/products/nk1014.png"
+        }
+      ]
+    },
+
+    {
+      "category": "Spiral Isıtıcılar",
+      "slug": "spiral-heaters",
+      "products": [
+        {
+          "code": "NK1021",
+          "title": "Spiral Isıtıcı",
+          "description": "Flexible spiral heater.",
+          "image": "/assets/images/products/nk1021.png"
+        },
+        {
+          "code": "NK1021B",
+          "title": "Spiral Isıtıcı (Rezistans Tip)",
+          "description": "Spiral heating element with metal structure.",
+          "image": "/assets/images/products/nk1021b.png"
+        },
+        {
+          "code": "NK1022",
+          "title": "Spiral Isıtıcı (Çoklu Çıkış)",
+          "description": "Multi-output spiral heater cable.",
+          "image": "/assets/images/products/nk1022.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Termostatlar",
+      "slug": "thermostats",
+      "products": [
+        {
+          "code": "TH001",
+          "title": "Kapiler Termostat",
+          "description": "Capillary thermostat with adjustable temperature control.",
+          "image": "/assets/images/products/th001.png"
+        },
+        {
+          "code": "TH002",
+          "title": "Endüstriyel Termostat",
+          "description": "Industrial thermostat for heating systems.",
+          "image": "/assets/images/products/th002.png"
+        },
+        {
+          "code": "TH003",
+          "title": "Sıcaklık Kontrollü Termostat",
+          "description": "Thermostat with temperature sensor and coil.",
+          "image": "/assets/images/products/th003.png"
+        },
+        {
+          "code": "TH004",
+          "title": "Ayarlı Termostat",
+          "description": "Adjustable thermostat with manual control knob.",
+          "image": "/assets/images/products/th004.png"
+        },
+        {
+          "code": "TH005",
+          "title": "Çubuk Tip Termostat",
+          "description": "Rod type thermostat with probe.",
+          "image": "/assets/images/products/th005.png"
+        },
+        {
+          "code": "TH006",
+          "title": "Daldırma Tip Termostat",
+          "description": "Immersion thermostat for liquid heating systems.",
+          "image": "/assets/images/products/th006.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Monoexit Kablosu",
+      "slug": "monoexit-cable",
+      "description": "Soğutma, klima, akvaryum, sera ve endüstriyel uygulamalar için özel ısıtıcı kablo.",
+      "products": [
+        {
+          "code": "MC001",
+          "title": "Monoexit Isıtıcı Kablo",
+          "description": "Giriş/çıkış aynı tarafta olan özel ısıtıcı kablo. Kurulum kolaylığı sağlar ve maliyetleri düşürür.",
+          "features": [
+            "Hermetik kapalı uç (suya dayanıklı)",
+            "Tek çıkışlı yapı",
+            "PVC veya silikon izolasyon",
+            "Metal örgü opsiyonu",
+            "Termostat entegrasyonu"
+          ],
+          "applications": [
+            "Soğutma sistemleri",
+            "Klima",
+            "Akvaryum",
+            "Seralar",
+            "Endüstriyel tesisler"
+          ],
+          "image": "/assets/images/products/monoexit.png"
+        }
+      ],
+      "technical": {
+        "voltage": {
+          "PVC": "1V - 400V",
+          "Silicone": "1V - 400V"
+        },
+        "power": {
+          "PVC": "15W/m",
+          "Silicone": "60W/m"
+        },
+        "length": {
+          "PVC": "0.1m - 50m",
+          "Silicone": "0.1m - 50m"
+        },
+        "temperature": {
+          "PVC": "-40°C / +100°C",
+          "Silicone": "-40°C / +200°C"
+        },
+        "diameter": "5.5 mm",
+        "class": "I + II",
+        "options": [
+          "Metal örgü (metal braid)",
+          "Termostat uyumlu",
+          "Özel güç ve ölçü üretimi"
+        ]
+      }
+    },
+  
+    {
+      "category": "Kartuş Tipi Isıtıcılar",
+      "slug": "cartridge-heaters-ptc",
+      "description": "Paslanmaz çelik tüplü, enerji tasarruflu ve kendinden regülasyonlu PTC kartuş ısıtıcılar.",
+      "products": [
+        {
+          "code": "PTC001",
+          "title": "PTC Kartuş Isıtıcı",
+          "description": "Self-regulating cartridge heater with energy saving properties.",
+          "features": [
+            "Enerji tasarrufu",
+            "Self-regulating sistem",
+            "Kolay montaj",
+            "Korozyon dayanımı",
+            "Paslanmaz çelik gövde"
+          ],
+          "applications": [
+            "Su ısıtma",
+            "Defrost sistemleri",
+            "Endüstriyel tanklar",
+            "Isı yönetimi sistemleri"
+          ],
+          "image": "/assets/images/products/ptc001.png"
+        }
+      ],
+      "technical": {
+        "material": "Stainless Steel",
+        "diameter": "Ø8 mm",
+        "installation": "7 mm delik ile montaj",
+        "properties": [
+          "Automatic power modulation",
+          "Energy saving",
+          "High safety",
+          "Thermal control"
+        ]
+      },
+      "models": [
+        {
+          "code": "CAR80005",
+          "power_cold": "5W",
+          "power_90": "50W",
+          "power_170": "70W",
+          "temperature": "+60°C",
+          "cable_length": "3000 mm"
+        },
+        {
+          "code": "CAR80010",
+          "power_cold": "10W",
+          "power_90": "70W",
+          "power_170": "60W",
+          "temperature": "+60°C",
+          "cable_length": "3200 mm"
+        },
+        {
+          "code": "CAR80015",
+          "power_cold": "15W",
+          "power_90": "50W",
+          "power_170": "50W",
+          "temperature": "+140°C",
+          "cable_length": "3000 mm"
+        },
+        {
+          "code": "CAR80000",
+          "power_cold": "30W",
+          "power_90": "140W",
+          "power_170": "140W",
+          "temperature": "+160°C",
+          "cable_length": "3000 mm"
+        },
+        {
+          "code": "CAR80030",
+          "power_cold": "60W",
+          "power_90": "160W",
+          "power_170": "180W",
+          "temperature": "+120°C",
+          "cable_length": "3000 mm"
+        }
+      ]
+    },
+
+  
+    {
+      "category": "Kelepçe ve Plaka Tipi Isıtıcılar",
+      "slug": "clamp-plate-heaters",
+      "description": "Esnek yüzeylere uygulanabilen, ince yapılı endüstriyel yüzey ısıtıcıları.",
+      
+      "technical_overview": {
+        "thickness_range": "0.6 mm - 2.0 mm",
+        "features": [
+          "Homojen ısı dağılımı",
+          "Yüzeye tam temas",
+          "Esnek yapı",
+          "Düşük enerji tüketimi",
+          "Yüksek verimlilik"
+        ],
+        "control_options": [
+          "Termostat",
+          "PT100 sensör",
+          "J/K probe",
+          "Thermal fuse",
+          "PID kontrol",
+          "On/Off kontrol"
+        ],
+        "materials": [
+          "Polyester",
+          "Silicone",
+          "PTFE",
+          "Polyamide (Kapton)"
+        ]
+      },
+
+      "applications": [
+        "Endüstriyel makineler",
+        "Yüzey ısıtma sistemleri",
+        "Kalıp ısıtma",
+        "Tank ısıtma",
+        "Laboratuvar ekipmanları"
+      ],
+
+      "surface_specs": [
+        {
+          "material": "Polyester",
+          "max_temperature": "110°C",
+          "thickness": "0.1 - 0.3 mm"
+        },
+        {
+          "material": "Silicone",
+          "max_temperature": "200°C",
+          "thickness": "0.5 - 1 mm"
+        },
+        {
+          "material": "Polyamide (Kapton)",
+          "max_temperature": "260°C",
+          "thickness": "0.2 - 0.5 mm"
+        }
+      ],
+
+      "products": [
+        {
+          "code": "CPH001",
+          "title": "Flexible Surface Heater",
+          "type": "Clamp Heater",
+          "image": "/assets/images/products/clamp1.png"
+        },
+        {
+          "code": "CPH002",
+          "title": "Plate Heater",
+          "type": "Flat Heater",
+          "image": "/assets/images/products/plate1.png"
+        },
+        {
+          "code": "CPH003",
+          "title": "Circular Heater",
+          "type": "Round Plate Heater",
+          "image": "/assets/images/products/plate2.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Benmari / Hot Plate Silikon Rezistansları",
+      "slug": "hot-plate-silicone-heaters",
+      "description": "Yüzey ısıtma uygulamaları için silikon bazlı esnek rezistanslar.",
+
+      "technical_overview": {
+        "material": "Silikon izolasyon",
+        "features": [
+          "Homojen ısı dağılımı",
+          "Yüksek verimlilik",
+          "Yüzeye tam temas",
+          "Esnek yapı",
+          "Kolay montaj",
+          "Yüksek sıcaklık dayanımı"
+        ],
+        "control_options": [
+          "Termostat",
+          "PT100 sensör",
+          "J/K prob",
+          "Isı kontrol ünitesi"
+        ],
+        "voltage_range": "150V - 400V"
+      },
+
+      "applications": [
+        "Benmari sistemleri",
+        "Hot plate yüzeyler",
+        "Endüstriyel mutfak ekipmanları",
+        "Tank ve yüzey ısıtma",
+        "Laboratuvar cihazları"
+      ],
+
+      "products": [
+        {
+          "code": "HP001",
+          "title": "Silikon Yüzey Isıtıcı",
+          "type": "Flat Heater",
+          "image": "/assets/images/products/hp1.png"
+        },
+        {
+          "code": "HP002",
+          "title": "Kablolu Silikon Isıtıcı",
+          "type": "Flexible Heater",
+          "image": "/assets/images/products/hp2.png"
+        },
+        {
+          "code": "HP003",
+          "title": "Sensörlü Silikon Isıtıcı",
+          "type": "Controlled Heater",
+          "image": "/assets/images/products/hp3.png"
+        },
+        {
+          "code": "HP004",
+          "title": "Montaj Delikli Silikon Isıtıcı",
+          "type": "Custom Heater",
+          "image": "/assets/images/products/hp4.png"
+        }
+      ],
+
+      "standard_models": [
+        { "size": "260x150", "voltage": "250V", "power": "265W", "control": "Optional" },
+        { "size": "360x356", "voltage": "230V", "power": "1000W / 500W", "control": "Optional" },
+        { "size": "330x260", "voltage": "250V", "power": "256W", "control": "Optional" },
+        { "size": "680x156", "voltage": "230V", "power": "1000W", "control": "Optional" },
+        { "size": "660x350", "voltage": "230V", "power": "1350W", "control": "Optional" },
+        { "size": "860x270", "voltage": "230V", "power": "1500W", "control": "Optional" },
+        { "size": "480x370", "voltage": "230V", "power": "1500W", "control": "Optional" },
+        { "size": "480x160", "voltage": "330V", "power": "1350W", "control": "Optional" },
+        { "size": "360x316", "voltage": "230V", "power": "1566W", "control": "Optional" },
+        { "size": "476x370", "voltage": "230V", "power": "1300W / 650W", "control": "Optional" },
+        { "size": "360x269", "voltage": "230V", "power": "<500W", "control": "Optional" },
+        { "size": "600x320", "voltage": "230V", "power": "Heat Control", "control": "Optional" },
+        { "size": "676x370", "voltage": "230V", "power": "333W", "control": "Optional" },
+        { "size": "630x470", "voltage": "230V", "power": "1550W", "control": "Optional" },
+        { "size": "630x170", "voltage": "230V", "power": "2500W", "control": "Optional" },
+        { "size": "136x310", "voltage": "230V", "power": "1500W", "control": "Optional" }
+      ]
+    },
+
+  
+    {
+      "category": "Paslanmaz Borular",
+      "slug": "stainless-steel-pipes",
+      "type": "technical-material",
+
+      "description": "Rezistans üretiminde kullanılan yüksek kaliteli paslanmaz çelik borular.",
+
+      "standards": {
+        "size_standard": "EN ISO 1127",
+        "tolerance_standard": "DIN 17455",
+        "production_standard": ["DIN 17455", "DIN 17457"],
+        "surface": "1100°C parlak tavlanmış",
+        "materials": [
+          "AISI 304",
+          "AISI 304L",
+          "AISI 321",
+          "AISI 316",
+          "AISI 892"
+        ]
+      },
+
+      "technical_specs": {
+        "diameter_range": "12 mm - 42 mm",
+        "wall_thickness_range": "0.30 mm - 1.50 mm",
+        "surface_options": [
+          "Parlak yüzey",
+          "Makine yüzeyi",
+          "Özel yüzey işlemleri"
+        ],
+        "custom_options": [
+          "Kesim boyu üretim",
+          "Montaj uç işlemleri",
+          "Flanş bağlantı",
+          "Rezistans uyumlu uçlar",
+          "Termostat ve bağlantı uyumu"
+        ]
+      },
+
+      "production_notes": [
+        "Müşteri isteğine göre özel ölçü üretim yapılabilir",
+        "Kesim ve uç işleme hizmeti mevcuttur",
+        "Özel kalite çelik üretimi mümkündür"
+      ],
+
+      "dimension_matrix": {
+        "diameters_mm": [10, 12, 13, 14, 15, 16, 18, 19, 20],
+        "thickness_mm": [0.30, 0.50, 0.70, 0.75, 0.90, 1.00, 1.20, 1.50],
+        "availability": "matrix-based (green areas represent producible combinations)"
+      },
+
+      "products": [
+        {
+          "code": "SSP001",
+          "title": "AISI 304 Paslanmaz Boru",
+          "type": "Standard Tube",
+          "image": "/assets/images/products/pipe1.png"
+        },
+        {
+          "code": "SSP002",
+          "title": "Parlak Tavlanmış SS Boru",
+          "type": "Bright Annealed Tube",
+          "image": "/assets/images/products/pipe2.png"
+        }
+      ]
+    },
+  
+
+  
+    {
+      "category": "Dikdörtgen & Kare Profiller",
+      "slug": "rectangle-square-tubing",
+      "type": "technical-material",
+
+      "description": "Endüstriyel üretimde kullanılan paslanmaz çelik kare ve dikdörtgen profiller.",
+
+      "technical_specs": {
+        "square_profiles": {
+          "size_range": "10x10 mm - 200x200 mm",
+          "thickness_range": "0.50 mm - 8 mm"
+        },
+        "rectangle_profiles": {
+          "size_range": "20x10 mm - 200x150 mm",
+          "thickness_range": "0.50 mm - 8 mm"
+        }
+      },
+
+      "features": [
+        "Yüksek dayanıklılık",
+        "Endüstriyel kullanım",
+        "Kesim ve özel ölçü üretim",
+        "Yüzey işleme seçenekleri",
+        "Makine üretimine uygunluk"
+      ],
+
+      "applications": [
+        "Makine üretimi",
+        "Endüstriyel konstrüksiyon",
+        "Rezistans sistemleri",
+        "Metal yapı sistemleri",
+        "Endüstriyel mutfak ekipmanları"
+      ],
+
+      "production_options": [
+        "Özel ölçü üretim",
+        "Kesim boyu hazırlanabilir",
+        "Kaynaklı veya dikişsiz seçenek",
+        "Yüzey işlemleri uygulanabilir"
+      ],
+
+      "products": [
+        {
+          "code": "RSP001",
+          "title": "Kare Profil",
+          "type": "Square Tube",
+          "image": "/assets/images/products/profile1.png"
+        },
+        {
+          "code": "RSP002",
+          "title": "Dikdörtgen Profil",
+          "type": "Rectangle Tube",
+          "image": "/assets/images/products/profile2.png"
+        },
+        {
+          "code": "RSP003",
+          "title": "Endüstriyel Profil Seti",
+          "type": "Bulk Profiles",
+          "image": "/assets/images/products/profile3.png"
+        }
+      ]
+    }
+  ]
+}
+/assets/images/products/nk1211.png"},
         {"code":"NK1231","title":"Endüstriyel Rezistans 2900W","power":"230V - 2900W","length":"230 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1231.png"},
         {"code":"NK1232","title":"Endüstriyel Rezistans 3000W","power":"230V - 3000W","length":"230 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1232.png"},
         {"code":"NK1233","title":"Endüstriyel Rezistans 6000W","power":"230V - 6000W","length":"300 mm","model":"Küçük Ölçem","image":"/assets/images/products/nk1233.png"},
