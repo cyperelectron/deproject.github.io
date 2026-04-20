@@ -1,688 +1,1158 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DE Project Heating Elements</title>
-
-<style>
-:root{
-  --green:#0b6b47;
-  --green2:#11875b;
-  --bg:#f4f7f5;
-  --text:#1f2937;
-  --border:#e5e7eb;
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-
-.container{
-  width:min(1300px,100% - 40px);
-  margin:auto;
-}
-
-/* HEADER */
-header{
-  background:#fff;
-  padding:18px 0;
-  border-bottom:1px solid var(--border);
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter:blur(8px);
-}
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-}
-
-.logo img{
-  width:50px;
-}
-
-.logo span{
-  font-weight:700;
-  color:var(--green);
-  font-size:20px;
-}
-
-.nav a{
-  margin-left:15px;
-  text-decoration:none;
-  font-weight:700;
-  color:#333;
-  transition:.25s;
-}
-
-.nav a:hover{
-  color:var(--green);
-}
-
-/* HERO */
-.hero{
-  padding:40px 0 20px;
-}
-
-.hero-box{
-  position:relative;
-  overflow:hidden;
-  min-height:420px;
-  display:flex;
-  align-items:center;
-  padding:50px;
-  border-radius:28px;
-  color:white;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(255,255,255,.14), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(255,255,255,.10), transparent 22%),
-    linear-gradient(135deg,#0b6b47 0%, #11875b 50%, #0d5c3d 100%);
-  box-shadow:0 25px 60px rgba(11,107,71,.18);
-  isolation:isolate;
-}
-
-.hero-content{
-  position:relative;
-  z-index:3;
-  max-width:700px;
-}
-
-.hero-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.2);
-  color:#fff;
-  padding:10px 16px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:20px;
-  animation:fadeUp .8s ease;
-}
-
-.hero h1{
-  margin:0;
-  font-size:clamp(32px,5vw,58px);
-  line-height:1.08;
-  letter-spacing:-1px;
-}
-
-.typing-text{
-  display:inline-block;
-  border-right:3px solid rgba(255,255,255,.95);
-  white-space:nowrap;
-  overflow:hidden;
-  min-height:1.2em;
-}
-
-.hero p{
-  margin:18px 0 0;
-  font-size:18px;
-  line-height:1.7;
-  color:rgba(255,255,255,.92);
-  max-width:620px;
-  animation:fadeUp 1.2s ease;
-}
-
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:28px;
-  animation:fadeUp 1.4s ease;
-}
-
-.hero-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 22px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  transition:.3s ease;
-}
-
-.hero-btn.primary{
-  background:#fff;
-  color:var(--green);
-}
-
-.hero-btn.primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 25px rgba(255,255,255,.18);
-}
-
-.hero-btn.secondary{
-  border:1px solid rgba(255,255,255,.24);
-  color:#fff;
-  background:rgba(255,255,255,.08);
-}
-
-.hero-btn.secondary:hover{
-  transform:translateY(-3px);
-  background:rgba(255,255,255,.14);
-}
-
-.hero-glow{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(20px);
-  opacity:.55;
-  z-index:1;
-}
-
-.glow-1{
-  width:280px;
-  height:280px;
-  background:rgba(255,255,255,.18);
-  top:-80px;
-  left:-60px;
-  animation:floatGlow 7s ease-in-out infinite alternate;
-}
-
-.glow-2{
-  width:240px;
-  height:240px;
-  background:rgba(0,255,191,.18);
-  right:40px;
-  top:40px;
-  animation:floatGlow 8s ease-in-out infinite alternate-reverse;
-}
-
-.glow-3{
-  width:180px;
-  height:180px;
-  background:rgba(255,255,255,.12);
-  right:180px;
-  bottom:-40px;
-  animation:floatGlow 6s ease-in-out infinite alternate;
-}
-
-.hero-shape{
-  position:absolute;
-  z-index:2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.10);
-  backdrop-filter:blur(10px);
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.shape-1{
-  width:100px;
-  height:100px;
-  border-radius:24px;
-  right:90px;
-  top:70px;
-  font-size:34px;
-  animation:floatItem 5s ease-in-out infinite;
-}
-
-.shape-2{
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  right:220px;
-  bottom:70px;
-  font-size:28px;
-  animation:floatItem 6s ease-in-out infinite reverse;
-}
-
-.shape-3{
-  width:130px;
-  height:130px;
-  border-radius:30px;
-  right:30px;
-  bottom:30px;
-  font-size:42px;
-  animation:floatItem 7s ease-in-out infinite;
-}
-
-.hero-wave{
-  position:absolute;
-  inset:auto 0 0 0;
-  height:110px;
-  background:linear-gradient(to top, rgba(255,255,255,.12), transparent);
-  z-index:1;
-}
-
-.scroll-indicator{
-  margin-top:22px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:14px;
-  color:rgba(255,255,255,.85);
-  animation:fadeUp 1.6s ease;
-}
-
-.scroll-dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#fff;
-  animation:pulse 1.5s infinite;
-}
-
-/* CATEGORY */
-.catbar{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:20px 0;
-}
-
-.cat-btn{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:white;
-  cursor:pointer;
-  font-weight:700;
-  transition:.25s ease;
-}
-
-.cat-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 16px rgba(0,0,0,.05);
-}
-
-.cat-btn.active{
-  background:var(--green);
-  color:white;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:white;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
-  transition:.3s ease;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 35px rgba(0,0,0,.08);
-}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:contain;
-  padding:10px;
-}
-
-.card-body{
-  padding:15px;
-}
-
-.category{
-  font-size:12px;
-  color:var(--green);
-  font-weight:700;
-}
-
-.btn{
-  display:block;
-  margin-top:10px;
-  padding:10px;
-  text-align:center;
-  border-radius:8px;
-  text-decoration:none;
-  transition:.25s ease;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn-primary{
-  background:var(--green);
-  color:white;
-}
-
-.btn-secondary{
-  background:#111;
-  color:white;
-}
-
-/* CONTACT */
-.contact{
-  margin-top:50px;
-}
-
-.contact-box{
-  background:white;
-  padding:25px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.04);
-}
-
-/* FOOTER */
-footer{
-  background:white;
-  margin-top:40px;
-  padding:30px 0;
-  border-top:1px solid var(--border);
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#25D366;
-  color:white;
-  width:58px;
-  height:58px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  text-decoration:none;
-  font-size:24px;
-  box-shadow:0 15px 30px rgba(37,211,102,.35);
-  z-index:200;
-  transition:.25s ease;
-}
-
-.whatsapp:hover{
-  transform:scale(1.08);
-}
-
-/* ANIMATIONS */
-@keyframes typingCursor{
-  50%{border-color:transparent;}
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes floatGlow{
-  from{transform:translate(0,0) scale(1);}
-  to{transform:translate(25px,18px) scale(1.08);}
-}
-
-@keyframes floatItem{
-  0%{transform:translateY(0px) rotate(0deg);}
-  50%{transform:translateY(-16px) rotate(4deg);}
-  100%{transform:translateY(0px) rotate(0deg);}
-}
-
-@keyframes pulse{
-  0%{transform:scale(1); opacity:1;}
-  50%{transform:scale(1.4); opacity:.55;}
-  100%{transform:scale(1); opacity:1;}
-}
-
-@media (max-width:900px){
-  .hero-box{
-    min-height:auto;
-    padding:34px 24px 90px;
-  }
-
-  .hero h1{
-    font-size:34px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .shape-1{
-    right:20px;
-    top:20px;
-    width:72px;
-    height:72px;
-    font-size:26px;
-  }
-
-  .shape-2{
-    right:120px;
-    bottom:24px;
-    width:64px;
-    height:64px;
-    font-size:22px;
-  }
-
-  .shape-3{
-    right:16px;
-    bottom:16px;
-    width:90px;
-    height:90px;
-    font-size:30px;
-  }
-
-  .nav{
-    display:none;
-  }
-}
-
-@media (max-width:560px){
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .hero-btn{
-    width:100%;
-  }
-
-  .typing-text{
-    white-space:normal;
-    border-right:none;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DE Project Heating Elements</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.jpeg">
+
+  <style>
+    :root{
+      --green:#0b6b47;
+      --green-dark:#084d34;
+      --green-soft:#eaf6f0;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --bg:#f4f7f5;
+      --white:#ffffff;
+      --shadow:0 12px 30px rgba(0,0,0,.08);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    img{max-width:100%;display:block}
+    a{text-decoration:none}
+    button{font-family:inherit}
+
+    .container{
+      width:min(1240px, calc(100% - 32px));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:50px;
+      height:50px;
+      border-radius:12px;
+      object-fit:contain;
+      background:#fff;
+      padding:4px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+      border:1px solid rgba(0,0,0,.06);
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-title{
+      font-size:18px;
+      font-weight:800;
+      color:var(--green);
+      line-height:1.1;
+    }
+
+    .brand-sub{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:280px;
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .menu a{
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      padding:10px 14px;
+      border-radius:999px;
+      transition:.25s ease;
+    }
+
+    .menu a:hover{
+      color:var(--green);
+      background:var(--green-soft);
+    }
+
+    .hero{
+      position:relative;
+      min-height:88vh;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      color:#fff;
+      background:
+        linear-gradient(135deg, rgba(8,35,24,.82), rgba(11,107,71,.72)),
+        url("https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -10% -120px auto;
+      width:420px;
+      height:420px;
+      background:radial-gradient(circle, rgba(255,255,255,.16), transparent 70%);
+      filter:blur(10px);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:30px;
+      align-items:center;
+      padding:70px 0;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:16px;
+    }
+
+    .hero-logo{
+      width:84px;
+      height:84px;
+      object-fit:contain;
+      border-radius:18px;
+      padding:8px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      margin-bottom:18px;
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(34px, 5vw, 64px);
+      line-height:1.05;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+
+    .hero p{
+      margin:0;
+      max-width:680px;
+      font-size:16px;
+      line-height:1.8;
+      color:rgba(255,255,255,.88);
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.25s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:#fff;
+      color:var(--green);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border-color:rgba(255,255,255,.18);
+    }
+
+    .btn-outline:hover{
+      background:rgba(255,255,255,.14);
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 20px 40px rgba(0,0,0,.18);
+      border-radius:26px;
+      padding:22px;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero-card h3{
+      margin:0 0 14px;
+      font-size:18px;
+      font-weight:700;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .stat span{
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .section{
+      padding:84px 0;
+    }
+
+    .section-head{
+      text-align:center;
+      max-width:860px;
+      margin:0 auto 36px;
+    }
+
+    .section-head .title{
+      margin:0 0 12px;
+      color:var(--green);
+      font-size:clamp(28px, 4vw, 40px);
+      line-height:1.1;
+      font-weight:800;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .about-pro{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:34px;
+      align-items:start;
+    }
+
+    .about-text-card,
+    .about-box{
+      background:var(--white);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.04);
+    }
+
+    .about-text-card{
+      padding:30px;
+    }
+
+    .about-text-card h3{
+      margin:0 0 14px;
+      color:var(--green);
+      font-size:28px;
+      line-height:1.2;
+    }
+
+    .about-text-card p{
+      margin:0 0 16px;
+      color:#4b5563;
+      line-height:1.85;
+      font-size:15px;
+    }
+
+    .about-points{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .about-point{
+      background:var(--green-soft);
+      color:var(--green-dark);
+      border:1px solid rgba(11,107,71,.08);
+      border-radius:16px;
+      padding:14px 16px;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .about-boxes{
+      display:grid;
+      gap:16px;
+    }
+
+    .about-box{
+      padding:22px;
+    }
+
+    .about-box h4{
+      margin:0 0 8px;
+      color:var(--green);
+      font-size:18px;
+    }
+
+    .about-box p{
+      margin:0;
+      color:#4b5563;
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    .filter-wrap{
+      display:flex;
+      justify-content:center;
+      margin-bottom:30px;
+    }
+
+    .filter-bar{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      max-width:1000px;
+    }
+
+    .filter-btn{
+      border:none;
+      background:#fff;
+      color:#334155;
+      padding:11px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:700;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+      transition:.25s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active{
+      background:var(--green);
+      color:#fff;
+      border-color:var(--green);
+      transform:translateY(-1px);
+    }
+
+    .product-section-title{
+      margin:34px 0 18px;
+      color:var(--green);
+      font-size:24px;
+      font-weight:800;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:22px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.04);
+      transition:.25s ease;
+      display:flex;
+      flex-direction:column;
+      cursor:pointer;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 16px 34px rgba(0,0,0,.1);
+    }
+
+    .card-media{
+      background:linear-gradient(180deg, #f8fbf9, #eef6f2);
+      padding:18px;
+      border-bottom:1px solid rgba(0,0,0,.04);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:contain;
+    }
+
+    .card-body{
+      padding:18px 18px 20px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      flex:1;
+    }
+
+    .product-code{
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--green-soft);
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+
+    .card h3{
+      margin:0;
+      color:#111827;
+      font-size:18px;
+      line-height:1.35;
+    }
+
+    .product-desc{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      min-height:44px;
+    }
+
+    .meta-list{
+      display:grid;
+      gap:8px;
+      margin-top:6px;
+    }
+
+    .meta{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+      padding:9px 12px;
+      border-radius:12px;
+      background:#f8faf9;
+      border:1px solid rgba(0,0,0,.04);
+      font-size:13px;
+    }
+
+    .meta b{
+      color:#374151;
+      white-space:nowrap;
+    }
+
+    .meta span{
+      color:#111827;
+      text-align:right;
+    }
+
+    .card-actions{
+      margin-top:auto;
+      display:flex;
+      gap:10px;
+      padding-top:10px;
+    }
+
+    .mini-btn{
+      flex:1;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding:11px 12px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:14px;
+      border:1px solid rgba(0,0,0,.08);
+      transition:.25s ease;
+    }
+
+    .mini-btn.detail{
+      background:#fff;
+      color:var(--green);
+    }
+
+    .mini-btn.whatsapp{
+      background:#25D366;
+      color:#fff;
+      border-color:#25D366;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .contact-card{
+      background:#fff;
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.04);
+      text-align:center;
+    }
+
+    .contact-card h3{
+      margin:0 0 8px;
+      color:var(--green);
+      font-size:18px;
+    }
+
+    .contact-card p,
+    .contact-card a{
+      margin:0;
+      color:#4b5563;
+      line-height:1.8;
+      font-size:14px;
+      word-break:break-word;
+    }
+
+    .contact-card a:hover{
+      color:var(--green);
+    }
+
+    footer{
+      background:#0f172a;
+      color:#cbd5e1;
+      padding:50px 0 20px;
+      margin-top:20px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:24px;
+      margin-bottom:24px;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+    }
+
+    .footer-logo{
+      width:54px;
+      height:54px;
+      object-fit:contain;
+      border-radius:12px;
+      background:rgba(255,255,255,.08);
+      padding:6px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-title{
+      color:#fff;
+      font-size:18px;
+      font-weight:800;
+      margin:0 0 8px;
+    }
+
+    .footer-text{
+      color:#94a3b8;
+      font-size:14px;
+      line-height:1.8;
+      margin:0;
+    }
+
+    .footer-col h4{
+      color:#fff;
+      margin:0 0 12px;
+      font-size:16px;
+    }
+
+    .footer-links{
+      display:grid;
+      gap:10px;
+    }
+
+    .footer-links a,
+    .footer-links span{
+      color:#94a3b8;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .footer-links a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:16px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+      font-size:13px;
+      color:#94a3b8;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .about-pro,
+      .contact-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-grid{
+        padding:90px 0 70px;
+      }
+    }
+
+    @media (max-width: 760px){
+      .nav{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:12px 0;
+      }
+
+      .menu{
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .menu a{
+        margin:0;
+        padding:8px 12px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .about-points{
+        grid-template-columns:1fr;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <div class="container topbar">
-    <a class="logo" href="#">
-      <img src="/assets/logo.png" alt="DE Project Logo">
-      <span>DE Project</span>
-    </a>
-
-    <nav class="nav">
-      <a href="#">Ana Sayfa</a>
-      <a href="#">Hakkımızda</a>
-      <a href="#contact">İletişim</a>
-    </nav>
-  </div>
-</header>
-
-<div class="container">
-
-  <section class="hero">
-    <div class="hero-box">
-      <div class="hero-glow glow-1"></div>
-      <div class="hero-glow glow-2"></div>
-      <div class="hero-glow glow-3"></div>
-
-      <div class="hero-shape shape-1">⚙️</div>
-      <div class="hero-shape shape-2">🔥</div>
-      <div class="hero-shape shape-3">♨️</div>
-
-      <div class="hero-content">
-        <div class="hero-badge">Premium Ürün Kataloğu</div>
-
-        <h1>
-          <span id="typingText" class="typing-text"></span>
-        </h1>
-
-        <p>
-          Modern, hızlı ve profesyonel ürün katalog sistemi. Endüstriyel rezistans ürünlerinizi
-          güçlü bir görsel sunumla sergileyin.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#catalog" class="hero-btn primary">Ürünleri İncele</a>
-          <a href="https://wa.me/905462902347" target="_blank" class="hero-btn secondary">Hızlı Teklif Al</a>
-        </div>
-
-        <div class="scroll-indicator">
-          <span class="scroll-dot"></span>
-          <span>Aşağı kaydır, ürünleri keşfet</span>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="brand-logo" src="logo.jpeg" alt="DE Project Logo">
+        <div class="brand-text">
+          <div class="brand-title">DE Project Heating Elements</div>
+          <div class="brand-sub">Industrial Heating Solutions & Premium Resistance Production</div>
         </div>
       </div>
 
-      <div class="hero-wave"></div>
+      <nav class="menu">
+        <a href="#home">Anasayfa</a>
+        <a href="#about">Hakkımızda</a>
+        <a href="#products">Ürünlerimiz</a>
+        <a href="#contact">İletişim</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <div id="catbar" class="catbar"></div>
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <img class="hero-logo" src="logo.jpeg" alt="DE Project Logo">
+        <div class="eyebrow">⚙️ Endüstriyel Isıtma Teknolojileri</div>
+        <h1>Güçlü, Güvenilir ve Uzun Ömürlü Rezistans Çözümleri</h1>
+        <p>
+          DE Project Heating Elements; endüstriyel mutfak ekipmanları, fırın sistemleri,
+          kazan uygulamaları, semaver ve özel tip ısıtıcı çözümleri için yüksek kalite üretim sunar.
+        </p>
 
-  <div id="catalog"></div>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">Ürünleri İncele</a>
+          <a href="#contact" class="btn btn-outline">İletişime Geç</a>
+        </div>
+      </div>
 
-  <section class="contact" id="contact">
-    <div class="contact-box">
-      <h3>İletişim</h3>
-      <p>📞 +90 546 290 23 47</p>
-      <p>📧 info@deproject.com</p>
-      <p>📍 İstanbul, Türkiye</p>
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  <div class="container">
-    © 2026 DE Project Heating Elements
-  </div>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/905462902347" target="_blank">💬</a>
-
-<script>
-let products = [];
-let activeCategory = null;
-
-async function load(){
-  const res = await fetch("https://raw.githubusercontent.com/cyperelectron/deproject.github.io/main/data.json");
-  const json = await res.json();
-
-  const categories = json.categories || json;
-
-  products = categories.flatMap(cat =>
-    cat.products.map(p => ({
-      ...p,
-      category: cat.category || cat.name
-    }))
-  );
-
-  renderCategories(categories);
-  render(products);
-}
-
-function renderCategories(categories){
-  const catbar = document.getElementById("catbar");
-  const names = [...new Set(categories.map(c => c.category || c.name))];
-
-  catbar.innerHTML = `
-    <button class="cat-btn active" onclick="selectCategory(null)">Tümü</button>
-    ${names.map(n=>`<button class="cat-btn" onclick="selectCategory('${n.replace(/'/g, "\\'")}')">${n}</button>`).join("")}
-  `;
-}
-
-function selectCategory(cat){
-  activeCategory = cat;
-
-  document.querySelectorAll(".cat-btn").forEach(btn=>{
-    btn.classList.remove("active");
-    if(btn.innerText === cat || (!cat && btn.innerText==="Tümü")){
-      btn.classList.add("active");
-    }
-  });
-
-  filterProducts();
-}
-
-function filterProducts(){
-  if(!activeCategory){
-    render(products);
-    return;
-  }
-
-  render(products.filter(p=>p.category===activeCategory));
-}
-
-function render(list){
-  const catalog = document.getElementById("catalog");
-
-  catalog.innerHTML = `
-    <div class="grid">
-      ${list.map(p=>`
-        <div class="card">
-          <img src="${p.image || '/assets/images/products'}" alt="${p.title}">
-          <div class="card-body">
-            <div class="category">${p.category}</div>
-            <h3>${p.title}</h3>
-
-            <a class="btn btn-secondary" href="${p.code.toLowerCase()}.html">İncele</a>
-
-            <a class="btn btn-primary"
-              href="https://wa.me/905462902347?text=${encodeURIComponent(p.code + ' ürün hakkında bilgi istiyorum')}"
-              target="_blank">
-              Teklif Al
-            </a>
+      <div class="hero-card">
+        <h3>Neden DE Project?</h3>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>Özel Üretim</strong>
+            <span>İhtiyaca göre ölçü, güç ve bağlantı seçenekleri</span>
+          </div>
+          <div class="stat">
+            <strong>Kaliteli Malzeme</strong>
+            <span>Uzun ömürlü ve yüksek performanslı üretim</span>
+          </div>
+          <div class="stat">
+            <strong>Geniş Ürün Yelpazesi</strong>
+            <span>Mutfak, fırın, kazan, semaver ve özel tip çözümler</span>
+          </div>
+          <div class="stat">
+            <strong>Hızlı Teklif</strong>
+            <span>WhatsApp üzerinden doğrudan ürün bazlı iletişim</span>
           </div>
         </div>
-      `).join("")}
+      </div>
     </div>
-  `;
-}
+  </section>
 
-/* Typing Animation */
-const heroText = "Endüstriyel Rezistans Ürün Kataloğu";
-const typingElement = document.getElementById("typingText");
-let index = 0;
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">Hakkımızda</h2>
+        <p>
+          Endüstriyel ısıtma çözümlerinde güven, kalite ve mühendislik yaklaşımını bir araya getiriyoruz.
+        </p>
+      </div>
 
-function typeHeroText(){
-  if(index < heroText.length){
-    typingElement.textContent += heroText.charAt(index);
-    index++;
-    setTimeout(typeHeroText, 55);
-  }else{
-    typingElement.style.animation = "typingCursor .8s infinite";
-  }
-}
+      <div class="about-pro">
+        <div class="about-text-card">
+          <h3>DE Project Heating Elements</h3>
+          <p>
+            DE Project Heating Elements, endüstriyel ısıtma sistemleri alanında uzmanlaşmış,
+            yüksek kalite rezistans üretimi yapan profesyonel bir mühendislik firmasıdır.
+            Gelişmiş üretim altyapısı ve teknik tecrübesi ile sektörün ihtiyaçlarına uygun,
+            verimli ve uzun ömürlü çözümler sunmaktadır.
+          </p>
 
-typeHeroText();
-load();
-</script>
+          <p>
+            Endüstriyel bulaşık ve çamaşır makinesi ısıtıcılarından semaver ve çay makinesi
+            rezistanslarına, fırın ısıtıcılarından pirinç kafalı ve özel tip çözümlere kadar
+            geniş bir ürün gamı ile farklı sektörlerin ihtiyaçlarına cevap veriyoruz.
+          </p>
+
+          <p>
+            Hedefimiz yalnızca ürün sunmak değil; müşterilerimize doğru teknik çözümü,
+            sürdürülebilir kalite anlayışı ile birlikte sunarak uzun vadeli iş ortaklığı kurmaktır.
+          </p>
+
+          <div class="about-points">
+            <div class="about-point">✔ Özel ölçü ve özel üretim imkanı</div>
+            <div class="about-point">✔ Yüksek kalite standartlarına uygun üretim</div>
+            <div class="about-point">✔ Uzun ömürlü ve verimli ürün yapısı</div>
+            <div class="about-point">✔ Müşteri odaklı mühendislik yaklaşımı</div>
+          </div>
+        </div>
+
+        <div class="about-boxes">
+          <div class="about-box">
+            <h4>🚀 Vizyon</h4>
+            <p>
+              Endüstriyel ısıtma teknolojileri alanında güvenilir, yenilikçi ve sürdürülebilir
+              çözümler sunan güçlü bir marka olmak.
+            </p>
+          </div>
+
+          <div class="about-box">
+            <h4>🎯 Misyon</h4>
+            <p>
+              Müşteri ihtiyaçlarına özel, yüksek performanslı ve uzun ömürlü ısıtıcı çözümleri
+              geliştirerek kaliteyi erişilebilir hale getirmek.
+            </p>
+          </div>
+
+          <div class="about-box">
+            <h4>⚙️ Kalite Anlayışımız</h4>
+            <p>
+              Malzeme seçiminden üretime, kontrolden teslimata kadar tüm süreçlerde
+              yüksek kalite, tutarlılık ve güvenilirlik esas alınır.
+            </p>
+          </div>
+
+          <div class="about-box">
+            <h4>🤝 Çalışma Yaklaşımımız</h4>
+            <p>
+              Standart ürünlerin yanında proje bazlı taleplerde de teknik destek sunar,
+              ihtiyaca uygun doğru çözümü hızlı şekilde oluştururuz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">Ürünlerimiz</h2>
+        <p>
+          Kategori butonları ile ürünleri filtreleyebilir, detay sayfasına geçebilir veya doğrudan teklif isteyebilirsiniz.
+        </p>
+      </div>
+
+      <div class="filter-wrap">
+        <div class="filter-bar" id="filters"></div>
+      </div>
+
+      <div id="app"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">İletişim</h2>
+        <p>
+          Ürün talepleriniz, özel üretim ihtiyaçlarınız ve teknik sorularınız için bizimle iletişime geçebilirsiniz.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>E-Posta</h3>
+          <a href="mailto:info@deproject.com">info@deproject.com</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Telefon</h3>
+          <a href="tel:+905550000000">+90 555 000 00 00</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <a href="https://wa.me/905550000000" target="_blank">Hızlı teklif için yazın</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img class="footer-logo" src="logo.jpeg" alt="DE Project Logo">
+            <div>
+              <div class="footer-title">DE Project Heating Elements</div>
+              <p class="footer-text">
+                Endüstriyel ısıtma çözümleri alanında yüksek kalite, özel üretim ve güvenilir mühendislik yaklaşımı sunuyoruz.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kurumsal</h4>
+          <div class="footer-links">
+            <a href="#home">Anasayfa</a>
+            <a href="#about">Hakkımızda</a>
+            <a href="#products">Ürünlerimiz</a>
+            <a href="#contact">İletişim</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ürün Grupları</h4>
+          <div class="footer-links">
+            <span>Endüstriyel Isıtıcılar</span>
+            <span>Semaver Isıtıcıları</span>
+            <span>Fırın Isıtıcıları</span>
+            <span>Pirinç Kafalı Isıtıcılar</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>İletişim</h4>
+          <div class="footer-links">
+            <a href="mailto:info@deproject.com">info@deproject.com</a>
+            <a href="tel:+905550000000">+90 555 000 00 00</a>
+            <a href="https://wa.me/905550000000" target="_blank">WhatsApp Teklif</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DE Project Heating Elements. Tüm hakları saklıdır.</div>
+        <div>Industrial Heating Solutions</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "905550000000";
+
+    const DATA = {
+      categories: [
+        {
+          category: "Endüstriyel Bulaşık ve Çamaşır Makinesi Isıtıcıları",
+          slug: "industrial-kitchen-heaters",
+          products: [
+            {
+              code: "NK1211",
+              title: "Endüstriyel Bulaşık Makinesi Rezistansı 2000W",
+              power: "230V - 2000W",
+              length: "230 mm",
+              model: "Küçük Ölçem",
+              description: "Endüstriyel bulaşık makinesi uygulamaları için yüksek verimli rezistans çözümü.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1211.png"
+            },
+            {
+              code: "NK1231",
+              title: "Endüstriyel Rezistans 2900W",
+              power: "230V - 2900W",
+              length: "230 mm",
+              model: "Küçük Ölçem",
+              description: "Endüstriyel mutfak ekipmanları için dayanıklı ve verimli yapı.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1231.png"
+            },
+            {
+              code: "NK1232",
+              title: "Endüstriyel Rezistans 3000W",
+              power: "230V - 3000W",
+              length: "230 mm",
+              model: "Küçük Ölçem",
+              description: "Yüksek güç gerektiren profesyonel kullanım alanları için uygun model.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1232.png"
+            },
+            {
+              code: "NK1217",
+              title: "Termostatlı Rezistans",
+              power: "230V - 4600W",
+              length: "300 mm",
+              model: "Küçük Ölçem",
+              description: "Sıcaklık kontrolü gereken sistemler için termostatlı yapı.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1217.png"
+            }
+          ]
+        },
+        {
+          category: "Çay Makinesi ve Semaver Isıtıcıları",
+          slug: "tea-machine-samovar-heaters",
+          products: [
+            {
+              code: "NK1311",
+              title: "Çay Makinesi Rezistansı 900W",
+              power: "900W - 230V",
+              diameter: "6.5 mm - 8.5 mm",
+              description: "Çay makineleri için verimli ve kompakt ısıtıcı çözümü.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1311.png"
+            },
+            {
+              code: "NK1312",
+              title: "Semaver Rezistansı 1500W",
+              power: "1500W - 230V",
+              diameter: "6.5 mm - 8.5 mm",
+              description: "Semaver sistemlerinde güçlü ve dengeli ısınma sunar.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1312.png"
+            },
+            {
+              code: "NK1317",
+              title: "Çay Makinesi Rezistansı 2250W",
+              power: "2250W - 230V",
+              diameter: "6.5 mm - 8.5 mm",
+              description: "Yüksek kapasiteli çay makineleri için geliştirilmiş model.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1317.png"
+            }
+          ]
+        },
+        {
+          category: "Endüstriyel Fırın Isıtıcıları",
+          slug: "industrial-oven-heaters",
+          products: [
+            {
+              code: "NK1711",
+              title: "Mayalandırma Rezistansı 2000W",
+              power: "230V - 2000W",
+              description: "Mayalandırma sistemlerinde dengeli sıcaklık dağılımı sağlar.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1711.png"
+            },
+            {
+              code: "NK1716",
+              title: "Pizza Fırın Rezistansı 2000W",
+              power: "220V - 2000W",
+              description: "Pizza fırınları için yüksek performanslı ısıtıcı çözümü.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk1716.png"
+            }
+          ]
+        },
+        {
+          category: "Pirinç Kafalı Isıtıcılar",
+          slug: "brass-head-heaters",
+          products: [
+            {
+              code: "NK2111",
+              title: "Pirinç Kafalı Rezistans 2000W",
+              power: "230V - 2000W",
+              length: "300 mm",
+              description: "Su ve yağ ısıtma sistemleri için pirinç kafalı rezistans.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk2111.png"
+            },
+            {
+              code: "NK2114",
+              title: "Pirinç Kafalı Rezistans 3000W",
+              power: "230V - 3000W",
+              length: "900 mm",
+              description: "Yüksek güçlü endüstriyel uygulamalar için ideal çözüm.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk2114.png"
+            },
+            {
+              code: "NK2125",
+              title: "Kazan Isıtıcısı 4500W",
+              power: "230V - 400V 4500W",
+              length: "285 mm",
+              description: "Yüksek kapasiteli kazan sistemleri için dayanıklı yapı.",
+              image: "https://cyperelectron.github.io/deproject.github.io/assets/images/products/nk2125.png"
+            }
+          ]
+        }
+      ]
+    };
+
+    let activeFilter = "all";
+    const app = document.getElementById("app");
+    const filtersDiv = document.getElementById("filters");
+
+    function whatsappLink(product){
+      const msg = `Merhaba, ${product.code} - ${product.title} ürünü hakkında teklif almak istiyorum.`;
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function goDetail(code){
+      localStorage.setItem("product_code", code);
+      localStorage.setItem("product_data", JSON.stringify(DATA));
+      window.location.href = "product.html";
+    }
+
+    function renderFilters(){
+      let html = `<button class="filter-btn active" data-filter="all">Tümü</button>`;
+      DATA.categories.forEach(cat => {
+        html += `<button class="filter-btn" data-filter="${cat.category}">${cat.category}</button>`;
+      });
+
+      filtersDiv.innerHTML = html;
+
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          activeFilter = btn.dataset.filter;
+          renderProducts();
+        });
+      });
+    }
+
+    function metaRow(label, value){
+      if(!value) return "";
+      return `
+        <div class="meta">
+          <b>${label}</b>
+          <span>${value}</span>
+        </div>
+      `;
+    }
+
+    function renderProducts(){
+      app.innerHTML = "";
+
+      DATA.categories.forEach(cat => {
+        if(activeFilter !== "all" && activeFilter !== cat.category) return;
+
+        let html = `<h3 class="product-section-title">${cat.category}</h3><div class="grid">`;
+
+        cat.products.forEach(product => {
+          html += `
+            <article class="card" onclick="goDetail('${product.code}')">
+              <div class="card-media">
+                <img src="${product.image}" alt="${product.title}" loading="lazy">
+              </div>
+
+              <div class="card-body">
+                <span class="product-code">${product.code}</span>
+                <h3>${product.title || ""}</h3>
+                <div class="product-desc">${product.description || "Endüstriyel kullanım için profesyonel ısıtıcı çözümü."}</div>
+
+                <div class="meta-list">
+                  ${metaRow("Güç", product.power)}
+                  ${metaRow("Uzunluk", product.length)}
+                  ${metaRow("Model", product.model)}
+                  ${metaRow("Çap", product.diameter)}
+                </div>
+
+                <div class="card-actions" onclick="event.stopPropagation()">
+                  <a class="mini-btn detail" href="javascript:void(0)" onclick="goDetail('${product.code}')">Detay</a>
+                  <a class="mini-btn whatsapp" href="${whatsappLink(product)}" target="_blank">WhatsApp Teklif</a>
+                </div>
+              </div>
+            </article>
+          `;
+        });
+
+        html += `</div>`;
+        app.innerHTML += html;
+      });
+    }
+
+    renderFilters();
+    renderProducts();
+  </script>
 
 </body>
 </html>
